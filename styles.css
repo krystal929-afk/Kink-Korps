@@ -314,3 +314,45 @@ footer{
 /* V8 — new venue-neutral flyer */
 .gallery{grid-template-columns:repeat(2,minmax(0,1fr));}
 @media(max-width:850px){.gallery{grid-template-columns:1fr;}}
+
+/* V9 — Mr. Satan copy update */
+.detail-grid,
+.conduct-grid{align-items:stretch}
+
+.detail-grid>div,
+.conduct-grid>div{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.conduct-grid strong{
+  display:block;
+  font:700 22px/1.1 Oswald,Arial,sans-serif;
+  color:var(--green);
+  text-transform:uppercase;
+}
+
+.conduct-grid span{
+  color:var(--muted);
+  line-height:1.55;
+}
+
+.closing-line{
+  text-align:center;
+  border-top:1px solid var(--line);
+}
+
+.closing-line blockquote{
+  margin:0 auto;
+  max-width:900px;
+  font:600 clamp(26px,4vw,48px)/1.15 Oswald,Arial,sans-serif;
+  color:var(--text);
+}
+
+.profile-card p{line-height:1.6}
+
+@media(max-width:850px){
+  .detail-grid,
+  .conduct-grid{grid-template-columns:1fr}
+}
