@@ -203,3 +203,76 @@ footer{
   .detail-grid{grid-template-columns:1fr}
   .profile-card>div{padding:20px}
 }
+
+
+/* -------------------------------
+   NAV HEADLINE — V6
+-------------------------------- */
+.nav-callout{
+  font-size:19px;
+  line-height:1;
+  letter-spacing:.14em;
+  white-space:nowrap;
+}
+.nav-callout span{
+  color:var(--green);
+}
+
+/* -------------------------------
+   VENUE ADDRESS
+-------------------------------- */
+.venue-address{
+  margin:14px 0 0;
+  color:var(--text);
+  font:600 16px/1.5 Oswald,Arial,sans-serif;
+  letter-spacing:.03em;
+}
+
+/* -------------------------------
+   HOUSE CONDUCT
+-------------------------------- */
+.conduct-section{
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+.conduct-section h2{
+  max-width:1000px;
+}
+.conduct-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:10px;
+  margin-top:30px;
+}
+.conduct-grid>div{
+  padding:20px;
+  background:var(--panel);
+  border:1px solid var(--line);
+  color:var(--text);
+  line-height:1.5;
+  font-weight:600;
+}
+
+@media(max-width:850px){
+  .nav-callout{
+    font-size:16px;
+    letter-spacing:.09em;
+    text-align:right;
+  }
+  .conduct-grid{
+    grid-template-columns:1fr 1fr;
+  }
+}
+
+@media(max-width:520px){
+  .nav{
+    grid-template-columns:auto 1fr;
+  }
+  .nav-callout{
+    font-size:15px;
+    letter-spacing:.06em;
+  }
+  .conduct-grid{
+    grid-template-columns:1fr;
+  }
+}
