@@ -276,3 +276,41 @@ footer{
     grid-template-columns:1fr;
   }
 }
+
+
+/* V7 — venue-neutral until contract */
+.hero-brand-art{
+  min-height:520px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:radial-gradient(circle at center,rgba(237,28,36,.10),transparent 58%),#050505;
+  border:1px solid var(--line);
+  padding:clamp(34px,7vw,80px);
+}
+.hero-brand-art img{
+  width:min(100%,620px);
+  max-height:520px;
+  object-fit:contain;
+  border:0;
+}
+.location-section{
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+.location-copy{
+  max-width:760px;
+  color:var(--muted);
+  font-size:19px;
+  line-height:1.6;
+}
+.sponsor-single{grid-template-columns:minmax(0,700px);justify-content:center;}
+@media(max-width:850px){
+  .hero-brand-art{min-height:360px;padding:34px 20px;}
+  .hero-brand-art img{max-height:330px;}
+}
+
+
+/* V8 — new venue-neutral flyer */
+.gallery{grid-template-columns:repeat(2,minmax(0,1fr));}
+@media(max-width:850px){.gallery{grid-template-columns:1fr;}}
