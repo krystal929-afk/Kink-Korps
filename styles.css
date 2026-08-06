@@ -356,3 +356,42 @@ footer{
   .detail-grid,
   .conduct-grid{grid-template-columns:1fr}
 }
+/* Stronger hero title */
+.hero h1 {
+  font-size: clamp(56px, 9vw, 110px);
+  line-height: 0.92;
+  letter-spacing: -0.01em;
+}
+
+.hero .tagline {
+  font-size: clamp(22px, 3.2vw, 34px);
+  margin: 18px 0 12px;
+  color: #9eff00;
+}
+
+.hero .intro {
+  font-size: 18px;
+  color: #b9b2a8;
+  line-height: 1.5;
+}
+
+/* Mobile adjustments */
+@media (max-width: 850px) {
+  .hero h1 {
+    font-size: clamp(48px, 14vw, 72px);
+    margin-bottom: 8px;
+  }
+  
+  .hero .tagline {
+    font-size: clamp(20px, 6vw, 28px);
+  }
+  
+  .nav {
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+  }
+  
+  .nav-callout {
+    display: none; /* remove if any leftover */
+  }
+}
