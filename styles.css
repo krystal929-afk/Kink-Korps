@@ -1,397 +1,917 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
 
-:root{
-  --bg:#050505;
-  --panel:#0b0b0d;
-  --text:#f4f1eb;
-  --muted:#b9b2a8;
-  --red:#ed1c24;
-  --green:#9eff00;
-  --purple:#7a2cff;
-  --line:#242428;
+/* =========================================================
+   KINK KORPS — ANYTHING GOES
+   Cleaned production stylesheet
+   ========================================================= */
+
+/* =========================================================
+   VARIABLES
+   ========================================================= */
+
+:root {
+  --bg: #050505;
+  --panel: #0b0b0d;
+  --text: #f4f1eb;
+  --muted: #b9b2a8;
+
+  --red: #ed1c24;
+  --green: #9eff00;
+  --purple: #7a2cff;
+
+  --line: #242428;
+  --focus: #ffffff;
+
+  --content-width: 1280px;
 }
 
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  margin:0;
+
+/* =========================================================
+   RESET / BASE
+   ========================================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 78px;
+}
+
+body {
+  margin: 0;
+
   background:
-    radial-gradient(circle at 85% 8%,rgba(122,44,255,.06),transparent 18%),
-    radial-gradient(circle at 10% 30%,rgba(237,28,36,.05),transparent 24%),
+    radial-gradient(
+      circle at 85% 8%,
+      rgba(122, 44, 255, 0.06),
+      transparent 18%
+    ),
+    radial-gradient(
+      circle at 10% 30%,
+      rgba(237, 28, 36, 0.05),
+      transparent 24%
+    ),
     var(--bg);
-  color:var(--text);
-  font-family:Inter,Arial,sans-serif;
-}
-img{display:block;max-width:100%}
-a{text-decoration:none;color:inherit}
 
-.nav{
-  position:sticky;top:0;z-index:20;
-  display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:18px;
-  padding:10px clamp(16px,4vw,52px);
-  background:rgba(5,5,5,.94);
-  border-bottom:1px solid rgba(255,255,255,.07);
-  backdrop-filter:blur(14px);
-}
-.brand img{width:104px;height:50px;object-fit:contain}
-.nav-callout{
-  text-align:center;
-  font:700 15px Oswald;
-  text-transform:uppercase;
-  letter-spacing:.18em;
+  color: var(--text);
+  font-family: Inter, Arial, sans-serif;
+
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
-.ticket-button{
-  display:inline-flex;align-items:center;justify-content:center;
-  min-height:50px;padding:0 22px;
-  background:var(--red);color:#fff;
-  font:700 15px Oswald;
-  text-transform:uppercase;letter-spacing:.08em;
-  border:1px solid rgba(255,255,255,.15);
-}
-.ticket-button.small{min-height:38px;padding:0 14px;font-size:12px}
-.disabled{cursor:default}
-
-h1,h2{
-  font-family:Anton,Impact,sans-serif;
-  text-transform:uppercase;
-  line-height:.96;
-  letter-spacing:.012em;
-  margin:.16em 0;
-}
-h1{font-size:clamp(54px,7vw,104px)}
-h1 span{color:var(--green)}
-h2{font-size:clamp(40px,5.4vw,72px)}
-h3{
-  font:700 clamp(28px,3.7vw,48px)/1 Oswald;
-  text-transform:uppercase;
-  margin:6px 0 14px;
-}
-.eyebrow{
-  margin:0 0 10px;
-  font:600 12px Oswald;
-  letter-spacing:.2em;
-  text-transform:uppercase;
-  color:var(--red);
+img {
+  display: block;
+  max-width: 100%;
 }
 
-.hero{
-  max-width:1280px;margin:auto;
-  padding:clamp(28px,5vw,72px) clamp(16px,5vw,70px) clamp(56px,7vw,90px);
-  display:grid;grid-template-columns:1.05fr .95fr;
-  gap:clamp(34px,5vw,70px);align-items:center;
-}
-.hero-art img{width:100%;height:auto;object-fit:contain;border:1px solid var(--line)}
-.tagline{font:500 clamp(24px,2.8vw,38px)/1.12 Oswald;margin:22px 0}
-.intro{max-width:620px;color:var(--muted);font-size:17px;line-height:1.6;margin-bottom:26px}
-
-.section{
-  max-width:1280px;margin:auto;
-  padding:clamp(56px,7vw,96px) clamp(16px,5vw,70px);
-}
-.copy-wide{max-width:900px;font-size:clamp(18px,1.8vw,24px);line-height:1.55;color:#d8d1c7}
-.copy-wide p{margin:0 0 18px}
-.flush{padding-top:0}
-
-.gallery{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:10px;
-}
-.gallery img{
-  width:100%;height:auto;object-fit:contain;background:#000;
-  border:1px solid var(--line);
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
-.feature-grid{
-  display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:32px;
-}
-.profile-card{
-  background:var(--panel);border:1px solid var(--line);
-  display:grid;grid-template-columns:48% 1fr;overflow:hidden;
-}
-.profile-card img{width:100%;height:auto;object-fit:contain;background:#000}
-.profile-card>div{padding:26px;align-self:center}
-.profile-card p{color:var(--muted);line-height:1.55}
-
-.external-card{transition:transform .18s ease}
-.external-card:hover{transform:translateY(-2px)}
-.external-link-label{
-  display:inline-block;margin-top:12px;color:var(--green);
-  font:600 12px Oswald;text-transform:uppercase;letter-spacing:.12em;
+p {
+  margin-top: 0;
 }
 
-.venue-section{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.venue-copy{max-width:840px;font-size:19px;line-height:1.6;color:var(--muted)}
-.pill-row{display:flex;flex-wrap:wrap;gap:9px;margin:22px 0 32px}
-.pill-row span{
-  border:1px solid var(--green);color:var(--green);padding:8px 12px;
-  font:600 12px Oswald;text-transform:uppercase;letter-spacing:.1em;
-}
-.venue-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:10px;
-}
-.venue-grid img{
-  width:100%;height:auto;object-fit:contain;background:#000;
-  border:1px solid var(--line);
-}
-
-.food-section{border-bottom:1px solid var(--line)}
-.food-intro{max-width:760px;color:var(--muted);font-size:19px;line-height:1.6;margin-bottom:28px}
-.food-gallery{
-  display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:10px;
-}
-.food-gallery img{
-  width:100%;height:auto;object-fit:contain;background:#000;
-  border:1px solid var(--line);
-}
-
-.detail-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:30px;
-}
-.detail-grid>div{padding:22px;background:var(--panel);border:1px solid var(--line)}
-.detail-grid strong{
-  display:block;font:700 23px Oswald;text-transform:uppercase;
-  color:var(--green);margin-bottom:10px;
-}
-.detail-grid span{color:var(--muted);line-height:1.5}
-
-.sponsor-strip{
-  display:grid;grid-template-columns:1fr 1fr;gap:18px;
-  border-top:1px solid var(--line);
-}
-.logo-block{
-  background:#000;border:1px solid var(--line);padding:24px;min-height:220px;
-  display:flex;flex-direction:column;justify-content:center;
-}
-.logo-block img{max-height:120px;max-width:320px;object-fit:contain;margin:auto}
-
-.cta{
-  text-align:center;padding:88px 16px 105px;
-  border-top:1px solid var(--line);
-}
-.cta-logo{width:160px;height:90px;object-fit:contain;margin:0 auto 18px}
-.cta p:not(.eyebrow){color:var(--muted);margin:10px auto 24px}
-
-footer{
-  padding:26px;text-align:center;border-top:1px solid var(--line);
-  color:#707070;font-size:12px;
-}
-
-@media(max-width:850px){
-  .nav{grid-template-columns:auto 1fr;padding:8px 14px;gap:12px}
-  .brand img{width:82px;height:42px}
-  .nav-callout{text-align:right;font-size:13px;letter-spacing:.13em}
-  .ticket-button.small{display:none}
-
-  .hero{display:block;padding:16px 14px 44px}
-  .hero-art{margin-bottom:24px}
-  .hero h1{font-size:clamp(44px,13vw,66px)}
-  .tagline{font-size:clamp(22px,7vw,32px);margin:18px 0}
-
-  .section{padding:46px 14px}
-  h2{font-size:clamp(34px,10vw,50px)}
-
-  .gallery,.venue-grid,.food-gallery{grid-template-columns:1fr}
-  .feature-grid{grid-template-columns:1fr}
-  .profile-card{grid-template-columns:1fr}
-  .profile-card img{width:100%;height:auto}
-
-  .detail-grid{grid-template-columns:1fr 1fr}
-  .sponsor-strip{grid-template-columns:1fr}
-}
-
-@media(max-width:520px){
-  .detail-grid{grid-template-columns:1fr}
-  .profile-card>div{padding:20px}
+strong {
+  font-weight: 700;
 }
 
 
-/* -------------------------------
-   NAV HEADLINE — V6
--------------------------------- */
-.nav-callout{
-  font-size:19px;
-  line-height:1;
-  letter-spacing:.14em;
-  white-space:nowrap;
-}
-.nav-callout span{
-  color:var(--green);
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 4px;
 }
 
-/* -------------------------------
-   VENUE ADDRESS
--------------------------------- */
-.venue-address{
-  margin:14px 0 0;
-  color:var(--text);
-  font:600 16px/1.5 Oswald,Arial,sans-serif;
-  letter-spacing:.03em;
-}
-
-/* -------------------------------
-   HOUSE CONDUCT
--------------------------------- */
-.conduct-section{
-  border-top:1px solid var(--line);
-  border-bottom:1px solid var(--line);
-}
-.conduct-section h2{
-  max-width:1000px;
-}
-.conduct-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:10px;
-  margin-top:30px;
-}
-.conduct-grid>div{
-  padding:20px;
-  background:var(--panel);
-  border:1px solid var(--line);
-  color:var(--text);
-  line-height:1.5;
-  font-weight:600;
-}
-
-@media(max-width:850px){
-  .nav-callout{
-    font-size:16px;
-    letter-spacing:.09em;
-    text-align:right;
-  }
-  .conduct-grid{
-    grid-template-columns:1fr 1fr;
-  }
-}
-
-@media(max-width:520px){
-  .nav{
-    grid-template-columns:auto 1fr;
-  }
-  .nav-callout{
-    font-size:15px;
-    letter-spacing:.06em;
-  }
-  .conduct-grid{
-    grid-template-columns:1fr;
-  }
+::selection {
+  background: var(--green);
+  color: #000;
 }
 
 
-/* V7 — venue-neutral until contract */
-.hero-brand-art{
-  min-height:520px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:radial-gradient(circle at center,rgba(237,28,36,.10),transparent 58%),#050505;
-  border:1px solid var(--line);
-  padding:clamp(34px,7vw,80px);
-}
-.hero-brand-art img{
-  width:min(100%,620px);
-  max-height:520px;
-  object-fit:contain;
-  border:0;
-}
-.location-section{
-  border-top:1px solid var(--line);
-  border-bottom:1px solid var(--line);
-}
-.location-copy{
-  max-width:760px;
-  color:var(--muted);
-  font-size:19px;
-  line-height:1.6;
-}
-.sponsor-single{grid-template-columns:minmax(0,700px);justify-content:center;}
-@media(max-width:850px){
-  .hero-brand-art{min-height:360px;padding:34px 20px;}
-  .hero-brand-art img{max-height:330px;}
+/* =========================================================
+   TYPOGRAPHY
+   ========================================================= */
+
+h1,
+h2 {
+  margin: 0.16em 0;
+
+  font-family: Anton, Impact, sans-serif;
+  text-transform: uppercase;
+  line-height: 0.96;
+  letter-spacing: 0.012em;
 }
 
-
-/* V8 — new venue-neutral flyer */
-.gallery{grid-template-columns:repeat(2,minmax(0,1fr));}
-@media(max-width:850px){.gallery{grid-template-columns:1fr;}}
-
-/* V9 — Mr. Satan copy update */
-.detail-grid,
-.conduct-grid{align-items:stretch}
-
-.detail-grid>div,
-.conduct-grid>div{
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-}
-
-.conduct-grid strong{
-  display:block;
-  font:700 22px/1.1 Oswald,Arial,sans-serif;
-  color:var(--green);
-  text-transform:uppercase;
-}
-
-.conduct-grid span{
-  color:var(--muted);
-  line-height:1.55;
-}
-
-.closing-line{
-  text-align:center;
-  border-top:1px solid var(--line);
-}
-
-.closing-line blockquote{
-  margin:0 auto;
-  max-width:900px;
-  font:600 clamp(26px,4vw,48px)/1.15 Oswald,Arial,sans-serif;
-  color:var(--text);
-}
-
-.profile-card p{line-height:1.6}
-
-@media(max-width:850px){
-  .detail-grid,
-  .conduct-grid{grid-template-columns:1fr}
-}
-/* Stronger hero title */
-.hero h1 {
+h1 {
   font-size: clamp(56px, 9vw, 110px);
   line-height: 0.92;
   letter-spacing: -0.01em;
 }
 
-.hero .tagline {
-  font-size: clamp(22px, 3.2vw, 34px);
-  margin: 18px 0 12px;
-  color: #9eff00;
+h2 {
+  font-size: clamp(40px, 5.4vw, 72px);
 }
 
-.hero .intro {
+h3 {
+  margin: 6px 0 14px;
+
+  font: 700 clamp(28px, 3.7vw, 48px) / 1 Oswald, sans-serif;
+  text-transform: uppercase;
+}
+
+.eyebrow {
+  margin: 0 0 10px;
+
+  color: var(--red);
+
+  font: 600 12px Oswald, sans-serif;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 18px;
+
+  padding: 10px clamp(16px, 4vw, 52px);
+
+  background: rgba(5, 5, 5, 0.94);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+}
+
+.brand img {
+  width: 104px;
+  height: 50px;
+  object-fit: contain;
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.ticket-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 50px;
+  padding: 0 22px;
+
+  background: var(--red);
+  color: #fff;
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+
+  font: 700 15px Oswald, sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.18s ease,
+    color 0.18s ease,
+    border-color 0.18s ease,
+    transform 0.18s ease;
+}
+
+.ticket-button:hover {
+  background: #ff252d;
+  transform: translateY(-2px);
+}
+
+.ticket-button:active {
+  transform: translateY(0);
+}
+
+.ticket-button.small {
+  min-height: 38px;
+  padding: 0 14px;
+  font-size: 12px;
+}
+
+.ticket-button-outline {
+  background: transparent;
+  border-color: var(--green);
+  color: var(--green);
+}
+
+.ticket-button-outline:hover {
+  background: var(--green);
+  color: #000;
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  align-items: center;
+
+  max-width: var(--content-width);
+  margin: 0 auto;
+
+  padding:
+    clamp(28px, 5vw, 72px)
+    clamp(16px, 5vw, 70px)
+    clamp(56px, 7vw, 90px);
+
+  gap: clamp(34px, 5vw, 70px);
+}
+
+.hero-art img {
+  width: 100%;
+  height: auto;
+
+  object-fit: contain;
+
+  border: 1px solid var(--line);
+}
+
+.hero-copy {
+  min-width: 0;
+}
+
+.tagline {
+  margin: 18px 0 12px;
+
+  color: var(--green);
+
+  font: 500 clamp(22px, 3.2vw, 34px) / 1.12 Oswald, sans-serif;
+}
+
+.intro {
+  max-width: 620px;
+  margin-bottom: 26px;
+
+  color: var(--muted);
+
   font-size: 18px;
-  color: #b9b2a8;
   line-height: 1.5;
 }
 
-/* Mobile adjustments */
+.age-note {
+  margin: 10px 0 0;
+
+  color: var(--green);
+
+  font: 600 13px Oswald, sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+
+  margin-top: 26px;
+}
+
+
+/* =========================================================
+   GENERAL SECTIONS
+   ========================================================= */
+
+.section {
+  max-width: var(--content-width);
+  margin: 0 auto;
+
+  padding:
+    clamp(56px, 7vw, 96px)
+    clamp(16px, 5vw, 70px);
+}
+
+.copy-wide {
+  max-width: 900px;
+
+  color: #d8d1c7;
+
+  font-size: clamp(18px, 1.8vw, 24px);
+  line-height: 1.55;
+}
+
+.copy-wide p {
+  margin: 0 0 18px;
+}
+
+.flush {
+  padding-top: 0;
+}
+
+
+/* =========================================================
+   GALLERIES
+   ========================================================= */
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.gallery img {
+  width: 100%;
+  height: auto;
+
+  object-fit: contain;
+
+  background: #000;
+  border: 1px solid var(--line);
+}
+
+.venue-gallery {
+  margin-top: 14px;
+}
+
+
+/* =========================================================
+   FEATURED PROFILES
+   ========================================================= */
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+
+  margin-top: 32px;
+}
+
+.profile-card {
+  display: grid;
+  grid-template-columns: 48% 1fr;
+
+  overflow: hidden;
+
+  background: var(--panel);
+  border: 1px solid var(--line);
+}
+
+.profile-card img {
+  width: 100%;
+  height: auto;
+
+  object-fit: contain;
+
+  background: #000;
+}
+
+.profile-card > div {
+  align-self: center;
+  padding: 26px;
+}
+
+.profile-card p {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.external-card {
+  transition: transform 0.18s ease;
+}
+
+.external-card:hover {
+  transform: translateY(-2px);
+}
+
+.external-link-label {
+  display: inline-block;
+
+  margin-top: 12px;
+
+  color: var(--green);
+
+  font: 600 12px Oswald, sans-serif;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.external-link-label:hover {
+  color: #c7ff70;
+}
+
+
+/* =========================================================
+   VENUE
+   ========================================================= */
+
+.location-section {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.location-copy {
+  max-width: 760px;
+
+  color: var(--muted);
+
+  font-size: 19px;
+  line-height: 1.6;
+}
+
+.location-copy p:last-child {
+  margin-bottom: 0;
+}
+
+.venue-address {
+  margin: 12px 0 0;
+
+  color: var(--text);
+
+  font: 600 16px / 1.5 Oswald, sans-serif;
+  letter-spacing: 0.03em;
+}
+
+.venue-social-link {
+  margin-bottom: 14px;
+}
+
+
+/* =========================================================
+   TREATS
+   ========================================================= */
+
+.treats-layout {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  align-items: center;
+  gap: 28px;
+
+  max-width: 800px;
+}
+
+.treats-image {
+  width: 100%;
+
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
+.treats-copy {
+  margin-bottom: 14px;
+
+  color: var(--muted);
+
+  font-size: 17px;
+  line-height: 1.55;
+}
+
+
+/* =========================================================
+   DRESS CODE
+   ========================================================= */
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: stretch;
+  gap: 10px;
+
+  margin-top: 30px;
+}
+
+.detail-grid > div {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  padding: 22px;
+
+  background: var(--panel);
+  border: 1px solid var(--line);
+}
+
+.detail-grid strong {
+  display: block;
+
+  margin-bottom: 0;
+
+  color: var(--green);
+
+  font: 700 23px Oswald, sans-serif;
+  text-transform: uppercase;
+}
+
+.detail-grid span {
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   CONSENT / HOUSE CONDUCT
+   ========================================================= */
+
+.conduct-section {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.conduct-section h2 {
+  max-width: 1000px;
+}
+
+.conduct-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: stretch;
+  gap: 10px;
+
+  margin-top: 30px;
+}
+
+.conduct-grid > div {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  padding: 20px;
+
+  background: var(--panel);
+  border: 1px solid var(--line);
+
+  line-height: 1.5;
+}
+
+.conduct-grid strong {
+  display: block;
+
+  color: var(--green);
+
+  font: 700 22px / 1.1 Oswald, sans-serif;
+  text-transform: uppercase;
+}
+
+.conduct-grid span {
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+
+/* =========================================================
+   SPONSOR
+   ========================================================= */
+
+.sponsor-strip {
+  display: grid;
+  grid-template-columns: minmax(0, 700px);
+  justify-content: center;
+
+  border-top: 1px solid var(--line);
+}
+
+.logo-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  min-height: 220px;
+  padding: 24px;
+
+  background: #000;
+  border: 1px solid var(--line);
+}
+
+.logo-block img {
+  width: auto;
+  max-width: 320px;
+  max-height: 120px;
+
+  object-fit: contain;
+
+  margin: auto;
+}
+
+
+/* =========================================================
+   CLOSING LINE
+   ========================================================= */
+
+.closing-line {
+  text-align: center;
+
+  border-top: 1px solid var(--line);
+}
+
+.closing-line blockquote {
+  max-width: 900px;
+  margin: 0 auto;
+
+  color: var(--text);
+
+  font: 600 clamp(26px, 4vw, 48px) / 1.15 Oswald, sans-serif;
+}
+
+
+/* =========================================================
+   TICKETS / CTA
+   ========================================================= */
+
+.cta {
+  padding: 88px 16px 105px;
+
+  text-align: center;
+
+  border-top: 1px solid var(--line);
+}
+
+.cta-logo {
+  width: 160px;
+  height: 90px;
+
+  object-fit: contain;
+
+  margin: 0 auto 18px;
+}
+
+.ticket-info {
+  max-width: 520px;
+
+  margin: 0 auto 28px;
+
+  color: var(--muted);
+
+  font-size: 17px;
+  line-height: 1.5;
+}
+
+.ticket-info p {
+  margin: 10px auto 24px;
+}
+
+.ticket-info strong {
+  color: #fff;
+}
+
+.ticket-price {
+  margin-bottom: 8px !important;
+}
+
+.ticket-price-door {
+  margin-bottom: 18px !important;
+}
+
+.ticket-important {
+  margin-top: 12px !important;
+}
+
+.ticket-options {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.ticket-confirmation {
+  margin-top: 24px;
+
+  color: #888;
+
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer {
+  padding: 26px;
+
+  color: #707070;
+
+  font-size: 12px;
+  text-align: center;
+
+  border-top: 1px solid var(--line);
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 22px;
+
+  margin-bottom: 16px;
+}
+
+.footer-link {
+  color: var(--green);
+
+  font: 600 14px Oswald, sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  transition: color 0.18s ease;
+}
+
+.footer-link:hover {
+  color: #c7ff70;
+}
+
+
+/* =========================================================
+   TABLET / MOBILE
+   ========================================================= */
+
 @media (max-width: 850px) {
+
+  html {
+    scroll-padding-top: 62px;
+  }
+
+  .nav {
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+    gap: 12px;
+
+    padding: 8px 14px;
+  }
+
+  .brand img {
+    width: 82px;
+    height: 42px;
+  }
+
+  .ticket-button.small {
+    min-height: 38px;
+    display: inline-flex;
+  }
+
+  .hero {
+    display: block;
+
+    padding: 16px 14px 44px;
+  }
+
+  .hero-art {
+    margin-bottom: 24px;
+  }
+
   .hero h1 {
     font-size: clamp(48px, 14vw, 72px);
     margin-bottom: 8px;
   }
-  
+
   .hero .tagline {
     font-size: clamp(20px, 6vw, 28px);
   }
-  
-  .nav {
-    grid-template-columns: auto auto;
-    justify-content: space-between;
+
+  .section {
+    padding: 46px 14px;
   }
-  
-  .nav-callout {
-    display: none; /* remove if any leftover */
+
+  h2 {
+    font-size: clamp(34px, 10vw, 50px);
+  }
+
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-card {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-card img {
+    width: 100%;
+    height: auto;
+  }
+
+  .detail-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .conduct-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sponsor-strip {
+    grid-template-columns: 1fr;
+  }
+
+  .treats-layout {
+    grid-template-columns: 180px 1fr;
+  }
+
+  .cta {
+    padding: 70px 14px 84px;
+  }
+}
+
+
+/* =========================================================
+   SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 520px) {
+
+  .nav {
+    padding: 7px 12px;
+  }
+
+  .brand img {
+    width: 76px;
+    height: 38px;
+  }
+
+  .ticket-button.small {
+    min-height: 36px;
+    padding: 0 12px;
+    font-size: 11px;
+  }
+
+  .hero {
+    padding-top: 12px;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-actions .ticket-button {
+    width: 100%;
+  }
+
+  .treats-layout {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .treats-image {
+    width: 180px;
+    max-width: 100%;
+  }
+
+  .footer-links {
+    flex-wrap: wrap;
+    gap: 14px 20px;
+  }
+
+  .ticket-options {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .ticket-options .ticket-button {
+    width: 100%;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
