@@ -21,6 +21,8 @@
   --purple: #7a2cff;
 
   --line: #242428;
+  --focus: #ffffff;
+
   --content-width: 1280px;
 }
 
@@ -38,6 +40,10 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 78px;
+}
+
+html.age-gate-loading {
+  overflow: hidden;
 }
 
 body {
@@ -65,10 +71,6 @@ body {
 }
 
 body.age-gate-open {
-  overflow: hidden;
-}
-
-html.age-gate-loading body {
   overflow: hidden;
 }
 
@@ -100,7 +102,7 @@ strong {
    ========================================================= */
 
 :focus-visible {
-  outline: 3px solid #fff;
+  outline: 3px solid var(--focus);
   outline-offset: 4px;
 }
 
@@ -121,6 +123,7 @@ h2 {
   font-family: Anton, Impact, sans-serif;
 
   text-transform: uppercase;
+
   line-height: 0.96;
   letter-spacing: 0.012em;
 }
@@ -149,7 +152,9 @@ h3 {
   color: var(--red);
 
   font: 600 12px Oswald, sans-serif;
+
   letter-spacing: 0.2em;
+
   text-transform: uppercase;
 }
 
@@ -161,19 +166,23 @@ h3 {
 .age-gate {
   position: fixed;
   inset: 0;
-  z-index: 9999;
+
+  z-index: 99999;
 
   display: flex;
+
   align-items: center;
   justify-content: center;
 
-  min-height: 100dvh;
+  width: 100vw;
+  height: 100dvh;
+
   padding: 20px;
 
   background:
     radial-gradient(
       circle at 50% 35%,
-      rgba(237, 28, 36, 0.14),
+      rgba(237, 28, 36, 0.16),
       transparent 32%
     ),
     radial-gradient(
@@ -181,24 +190,33 @@ h3 {
       rgba(158, 255, 0, 0.05),
       transparent 35%
     ),
-    rgba(0, 0, 0, 0.98);
+    rgba(0, 0, 0, 0.985);
 
   opacity: 1;
   visibility: visible;
 
+  pointer-events: auto;
+
   transition:
-    opacity 0.35s ease,
-    visibility 0.35s ease;
+    opacity 0.3s ease,
+    visibility 0.3s ease;
 }
 
 .age-gate.is-hidden {
   opacity: 0;
   visibility: hidden;
+
   pointer-events: none;
 }
 
 .age-gate-panel {
+  position: relative;
+
   width: min(100%, 560px);
+
+  max-height: calc(100dvh - 40px);
+
+  overflow-y: auto;
 
   padding: clamp(30px, 6vw, 58px);
 
@@ -207,15 +225,15 @@ h3 {
   background:
     linear-gradient(
       145deg,
-      rgba(20, 20, 22, 0.98),
-      rgba(7, 7, 8, 0.98)
+      rgba(20, 20, 22, 0.99),
+      rgba(7, 7, 8, 0.99)
     );
 
-  border: 1px solid var(--line);
+  border: 1px solid #303034;
 
   box-shadow:
-    0 30px 100px rgba(0, 0, 0, 0.8),
-    0 0 60px rgba(237, 28, 36, 0.08);
+    0 30px 100px rgba(0, 0, 0, 0.9),
+    0 0 70px rgba(237, 28, 36, 0.10);
 }
 
 .age-gate-logo {
@@ -233,7 +251,9 @@ h3 {
   color: var(--red);
 
   font: 700 14px Oswald, sans-serif;
+
   letter-spacing: 0.25em;
+
   text-transform: uppercase;
 }
 
@@ -243,6 +263,7 @@ h3 {
   color: #fff;
 
   font-size: clamp(52px, 12vw, 88px);
+
   line-height: 0.9;
 }
 
@@ -264,12 +285,15 @@ h3 {
   color: var(--muted);
 
   font-size: 14px;
+
   line-height: 1.55;
 }
 
 .age-gate-actions {
   display: flex;
+
   flex-direction: column;
+
   gap: 12px;
 
   max-width: 360px;
@@ -280,15 +304,19 @@ h3 {
 .age-enter-button {
   width: 100%;
 
-  min-height: 56px;
+  min-height: 58px;
 
   font-size: 16px;
+
+  box-shadow:
+    0 0 25px rgba(237, 28, 36, 0.15);
 }
 
 .age-exit-button {
   min-height: 46px;
 
   background: transparent;
+
   color: #888;
 
   border: 1px solid #333;
@@ -296,6 +324,7 @@ h3 {
   font: 600 13px Oswald, sans-serif;
 
   letter-spacing: 0.12em;
+
   text-transform: uppercase;
 
   cursor: pointer;
@@ -308,7 +337,9 @@ h3 {
 
 .age-exit-button:hover {
   color: #fff;
+
   border-color: #777;
+
   background: rgba(255, 255, 255, 0.04);
 }
 
@@ -318,6 +349,7 @@ h3 {
   color: #666;
 
   font-size: 11px;
+
   line-height: 1.5;
 }
 
@@ -328,12 +360,17 @@ h3 {
 
 .nav {
   position: sticky;
+
   top: 0;
+
   z-index: 20;
 
   display: grid;
+
   grid-template-columns: auto 1fr auto;
+
   align-items: center;
+
   gap: 18px;
 
   padding: 10px clamp(16px, 4vw, 52px);
@@ -348,6 +385,7 @@ h3 {
 
 .brand {
   display: inline-flex;
+
   align-items: center;
 }
 
@@ -365,6 +403,7 @@ h3 {
 
 .ticket-button {
   display: inline-flex;
+
   align-items: center;
   justify-content: center;
 
@@ -373,6 +412,7 @@ h3 {
   padding: 0 22px;
 
   background: var(--red);
+
   color: #fff;
 
   border: 1px solid rgba(255, 255, 255, 0.15);
@@ -380,6 +420,7 @@ h3 {
   font: 700 15px Oswald, sans-serif;
 
   letter-spacing: 0.08em;
+
   text-transform: uppercase;
 
   cursor: pointer;
@@ -419,6 +460,7 @@ h3 {
 
 .ticket-button-outline:hover {
   background: var(--green);
+
   color: #000;
 }
 
@@ -431,6 +473,7 @@ h3 {
   display: grid;
 
   grid-template-columns: 1.05fr 0.95fr;
+
   align-items: center;
 
   max-width: var(--content-width);
@@ -474,6 +517,7 @@ h3 {
   color: var(--muted);
 
   font-size: 18px;
+
   line-height: 1.5;
 }
 
@@ -485,12 +529,15 @@ h3 {
   font: 600 13px Oswald, sans-serif;
 
   letter-spacing: 0.08em;
+
   text-transform: uppercase;
 }
 
 .hero-actions {
   display: flex;
+
   flex-wrap: wrap;
+
   gap: 12px;
 
   margin-top: 26px;
@@ -517,6 +564,7 @@ h3 {
   color: #d8d1c7;
 
   font-size: clamp(18px, 1.8vw, 24px);
+
   line-height: 1.55;
 }
 
@@ -597,11 +645,8 @@ h3 {
   color: var(--muted);
 
   font-size: 18px;
-  line-height: 1.6;
-}
 
-.rin-link-button {
-  margin-top: 8px;
+  line-height: 1.6;
 }
 
 
@@ -670,6 +715,7 @@ h3 {
   font: 600 12px Oswald, sans-serif;
 
   letter-spacing: 0.12em;
+
   text-transform: uppercase;
 
   transition: color 0.18s ease;
@@ -681,11 +727,12 @@ h3 {
 
 
 /* =========================================================
-   NU VIBEZ
+   VENUE
    ========================================================= */
 
 .location-section {
   border-top: 1px solid var(--line);
+
   border-bottom: 1px solid var(--line);
 }
 
@@ -695,11 +742,16 @@ h3 {
   color: var(--muted);
 
   font-size: 19px;
+
   line-height: 1.6;
 }
 
+.location-copy p:last-child {
+  margin-bottom: 0;
+}
+
 .venue-address {
-  margin: 14px 0 0;
+  margin: 12px 0 0;
 
   color: var(--text);
 
@@ -753,6 +805,7 @@ h3 {
   font: 700 22px Oswald, sans-serif;
 
   letter-spacing: 0.04em;
+
   text-transform: uppercase;
 }
 
@@ -774,15 +827,16 @@ h3 {
   font: 600 15px / 1.5 Oswald, sans-serif;
 
   letter-spacing: 0.04em;
+
   text-transform: uppercase;
 }
 
 .sweet-intro > img {
   width: 100%;
 
-  border-radius: 12px;
-
   border: 1px solid var(--line);
+
+  border-radius: 12px;
 }
 
 .sweet-thickness-feature {
@@ -790,9 +844,9 @@ h3 {
 
   grid-template-columns: 1.15fr 0.85fr;
 
-  gap: 28px;
-
   align-items: center;
+
+  gap: 28px;
 
   margin-top: 38px;
 }
@@ -828,6 +882,7 @@ h3 {
   color: var(--muted);
 
   font-size: 17px;
+
   line-height: 1.6;
 }
 
@@ -897,6 +952,7 @@ h3 {
 
 .conduct-section {
   border-top: 1px solid var(--line);
+
   border-bottom: 1px solid var(--line);
 }
 
@@ -928,6 +984,8 @@ h3 {
   background: var(--panel);
 
   border: 1px solid var(--line);
+
+  line-height: 1.5;
 }
 
 .conduct-grid strong {
@@ -965,6 +1023,7 @@ h3 {
   display: flex;
 
   flex-direction: column;
+
   justify-content: center;
 
   min-height: 220px;
@@ -1038,6 +1097,7 @@ h3 {
   color: var(--muted);
 
   font-size: 17px;
+
   line-height: 1.5;
 }
 
@@ -1113,6 +1173,7 @@ h3 {
   color: var(--muted);
 
   font-size: 17px;
+
   line-height: 1.55;
 }
 
@@ -1215,7 +1276,7 @@ footer {
   }
 
 
-  /* General */
+  /* General sections */
 
   .section {
     padding: 46px 14px;
@@ -1226,19 +1287,10 @@ footer {
   }
 
 
-  /* Gallery */
+  /* Galleries */
 
   .gallery {
     grid-template-columns: 1fr;
-  }
-
-
-  /* Rin */
-
-  .rin-card {
-    margin-top: 22px;
-
-    padding: 24px 20px;
   }
 
 
@@ -1276,12 +1328,8 @@ footer {
     gap: 24px;
   }
 
-  .sweet-thickness-gallery {
-    grid-template-columns: 1fr 1fr;
-  }
 
-
-  /* Details */
+  /* Detail grids */
 
   .detail-grid {
     grid-template-columns: 1fr;
@@ -1304,6 +1352,7 @@ footer {
   .cta {
     padding: 70px 14px 84px;
   }
+
 }
 
 
@@ -1357,6 +1406,10 @@ footer {
 
   /* Hero */
 
+  .hero {
+    padding-top: 12px;
+  }
+
   .hero-actions {
     flex-direction: column;
 
@@ -1399,6 +1452,7 @@ footer {
 
     gap: 14px 20px;
   }
+
 }
 
 
@@ -1416,8 +1470,12 @@ footer {
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
+
     animation-iteration-count: 1 !important;
+
     transition-duration: 0.01ms !important;
+
     scroll-behavior: auto !important;
   }
+
 }
