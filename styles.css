@@ -1,35 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
 
-
-/* =========================================================
-   KINK KORPS — ANYTHING GOES
-   ========================================================= */
-
-
-/* =========================================================
-   VARIABLES
-   ========================================================= */
-
 :root {
   --bg: #050505;
   --panel: #0b0b0d;
   --text: #f4f1eb;
   --muted: #b9b2a8;
-
   --red: #ed1c24;
   --green: #9eff00;
   --purple: #7a2cff;
-
   --line: #242428;
   --focus: #ffffff;
-
   --content-width: 1280px;
 }
-
-
-/* =========================================================
-   RESET
-   ========================================================= */
 
 *,
 *::before,
@@ -96,11 +78,6 @@ strong {
   font-weight: 700;
 }
 
-
-/* =========================================================
-   ACCESSIBILITY
-   ========================================================= */
-
 :focus-visible {
   outline: 3px solid var(--focus);
   outline-offset: 4px;
@@ -112,9 +89,7 @@ strong {
 }
 
 
-/* =========================================================
-   TYPOGRAPHY
-   ========================================================= */
+/* TYPOGRAPHY */
 
 h1,
 h2 {
@@ -159,9 +134,7 @@ h3 {
 }
 
 
-/* =========================================================
-   21+ AGE GATE
-   ========================================================= */
+/* 21+ AGE GATE */
 
 .age-gate {
   position: fixed;
@@ -205,7 +178,6 @@ h3 {
 .age-gate.is-hidden {
   opacity: 0;
   visibility: hidden;
-
   pointer-events: none;
 }
 
@@ -303,7 +275,6 @@ h3 {
 
 .age-enter-button {
   width: 100%;
-
   min-height: 58px;
 
   font-size: 16px;
@@ -337,9 +308,7 @@ h3 {
 
 .age-exit-button:hover {
   color: #fff;
-
   border-color: #777;
-
   background: rgba(255, 255, 255, 0.04);
 }
 
@@ -354,9 +323,7 @@ h3 {
 }
 
 
-/* =========================================================
-   NAVIGATION
-   ========================================================= */
+/* NAVIGATION */
 
 .nav {
   position: sticky;
@@ -385,7 +352,6 @@ h3 {
 
 .brand {
   display: inline-flex;
-
   align-items: center;
 }
 
@@ -397,9 +363,7 @@ h3 {
 }
 
 
-/* =========================================================
-   BUTTONS
-   ========================================================= */
+/* BUTTONS */
 
 .ticket-button {
   display: inline-flex;
@@ -434,7 +398,6 @@ h3 {
 
 .ticket-button:hover {
   background: #ff252d;
-
   transform: translateY(-2px);
 }
 
@@ -444,30 +407,23 @@ h3 {
 
 .ticket-button.small {
   min-height: 38px;
-
   padding: 0 14px;
-
   font-size: 12px;
 }
 
 .ticket-button-outline {
   background: transparent;
-
   border-color: var(--green);
-
   color: var(--green);
 }
 
 .ticket-button-outline:hover {
   background: var(--green);
-
   color: #000;
 }
 
 
-/* =========================================================
-   HERO
-   ========================================================= */
+/* HERO */
 
 .hero {
   display: grid;
@@ -544,9 +500,7 @@ h3 {
 }
 
 
-/* =========================================================
-   GENERAL SECTIONS
-   ========================================================= */
+/* GENERAL SECTIONS */
 
 .section {
   max-width: var(--content-width);
@@ -577,9 +531,7 @@ h3 {
 }
 
 
-/* =========================================================
-   GALLERIES
-   ========================================================= */
+/* GALLERIES */
 
 .gallery {
   display: grid;
@@ -605,9 +557,7 @@ h3 {
 }
 
 
-/* =========================================================
-   RIN CLOUD
-   ========================================================= */
+/* RIN */
 
 .rin-section {
   padding-top: clamp(40px, 5vw, 70px);
@@ -650,9 +600,7 @@ h3 {
 }
 
 
-/* =========================================================
-   FEATURED PROFILES
-   ========================================================= */
+/* FEATURED */
 
 .feature-grid {
   display: grid;
@@ -687,13 +635,11 @@ h3 {
 
 .profile-card > div {
   align-self: center;
-
   padding: 26px;
 }
 
 .profile-card p {
   color: var(--muted);
-
   line-height: 1.6;
 }
 
@@ -726,13 +672,10 @@ h3 {
 }
 
 
-/* =========================================================
-   VENUE
-   ========================================================= */
+/* VENUE */
 
 .location-section {
   border-top: 1px solid var(--line);
-
   border-bottom: 1px solid var(--line);
 }
 
@@ -765,9 +708,7 @@ h3 {
 }
 
 
-/* =========================================================
-   SWEET N THICK
-   ========================================================= */
+/* SWEET N THICK */
 
 .sweet-section {
   border-bottom: 1px solid var(--line);
@@ -793,7 +734,6 @@ h3 {
 
 .sweet-copy h3 {
   margin-top: 0;
-
   color: #fff;
 }
 
@@ -838,6 +778,9 @@ h3 {
 
   border-radius: 12px;
 }
+
+
+/* SWEET THICKNESS */
 
 .sweet-thickness-feature {
   display: grid;
@@ -899,9 +842,59 @@ h3 {
 }
 
 
-/* =========================================================
-   DRESS CODE
-   ========================================================= */
+/* CBD SECTION */
+
+.cbd-feature {
+  display: grid;
+
+  grid-template-columns: 0.9fr 1.1fr;
+
+  align-items: center;
+
+  gap: 36px;
+
+  margin-top: 42px;
+
+  padding-top: 42px;
+
+  border-top: 1px solid var(--line);
+}
+
+.cbd-image-wrap {
+  overflow: hidden;
+
+  background: #000;
+
+  border: 1px solid var(--line);
+}
+
+.cbd-image {
+  width: 100%;
+  height: auto;
+
+  object-fit: cover;
+}
+
+.cbd-copy {
+  max-width: 650px;
+}
+
+.cbd-copy h3 {
+  margin-top: 0;
+
+  color: #fff;
+}
+
+.cbd-copy p:not(.eyebrow) {
+  color: var(--muted);
+
+  font-size: 18px;
+
+  line-height: 1.65;
+}
+
+
+/* DRESS CODE */
 
 .detail-grid {
   display: grid;
@@ -946,18 +939,11 @@ h3 {
 }
 
 
-/* =========================================================
-   CONSENT
-   ========================================================= */
+/* CONSENT */
 
 .conduct-section {
   border-top: 1px solid var(--line);
-
   border-bottom: 1px solid var(--line);
-}
-
-.conduct-section h2 {
-  max-width: 1000px;
 }
 
 .conduct-grid {
@@ -1005,9 +991,7 @@ h3 {
 }
 
 
-/* =========================================================
-   SPONSOR
-   ========================================================= */
+/* SPONSOR */
 
 .sponsor-strip {
   display: grid;
@@ -1047,9 +1031,7 @@ h3 {
 }
 
 
-/* =========================================================
-   CLOSING
-   ========================================================= */
+/* CLOSING */
 
 .closing-line {
   text-align: center;
@@ -1068,9 +1050,7 @@ h3 {
 }
 
 
-/* =========================================================
-   TICKETS
-   ========================================================= */
+/* TICKETS */
 
 .cta {
   padding: 88px 16px 105px;
@@ -1140,9 +1120,7 @@ h3 {
 }
 
 
-/* =========================================================
-   CONTACT
-   ========================================================= */
+/* CONTACT */
 
 .contact-section {
   padding:
@@ -1178,9 +1156,7 @@ h3 {
 }
 
 
-/* =========================================================
-   FOOTER
-   ========================================================= */
+/* FOOTER */
 
 footer {
   padding: 26px;
@@ -1221,9 +1197,7 @@ footer {
 }
 
 
-/* =========================================================
-   TABLET
-   ========================================================= */
+/* TABLET */
 
 @media (max-width: 850px) {
 
@@ -1248,12 +1222,7 @@ footer {
 
   .ticket-button.small {
     min-height: 38px;
-
-    display: inline-flex;
   }
-
-
-  /* Hero */
 
   .hero {
     display: block;
@@ -1275,9 +1244,6 @@ footer {
     font-size: clamp(20px, 6vw, 28px);
   }
 
-
-  /* General sections */
-
   .section {
     padding: 46px 14px;
   }
@@ -1286,15 +1252,9 @@ footer {
     font-size: clamp(34px, 10vw, 50px);
   }
 
-
-  /* Galleries */
-
   .gallery {
     grid-template-columns: 1fr;
   }
-
-
-  /* Featured */
 
   .feature-grid {
     grid-template-columns: 1fr;
@@ -1308,9 +1268,6 @@ footer {
     width: 100%;
     height: auto;
   }
-
-
-  /* Sweet Thickness */
 
   .sweet-intro {
     grid-template-columns: 1fr;
@@ -1328,8 +1285,17 @@ footer {
     gap: 24px;
   }
 
+  .cbd-feature {
+    grid-template-columns: 1fr;
 
-  /* Detail grids */
+    gap: 24px;
+  }
+
+  .cbd-image {
+    max-height: 500px;
+
+    object-fit: cover;
+  }
 
   .detail-grid {
     grid-template-columns: 1fr;
@@ -1339,26 +1305,17 @@ footer {
     grid-template-columns: 1fr;
   }
 
-
-  /* Sponsor */
-
   .sponsor-strip {
     grid-template-columns: 1fr;
   }
 
-
-  /* Tickets */
-
   .cta {
     padding: 70px 14px 84px;
   }
-
 }
 
 
-/* =========================================================
-   SMALL PHONES
-   ========================================================= */
+/* SMALL PHONES */
 
 @media (max-width: 520px) {
 
@@ -1383,9 +1340,6 @@ footer {
     font-size: 19px;
   }
 
-
-  /* Navigation */
-
   .nav {
     padding: 7px 12px;
   }
@@ -1403,9 +1357,6 @@ footer {
     font-size: 11px;
   }
 
-
-  /* Hero */
-
   .hero {
     padding-top: 12px;
   }
@@ -1420,9 +1371,6 @@ footer {
     width: 100%;
   }
 
-
-  /* Sweet Thickness */
-
   .sweet-intro > img {
     width: 160px;
   }
@@ -1431,8 +1379,15 @@ footer {
     grid-template-columns: 1fr;
   }
 
+  .cbd-feature {
+    margin-top: 32px;
 
-  /* Tickets */
+    padding-top: 32px;
+  }
+
+  .cbd-copy p:not(.eyebrow) {
+    font-size: 16px;
+  }
 
   .ticket-options {
     flex-direction: column;
@@ -1444,21 +1399,15 @@ footer {
     width: 100%;
   }
 
-
-  /* Footer */
-
   .footer-links {
     flex-wrap: wrap;
 
     gap: 14px 20px;
   }
-
 }
 
 
-/* =========================================================
-   REDUCED MOTION
-   ========================================================= */
+/* REDUCED MOTION */
 
 @media (prefers-reduced-motion: reduce) {
 
@@ -1477,5 +1426,4 @@ footer {
 
     scroll-behavior: auto !important;
   }
-
 }
