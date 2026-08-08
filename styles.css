@@ -1,995 +1,997 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800;900&family=Oswald:wght@400;500;600;700&display=swap');
 
-  <title>Kink Korps — Anything Goes Play Party</title>
+:root {
+  --bg: #050505;
+  --panel: #101012;
+  --panel-2: #151518;
+  --text: #f5f2ed;
+  --muted: #aaa49c;
+  --dim: #706c66;
+  --red: #ed1c24;
+  --red-bright: #ff3038;
+  --green: #9eff00;
+  --purple: #7a2cff;
+  --line: rgba(255,255,255,.10);
+  --line-strong: rgba(255,255,255,.18);
+  --content-width: 1320px;
+}
 
-  <meta
-    name="description"
-    content="Kink Korps presents Anything Goes, a fetish-friendly play party in Fort Lauderdale on Friday, August 28, 2026."
-  >
+/* =========================
+   BASE
+========================= */
 
-  <meta name="theme-color" content="#050505">
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
-  <link
-    rel="canonical"
-    href="https://krystal929-afk.github.io/Kink-Korps/"
-  >
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+  background: var(--bg);
+}
 
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Kink Korps">
-  <meta property="og:title" content="Anything Goes — Kink Korps">
-  <meta
-    property="og:description"
-    content="Fetish-friendly play party in Fort Lauderdale. Friday, August 28, 2026, 10 PM–4 AM at Nu Vibez."
-  >
-  <meta
-    property="og:image"
-    content="https://krystal929-afk.github.io/Kink-Korps/assets/Hero-flyer.jpg"
-  >
-  <meta
-    property="og:url"
-    content="https://krystal929-afk.github.io/Kink-Korps/"
-  >
+body {
+  margin: 0;
+  min-width: 320px;
+  background:
+    radial-gradient(circle at 88% 4%, rgba(122,44,255,.10), transparent 22rem),
+    radial-gradient(circle at 4% 32%, rgba(237,28,36,.07), transparent 25rem),
+    linear-gradient(180deg, #050505 0%, #070708 50%, #050505 100%);
+  color: var(--text);
+  font-family: Inter, Arial, sans-serif;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
 
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Anything Goes — Kink Korps">
-  <meta
-    name="twitter:description"
-    content="Fetish-friendly play party in Fort Lauderdale. Friday, August 28, 2026, 10 PM–4 AM at Nu Vibez."
-  >
-  <meta
-    name="twitter:image"
-    content="https://krystal929-afk.github.io/Kink-Korps/assets/Hero-flyer.jpg"
-  >
+body.age-gate-open {
+  overflow: hidden;
+}
 
-  <link rel="stylesheet" href="styles.css">
+img {
+  display: block;
+  max-width: 100%;
+}
 
-  <!-- 21+ AGE GATE -->
-  <script>
-    document.documentElement.classList.add("age-gate-loading");
+a {
+  color: inherit;
+  text-decoration: none;
+}
 
-    document.addEventListener("DOMContentLoaded", function () {
-      const ageGate = document.getElementById("age-gate");
-      const enterButton = document.getElementById("age-enter");
-      const exitButton = document.getElementById("age-exit");
-      const storageKey = "kinkKorpsAgeVerified";
+button {
+  font: inherit;
+}
 
-      function lockPage() {
-        document.body.classList.add("age-gate-open");
-        ageGate.classList.remove("is-hidden");
-      }
+p {
+  margin-top: 0;
+}
 
-      function unlockPage() {
-        ageGate.classList.add("is-hidden");
-        document.body.classList.remove("age-gate-open");
-        document.documentElement.classList.remove("age-gate-loading");
-      }
+strong {
+  font-weight: 800;
+}
 
-      let verified = false;
+::selection {
+  background: var(--green);
+  color: #000;
+}
 
-      try {
-        verified = sessionStorage.getItem(storageKey) === "true";
-      } catch (error) {
-        verified = false;
-      }
+:focus-visible {
+  outline: 3px solid var(--green);
+  outline-offset: 4px;
+}
 
-      if (verified) {
-        unlockPage();
-      } else {
-        lockPage();
-      }
+/* =========================
+   TYPOGRAPHY
+========================= */
 
-      enterButton.addEventListener("click", function () {
-        try {
-          sessionStorage.setItem(storageKey, "true");
-        } catch (error) {
-          // Gate still works if storage is unavailable.
-        }
+h1,
+h2 {
+  margin: 0;
+  font-family: Anton, Impact, sans-serif;
+  text-transform: uppercase;
+  line-height: .9;
+  letter-spacing: -.01em;
+}
 
-        unlockPage();
-      });
+h1 {
+  font-size: clamp(64px, 10vw, 132px);
+}
 
-      exitButton.addEventListener("click", function () {
-        if (window.history.length > 1) {
-          window.history.back();
-        } else {
-          window.location.href = "about:blank";
-        }
-      });
-    });
-  </script>
+h2 {
+  font-size: clamp(42px, 6vw, 78px);
+}
 
-  <!-- EVENT STRUCTURED DATA -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Event",
-    "name": "Kink Korps — Anything Goes",
-    "description": "Fetish-friendly play party presented by Kink Korps in Fort Lauderdale.",
-    "startDate": "2026-08-28T22:00:00-04:00",
-    "endDate": "2026-08-29T04:00:00-04:00",
-    "eventStatus": "https://schema.org/EventScheduled",
-    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
-    "image": [
-      "https://krystal929-afk.github.io/Kink-Korps/assets/Hero-flyer.jpg"
-    ],
-    "location": {
-      "@type": "Place",
-      "name": "Nu Vibez Lounge",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "1745 Northwest 38th Avenue",
-        "addressLocality": "Lauderhill",
-        "addressRegion": "FL",
-        "addressCountry": "US"
-      }
-    },
-    "organizer": {
-      "@type": "Organization",
-      "name": "Kink Korps",
-      "url": "https://krystal929-afk.github.io/Kink-Korps/"
-    },
-    "offers": {
-      "@type": "Offer",
-      "url": "https://krystal929-afk.github.io/Kink-Korps/#tickets",
-      "price": "15",
-      "priceCurrency": "USD",
-      "availability": "https://schema.org/InStock"
-    }
+h3 {
+  margin: 0 0 14px;
+  font-family: Oswald, Arial, sans-serif;
+  font-size: clamp(28px, 4vw, 48px);
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  color: var(--red);
+  font: 700 12px/1 Oswald, Arial, sans-serif;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+}
+
+/* =========================
+   AGE GATE
+========================= */
+
+html.age-gate-loading {
+  overflow: hidden;
+}
+
+.age-gate {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: grid;
+  place-items: center;
+  width: 100vw;
+  height: 100dvh;
+  padding: 20px;
+  background:
+    linear-gradient(rgba(0,0,0,.94), rgba(0,0,0,.98)),
+    radial-gradient(circle at 50% 30%, rgba(237,28,36,.20), transparent 35%);
+  transition: opacity .3s ease, visibility .3s ease;
+}
+
+.age-gate.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.age-gate-panel {
+  width: min(100%, 560px);
+  max-height: calc(100dvh - 40px);
+  overflow-y: auto;
+  padding: clamp(30px, 7vw, 64px);
+  text-align: center;
+  background: linear-gradient(145deg, #161619, #060607);
+  border: 1px solid var(--line-strong);
+  box-shadow: 0 40px 120px rgba(0,0,0,.9);
+}
+
+.age-gate-logo {
+  width: 160px;
+  height: 90px;
+  object-fit: contain;
+  margin: 0 auto 22px;
+}
+
+.age-gate-eyebrow {
+  margin: 0 0 8px;
+  color: var(--red);
+  font: 800 14px/1 Oswald, Arial, sans-serif;
+  letter-spacing: .25em;
+}
+
+.age-gate-panel h2 {
+  margin-bottom: 18px;
+  font-size: clamp(56px, 14vw, 94px);
+}
+
+.age-gate-copy {
+  max-width: 420px;
+  margin: 0 auto 12px;
+  font: 500 21px/1.35 Oswald, Arial, sans-serif;
+}
+
+.age-gate-confirm {
+  max-width: 420px;
+  margin: 0 auto;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.age-gate-actions {
+  display: grid;
+  gap: 12px;
+  max-width: 360px;
+  margin: 30px auto 0;
+}
+
+.age-enter-button {
+  width: 100%;
+  min-height: 60px;
+}
+
+.age-exit-button {
+  min-height: 46px;
+  background: transparent;
+  color: #777;
+  border: 1px solid #333;
+  font: 700 13px/1 Oswald, Arial, sans-serif;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.age-exit-button:hover {
+  color: #fff;
+  border-color: #666;
+}
+
+.age-gate-note {
+  margin: 24px 0 0;
+  color: #666;
+  font-size: 11px;
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 18px;
+  padding: 9px clamp(16px, 4vw, 54px);
+  background: rgba(5,5,5,.88);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+}
+
+.brand img {
+  width: 108px;
+  height: 52px;
+  object-fit: contain;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.ticket-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 0 24px;
+  background: var(--red);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,.15);
+  font: 800 14px/1 Oswald, Arial, sans-serif;
+  letter-spacing: .10em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform .18s ease, background .18s ease, box-shadow .18s ease;
+}
+
+.ticket-button:hover {
+  background: var(--red-bright);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(237,28,36,.18);
+}
+
+.ticket-button.small {
+  min-height: 40px;
+  padding: 0 16px;
+  font-size: 12px;
+}
+
+.ticket-button-outline {
+  background: transparent;
+  color: var(--green);
+  border-color: var(--green);
+}
+
+.ticket-button-outline:hover {
+  background: var(--green);
+  color: #000;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0,1.05fr) minmax(360px,.95fr);
+  align-items: center;
+  gap: clamp(36px,6vw,90px);
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: clamp(34px,6vw,82px) clamp(18px,5vw,72px) clamp(64px,9vw,120px);
+}
+
+.hero-art {
+  position: relative;
+}
+
+.hero-art::before {
+  content: "";
+  position: absolute;
+  inset: 10px -10px -10px 10px;
+  border: 1px solid rgba(158,255,0,.28);
+  pointer-events: none;
+}
+
+.hero-art img {
+  position: relative;
+  width: 100%;
+  border: 1px solid var(--line-strong);
+  box-shadow: 0 24px 80px rgba(0,0,0,.55);
+}
+
+.tagline {
+  margin: 22px 0 14px;
+  color: var(--green);
+  font: 500 clamp(22px,3.3vw,36px)/1.05 Oswald, Arial, sans-serif;
+  text-transform: uppercase;
+}
+
+.intro {
+  margin-bottom: 10px;
+  color: var(--text);
+  font: 600 clamp(18px,2vw,24px)/1.35 Oswald, Arial, sans-serif;
+  text-transform: uppercase;
+}
+
+.age-note {
+  margin-bottom: 26px;
+  color: var(--muted);
+  font: 700 12px/1 Oswald, Arial, sans-serif;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* =========================
+   SECTIONS
+========================= */
+
+.section {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: clamp(68px,9vw,130px) clamp(18px,5vw,72px);
+  border-top: 1px solid var(--line);
+}
+
+.section > h2 {
+  max-width: 900px;
+}
+
+.copy-wide {
+  max-width: 760px;
+  margin-top: 24px;
+}
+
+.copy-wide p,
+.location-copy p,
+.sweet-thickness-copy p,
+.cbd-copy p,
+.contact-section p {
+  color: var(--muted);
+  font-size: clamp(16px,1.5vw,19px);
+  line-height: 1.8;
+}
+
+/* =========================
+   GALLERY
+========================= */
+
+.gallery {
+  display: grid;
+  gap: 3px;
+}
+
+.gallery.flush {
+  max-width: var(--content-width);
+  grid-template-columns: 1fr 1fr;
+  padding-top: 0;
+  padding-bottom: 0;
+  border-top: 0;
+}
+
+.gallery.flush img {
+  width: 100%;
+  height: min(48vw,680px);
+  object-fit: cover;
+}
+
+/* =========================
+   RIN
+========================= */
+
+.rin-card {
+  min-height: 420px;
+  margin-top: 30px;
+  padding: clamp(26px,5vw,54px);
+  display: flex;
+  align-items: end;
+  background:
+    linear-gradient(90deg,rgba(0,0,0,.92),rgba(0,0,0,.42)),
+    #111;
+  border: 1px solid var(--line);
+  box-shadow: 0 24px 80px rgba(0,0,0,.55);
+}
+
+.rin-copy {
+  max-width: 620px;
+}
+
+.rin-copy p:not(.eyebrow) {
+  color: #d0cbc4;
+  font-size: 16px;
+}
+
+/* =========================
+   FEATURED
+========================= */
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 3px;
+  margin-top: 30px;
+}
+
+.profile-card {
+  display: grid;
+  grid-template-columns: minmax(160px,.75fr) 1fr;
+  min-height: 360px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  overflow: hidden;
+  transition: transform .2s ease,border-color .2s ease;
+}
+
+.profile-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--line-strong);
+}
+
+.profile-card img {
+  width: 100%;
+  height: 100%;
+  min-height: 360px;
+  object-fit: cover;
+}
+
+.profile-card > div {
+  padding: clamp(24px,4vw,42px);
+}
+
+.profile-card p:not(.eyebrow) {
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.external-link-label {
+  display: inline-block;
+  margin-top: 12px;
+  color: var(--green);
+  font: 700 12px/1 Oswald,Arial,sans-serif;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+/* =========================
+   VENUE
+========================= */
+
+.location-copy {
+  max-width: 760px;
+  margin-top: 22px;
+}
+
+.venue-address {
+  color: var(--text) !important;
+  font-family: Oswald,Arial,sans-serif !important;
+  font-weight: 600 !important;
+  text-transform: uppercase;
+}
+
+.venue-gallery {
+  grid-template-columns: repeat(3,1fr);
+  margin-top: 34px;
+}
+
+.venue-gallery img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border: 1px solid var(--line);
+}
+
+/* =========================
+   SWEET N THICK
+========================= */
+
+.sweet-intro {
+  display: grid;
+  grid-template-columns: 1fr minmax(300px,.9fr);
+  gap: 3px;
+  margin-top: 32px;
+}
+
+.sweet-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(28px,5vw,60px);
+  background:
+    linear-gradient(135deg,rgba(122,44,255,.18),rgba(158,255,0,.04)),
+    var(--panel);
+  border: 1px solid var(--line);
+}
+
+.sweet-brand-line {
+  margin-bottom: 4px;
+  color: var(--green);
+  font: 700 18px/1.2 Oswald,Arial,sans-serif;
+  text-transform: uppercase;
+}
+
+.sweet-products {
+  color: var(--text) !important;
+  font: 600 18px/1.4 Oswald,Arial,sans-serif !important;
+}
+
+.sweet-diet {
+  color: var(--muted) !important;
+}
+
+.sweet-intro > img {
+  width: 100%;
+  height: 100%;
+  min-height: 330px;
+  object-fit: cover;
+  border: 1px solid var(--line);
+}
+
+.sweet-thickness-feature {
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 3px;
+  margin-top: 3px;
+}
+
+.sweet-thickness-gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3px;
+}
+
+.sweet-thickness-gallery img {
+  width: 100%;
+  height: 100%;
+  min-height: 330px;
+  object-fit: cover;
+  border: 1px solid var(--line);
+}
+
+.sweet-thickness-copy {
+  padding: clamp(28px,5vw,58px);
+  background: var(--panel);
+  border: 1px solid var(--line);
+}
+
+.preorder-note {
+  padding: 14px 16px;
+  border-left: 3px solid var(--green);
+  background: rgba(158,255,0,.05);
+  color: var(--text) !important;
+}
+
+.cbd-feature {
+  display: grid;
+  grid-template-columns: minmax(280px,.8fr) 1.2fr;
+  gap: 3px;
+  margin-top: 3px;
+}
+
+.cbd-image-wrap {
+  min-height: 300px;
+  border: 1px solid var(--line);
+  overflow: hidden;
+}
+
+.cbd-image {
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+  object-fit: cover;
+}
+
+.cbd-copy {
+  padding: clamp(28px,5vw,58px);
+  background:
+    linear-gradient(135deg,rgba(158,255,0,.08),transparent 65%),
+    var(--panel);
+  border: 1px solid var(--line);
+}
+
+/* =========================
+   DRESS CODE / CONSENT
+========================= */
+
+.detail-grid,
+.conduct-grid {
+  display: grid;
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  gap: 3px;
+  margin-top: 34px;
+}
+
+.detail-grid > div,
+.conduct-grid > div {
+  min-height: 220px;
+  padding: clamp(24px,3vw,38px);
+  background: var(--panel);
+  border: 1px solid var(--line);
+}
+
+.detail-grid strong,
+.conduct-grid strong {
+  display: block;
+  margin-bottom: 16px;
+  color: var(--green);
+  font: 700 16px/1.15 Oswald,Arial,sans-serif;
+  letter-spacing: .08em;
+}
+
+.detail-grid span,
+.conduct-grid span {
+  display: block;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+.conduct-section {
+  background:
+    linear-gradient(90deg,rgba(237,28,36,.045),transparent 50%);
+}
+
+.conduct-grid > div:first-child {
+  border-color: rgba(237,28,36,.35);
+}
+
+.conduct-grid > div:first-child strong {
+  color: var(--red);
+}
+
+/* =========================
+   SPONSOR
+========================= */
+
+.sponsor-strip {
+  display: flex;
+  justify-content: center;
+}
+
+.logo-block {
+  width: min(100%,560px);
+  padding: 34px;
+  text-align: center;
+  background: var(--panel);
+  border: 1px solid var(--line);
+}
+
+.logo-block img {
+  width: min(100%,360px);
+  height: 150px;
+  margin: 10px auto;
+  object-fit: contain;
+}
+
+/* =========================
+   CLOSING
+========================= */
+
+.closing-line {
+  padding-top: 100px;
+  padding-bottom: 100px;
+  text-align: center;
+}
+
+.closing-line blockquote {
+  max-width: 980px;
+  margin: 0 auto;
+  color: #fff;
+  font: 400 clamp(30px,5vw,62px)/1.05 Anton,Impact,sans-serif;
+  text-transform: uppercase;
+}
+
+/* =========================
+   TICKETS
+========================= */
+
+.cta {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(70px,10vw,130px) 20px;
+  text-align: center;
+  background:
+    radial-gradient(circle at 50% 0%,rgba(237,28,36,.25),transparent 35%),
+    radial-gradient(circle at 20% 100%,rgba(122,44,255,.16),transparent 30%),
+    linear-gradient(145deg,#0d0d10,#050505);
+  border-top: 1px solid var(--line-strong);
+  border-bottom: 1px solid var(--line-strong);
+}
+
+.cta-logo {
+  width: 160px;
+  height: 90px;
+  object-fit: contain;
+  margin: 0 auto 18px;
+}
+
+.cta h2 {
+  font-size: clamp(60px,10vw,120px);
+}
+
+.ticket-info {
+  max-width: 700px;
+  margin: 30px auto 0;
+}
+
+.ticket-price {
+  margin: 4px 0;
+  font: 600 clamp(22px,3vw,32px)/1.2 Oswald,Arial,sans-serif;
+  text-transform: uppercase;
+}
+
+.ticket-price strong {
+  color: var(--green);
+}
+
+.ticket-price-door strong {
+  color: var(--red);
+}
+
+.ticket-info > p:not(.ticket-price):not(.ticket-important) {
+  color: var(--muted);
+  margin-top: 18px;
+}
+
+.ticket-important {
+  max-width: 640px;
+  margin: 24px auto 0;
+  padding: 16px 20px;
+  color: #fff;
+  background: rgba(255,255,255,.045);
+  border: 1px solid var(--line);
+  font-size: 14px;
+}
+
+.ticket-options {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  max-width: 900px;
+  margin: 28px auto 0;
+}
+
+.ticket-options .ticket-button {
+  min-width: 170px;
+}
+
+.ticket-confirmation {
+  margin: 22px 0 0;
+  color: #777;
+  font-size: 12px;
+}
+
+/* =========================
+   CONTACT / FOOTER
+========================= */
+
+.contact-section {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 90px 20px;
+  text-align: center;
+}
+
+.contact-section p {
+  max-width: 620px;
+  margin: 20px auto 28px;
+}
+
+footer {
+  padding: 34px 20px 50px;
+  text-align: center;
+  background: #030303;
+  border-top: 1px solid var(--line);
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 22px;
+  margin-bottom: 18px;
+}
+
+.footer-link {
+  color: var(--green);
+  font: 700 12px/1 Oswald,Arial,sans-serif;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.footer-link:hover {
+  color: #fff;
+}
+
+footer p {
+  margin: 0;
+  color: #666;
+  font-size: 11px;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 900px) {
+
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 34px;
   }
-  </script>
-</head>
 
-<body class="age-gate-open">
-
-  <!-- 21+ POPUP -->
-  <div
-    id="age-gate"
-    class="age-gate"
-    role="dialog"
-    aria-modal="true"
-    aria-labelledby="age-gate-title"
-    aria-describedby="age-gate-description"
-  >
-    <div class="age-gate-panel">
-
-      <img
-        class="age-gate-logo"
-        src="assets/kink-korps-logo.png"
-        alt="Kink Korps"
-        width="160"
-        height="90"
-      >
-
-      <p class="age-gate-eyebrow">ADULTS ONLY</p>
-
-      <h2 id="age-gate-title">21+ ONLY</h2>
-
-      <p id="age-gate-description" class="age-gate-copy">
-        Anything Goes is a 21+ fetish-friendly event.
-      </p>
-
-      <p class="age-gate-confirm">
-        By entering, you confirm that you are 21 years of age or older.
-      </p>
-
-      <div class="age-gate-actions">
-        <button
-          type="button"
-          id="age-enter"
-          class="ticket-button age-enter-button"
-        >
-          ENTER — I'M 21+
-        </button>
-
-        <button
-          type="button"
-          id="age-exit"
-          class="age-exit-button"
-        >
-          EXIT
-        </button>
-      </div>
-
-      <p class="age-gate-note">
-        Please respect everyone's boundaries and play responsibly.
-      </p>
-
-    </div>
-  </div>
-
-
-  <!-- NAVIGATION -->
-  <header class="nav">
-
-    <a class="brand" href="#top" aria-label="Kink Korps home">
-      <img
-        src="assets/kink-korps-logo.png"
-        alt="Kink Korps"
-        width="104"
-        height="50"
-      >
-    </a>
-
-    <a class="ticket-button small" href="#tickets">
-      Tickets
-    </a>
-
-  </header>
-
-
-  <main id="top">
-
-    <!-- HERO -->
-    <section class="hero" aria-labelledby="hero-title">
-
-      <div class="hero-art">
-        <img
-          src="assets/Hero-flyer.jpg"
-          alt="Anything Goes Play Party"
-          fetchpriority="high"
-          decoding="async"
-        >
-      </div>
-
-      <div class="hero-copy">
-
-        <p class="eyebrow">KINK KORPS PRESENTS</p>
-
-        <h1 id="hero-title">
-          ANYTHING<br>GOES
-        </h1>
-
-        <p class="tagline">
-          Pure Fetish. Real Freedom.
-        </p>
-
-        <p class="intro">
-          Friday, August 28 • 10 PM – 4 AM<br>
-          Nu Vibez • Fort Lauderdale
-        </p>
-
-        <p class="age-note">
-          21+ • Fetish-Friendly Event
-        </p>
-
-        <div class="hero-actions">
-
-          <a class="ticket-button" href="#tickets">
-            Get Tickets
-          </a>
-
-          <a
-            class="ticket-button ticket-button-outline"
-            href="https://fetlife.com/events/2026/08/28/kink-korps-anything-goes-esqhs5"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            FetLife Event
-          </a>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- THE NIGHT -->
-    <section class="section" aria-labelledby="night-title">
-
-      <p class="eyebrow">THE NIGHT</p>
-
-      <h2 id="night-title">
-        The night is entirely yours to shape.
-      </h2>
-
-      <div class="copy-wide">
-        <p>
-          Whether you’re coming to surrender to the music, connect with the
-          community, or unleash your desires, the night is entirely yours to shape.
-        </p>
-      </div>
-
-    </section>
-
-
-    <!-- ATMOSPHERE -->
-    <section
-      class="gallery section flush"
-      aria-label="Anything Goes atmosphere"
-    >
-
-      <img
-        src="assets/play-1.jpg"
-        alt="Anything Goes play atmosphere"
-        loading="lazy"
-        decoding="async"
-      >
-
-      <img
-        src="assets/play-2.jpg"
-        alt="Anything Goes play atmosphere"
-        loading="lazy"
-        decoding="async"
-      >
-
-    </section>
-
-
-    <!-- RIN CLOUD -->
-    <section class="section rin-section" aria-labelledby="rin-title">
-
-      <p class="eyebrow">FEATURED</p>
-
-      <h2 id="rin-title">
-        Rin Cloud
-      </h2>
-
-      <div class="rin-card">
-
-        <div class="rin-copy">
-
-          <h3>
-            Everyone’s fave pop star princess
-          </h3>
-
-          <p>
-            Rin Cloud shown doing a fetish scene with Mr. Satan.
-          </p>
-
-          <a
-            class="ticket-button"
-            href="https://linktr.ee/rincloud"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Rin Cloud’s Linktree ↗
-          </a>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- FEATURED -->
-    <section class="section" aria-labelledby="featured-title">
-
-      <p class="eyebrow">FEATURED</p>
-
-      <h2 id="featured-title">
-        Sonic Sorcery by Mr. Satan
-      </h2>
-
-      <div class="feature-grid">
-
-        <a
-          class="profile-card external-card"
-          href="https://krystal929-afk.github.io/Mr.Satan-EPK/?v=9"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-
-          <img
-            src="assets/mr-satan.jpg"
-            alt="Mr. Satan"
-            loading="lazy"
-            decoding="async"
-          >
-
-          <div>
-
-            <p class="eyebrow">
-              MUSIC BY
-            </p>
-
-            <h3>
-              MR. SATAN
-            </h3>
-
-            <p>
-              Taking control of the sound system for the night, Mr. Satan
-              brings dark, heavy-hitting rhythms and hypnotic beats crafted
-              to keep the dance floor surging and the energy electric from
-              start to finish.
-            </p>
-
-            <span class="external-link-label">
-              VIEW EPK ↗
-            </span>
-
-          </div>
-
-        </a>
-
-
-        <a
-          class="profile-card external-card"
-          href="https://x.com/satanica_lux"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-
-          <img
-            src="assets/satanica-lux.jpg"
-            alt="Satanica Lux"
-            loading="lazy"
-            decoding="async"
-          >
-
-          <div>
-
-            <p class="eyebrow">
-              DOOR DIVA
-            </p>
-
-            <h3>
-              SATANICA LUX
-            </h3>
-
-            <p>
-              Setting the tone at the door and welcoming you into the night.
-            </p>
-
-            <span class="external-link-label">
-              @SATANICA_LUX ↗
-            </span>
-
-          </div>
-
-        </a>
-
-      </div>
-
-    </section>
-
-
-    <!-- VENUE -->
-    <section
-      class="section location-section"
-      aria-labelledby="venue-title"
-    >
-
-      <p class="eyebrow">THE VENUE</p>
-
-      <h2 id="venue-title">
-        Nu Vibez
-      </h2>
-
-      <div class="location-copy">
-
-        <p>
-          Nu Vibez Lounge in Fort Lauderdale is the home of Anything Goes.
-          Expect a dark, high-energy space built for music, movement, and
-          late-night freedom — complete with a full bar, hookah, and room to play.
-        </p>
-
-        <p class="venue-address">
-          1745 Northwest 38th Avenue, Fort Lauderdale
-        </p>
-
-      </div>
-
-      <a
-        href="https://www.instagram.com/nuvibezlounge/"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="external-link-label venue-social-link"
-      >
-        @nuvibezlounge ↗
-      </a>
-
-      <div class="gallery venue-gallery">
-
-        <img
-          src="assets/NV-logo.jpg"
-          alt="Nu Vibez Logo"
-          loading="lazy"
-          decoding="async"
-        >
-
-        <img
-          src="assets/NV-staff.jpg"
-          alt="Nu Vibez"
-          loading="lazy"
-          decoding="async"
-        >
-
-        <img
-          src="assets/NV-bucket.jpg"
-          alt="Nu Vibez drinks"
-          loading="lazy"
-          decoding="async"
-        >
-
-        <img
-          src="assets/NV-staff2.jpg"
-          alt="Nu Vibez"
-          loading="lazy"
-          decoding="async"
-        >
-
-        <img
-          src="assets/NV-waffles.jpg"
-          alt="Nu Vibez food"
-          loading="lazy"
-          decoding="async"
-        >
-
-        <img
-          src="assets/NV-breakfast.jpg"
-          alt="Nu Vibez brunch"
-          loading="lazy"
-          decoding="async"
-        >
-
-      </div>
-
-    </section>
-
-
-    <!-- SWEET N THICK -->
-    <section
-      class="section sweet-section"
-      aria-labelledby="treats-title"
-    >
-
-      <p class="eyebrow">TREATS</p>
-
-      <h2 id="treats-title">
-        Sweet n Thick
-      </h2>
-
-
-      <!-- Sweet n Thick -->
-      <div class="sweet-intro">
-
-        <div class="sweet-copy">
-
-          <h3>
-            Sydney aka Sweet Thickness
-          </h3>
-
-          <p class="sweet-brand-line">
-            Sweet n Thick Goodies
-          </p>
-
-          <p class="sweet-products">
-            Treats, Treezzz and Topicals
-          </p>
-
-          <p class="sweet-diet">
-            Vegan and Gluten-Free Available
-          </p>
-
-          <a
-            href="https://instagram.com/sweeetnthick"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="external-link-label"
-          >
-            @sweeetnthick ↗
-          </a>
-
-        </div>
-
-        <img
-          src="assets/Sweet thick.JPG"
-          alt="Sweet n Thick Goodies"
-          loading="lazy"
-          decoding="async"
-        >
-
-      </div>
-
-
-      <!-- Sweet Thickness -->
-      <div class="sweet-thickness-feature">
-
-        <div class="sweet-thickness-gallery">
-
-          <img
-            src="assets/sweet-thickness-1.jpg"
-            alt="Sweet Thickness at Anything Goes"
-            loading="lazy"
-            decoding="async"
-          >
-
-          <img
-            src="assets/sweet-thickness-2.jpg"
-            alt="Sweet Thickness at Anything Goes"
-            loading="lazy"
-            decoding="async"
-          >
-
-        </div>
-
-        <div class="sweet-thickness-copy">
-
-          <p class="eyebrow">
-            SWEET THICKNESS
-          </p>
-
-          <h3>
-            More than just treats.
-          </h3>
-
-          <p>
-            Sweet Thickness will be on-site with her CBD items and treats
-            throughout the night.
-          </p>
-
-          <p>
-            She will also be offering bottle service for guests who
-            preorder in advance.
-          </p>
-
-          <p class="preorder-note">
-            <strong>
-              Preorders must be done in advance and are subject to availability.
-            </strong>
-          </p>
-
-        </div>
-
-      </div>
-
-
-      <!-- CBD INFORMATION -->
-      <div class="cbd-feature">
-
-        <div class="cbd-image-wrap">
-
-          <img
-            src="assets/power-plant.jpg"
-            alt="Cannabis plant"
-            class="cbd-image"
-            loading="lazy"
-            decoding="async"
-          >
-
-        </div>
-
-        <div class="cbd-copy">
-
-          <p class="eyebrow">
-            CBD
-          </p>
-
-          <h3>
-            CBD? What are its benefits?
-          </h3>
-
-          <p>
-            CBD means cannabidiol, a compound found in the cannabis flower.
-            CBD can be used from head to toes, oral or topical.
-          </p>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- DRESS CODE -->
-    <section class="section details" aria-labelledby="vibe-title">
-
-      <p class="eyebrow">
-        THE VIBE &amp; DRESS CODE
-      </p>
-
-      <h2 id="vibe-title">
-        Dress to Express.
-      </h2>
-
-      <div class="detail-grid">
-
-        <div>
-
-          <strong>
-            DRESS TO EXPRESS
-          </strong>
-
-          <span>
-            Wear whatever makes you feel unapologetically sexy. Leather,
-            latex, lace, vinyl, harnesses, mesh, or full fetish wear—if it
-            makes you feel fierce and powerful, wear it.
-          </span>
-
-        </div>
-
-        <div>
-
-          <strong>
-            PLAY &amp; DANCE
-          </strong>
-
-          <span>
-            Dedicated spaces to move, dance, explore, and let loose in a
-            welcoming, non-judgmental environment.
-          </span>
-
-        </div>
-
-        <div>
-
-          <strong>
-            ATMOSPHERE
-          </strong>
-
-          <span>
-            Fetish-friendly, body-positive, and radically inclusive.
-          </span>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- CONSENT -->
-    <section
-      class="section conduct-section"
-      aria-labelledby="consent-title"
-    >
-
-      <p class="eyebrow">
-        CONSENT &amp; ETIQUETTE
-      </p>
-
-      <h2 id="consent-title">
-        Consent is Mandatory.
-      </h2>
-
-      <div class="conduct-grid">
-
-        <div>
-
-          <strong>
-            CONSENT IS MANDATORY
-          </strong>
-
-          <span>
-            Always get explicit, enthusiastic consent before engaging,
-            touching, or joining in. “No” is always a full sentence.
-          </span>
-
-        </div>
-
-        <div>
-
-          <strong>
-            RESPECT THE VIBE
-          </strong>
-
-          <span>
-            Honor everyone’s boundaries, privacy, and personal expression.
-          </span>
-
-        </div>
-
-        <div>
-
-          <strong>
-            LOOK OUT FOR EACH OTHER
-          </strong>
-
-          <span>
-            Bring good energy, play safely, and keep the community thriving.
-          </span>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- SPONSOR -->
-    <section
-      class="section sponsor-strip sponsor-single"
-      aria-label="Sponsor"
-    >
-
-      <a
-        class="logo-block external-card"
-        href="https://www.spunklube.com"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-
-        <p class="eyebrow">
-          SPONSORED BY
-        </p>
-
-        <img
-          src="assets/spunk-logo.jpg"
-          alt="Spunk Lube"
-          loading="lazy"
-          decoding="async"
-        >
-
-        <span class="external-link-label">
-          SPUNKLUBE.COM ↗
-        </span>
-
-      </a>
-
-    </section>
-
-
-    <!-- CLOSING -->
-    <section class="section closing-line">
-
-      <blockquote>
-        Dress up, strip down, dance, and play. See you on the floor.
-      </blockquote>
-
-    </section>
-
-
-    <!-- TICKETS -->
-    <section
-      class="cta"
-      id="tickets"
-      aria-labelledby="tickets-title"
-    >
-
-      <img
-        class="cta-logo"
-        src="assets/kink-korps-logo.png"
-        alt="Kink Korps"
-        width="160"
-        height="90"
-        loading="lazy"
-        decoding="async"
-      >
-
-      <p class="eyebrow">
-        TICKETS
-      </p>
-
-      <h2 id="tickets-title">
-        ANYTHING GOES
-      </h2>
-
-      <div class="ticket-info">
-
-        <p class="ticket-price">
-          <strong>Online:</strong> $15
-        </p>
-
-        <p class="ticket-price ticket-price-door">
-          <strong>At the door:</strong> $20
-        </p>
-
-        <p>
-          Pay using one of the methods below.
-        </p>
-
-        <p class="ticket-important">
-          <strong>Important:</strong>
-          Put your <strong>Name + Email</strong> in the payment note
-          so we can send your ticket.
-        </p>
-
-      </div>
-
-      <div class="ticket-options">
-
-        <a
-          class="ticket-button"
-          href="https://cash.app/$Geo969/15"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Cash App $15
-        </a>
-
-        <a
-          class="ticket-button"
-          href="https://venmo.com/thesatans?txn=pay&amount=15&note=Anything+Goes+Ticket"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Venmo $15
-        </a>
-
-        <a
-          class="ticket-button"
-          href="https://paypal.me/krystalalvarez544/15"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          PayPal $15
-        </a>
-
-      </div>
-
-      <p class="ticket-confirmation">
-        Ticket will be emailed after payment is confirmed
-      </p>
-
-    </section>
-
-
-    <!-- CONTACT -->
-    <section
-      class="contact-section"
-      aria-labelledby="contact-title"
-    >
-
-      <p class="eyebrow">
-        QUESTIONS?
-      </p>
-
-      <h2 id="contact-title">
-        Contact Us
-      </h2>
-
-      <p>
-        Have a question about Anything Goes, tickets, or the event?
-        Get in touch.
-      </p>
-
-      <a
-        class="ticket-button"
-        href="mailto:mrsatanplaysgoodmusic@gmail.com"
-      >
-        Contact Us
-      </a>
-
-    </section>
-
-
-    <!-- FOOTER -->
-    <footer>
-
-      <div class="footer-links">
-
-        <a
-          href="https://www.instagram.com/kink_korps"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="footer-link"
-        >
-          Instagram
-        </a>
-
-        <a
-          href="https://www.facebook.com/share/1GfdckdrfF/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="footer-link"
-        >
-          Facebook
-        </a>
-
-        <a
-          href="https://fetlife.com/events/2026/08/28/kink-korps-anything-goes-esqhs5"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="footer-link"
-        >
-          FetLife
-        </a>
-
-      </div>
-
-      <p>
-        Kink Korps · Anything Goes Play Party · Fort Lauderdale
-      </p>
-
-    </footer>
-
-  </main>
-
-</body>
-</html>
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .venue-gallery {
+    grid-template-columns: repeat(2,1fr);
+  }
+
+  .detail-grid,
+  .conduct-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .detail-grid > div,
+  .conduct-grid > div {
+    min-height: 0;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 680px) {
+
+  html {
+    scroll-padding-top: 68px;
+  }
+
+  .nav {
+    padding: 7px 12px;
+  }
+
+  .brand img {
+    width: 92px;
+    height: 46px;
+  }
+
+  .ticket-button.small {
+    min-height: 38px;
+    padding: 0 13px;
+  }
+
+  .hero {
+    padding-top: 22px;
+  }
+
+  .hero-art::before {
+    inset: 7px -7px -7px 7px;
+  }
+
+  .hero-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .hero-actions .ticket-button {
+    width: 100%;
+  }
+
+  .gallery.flush {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery.flush img {
+    height: auto;
+  }
+
+  .profile-card {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-card img {
+    height: 330px;
+    min-height: 0;
+  }
+
+  .venue-gallery {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .venue-gallery img {
+    height: 190px;
+  }
+
+  .sweet-intro,
+  .sweet-thickness-feature,
+  .cbd-feature {
+    grid-template-columns: 1fr;
+  }
+
+  .sweet-intro > img {
+    min-height: 280px;
+  }
+
+  .sweet-thickness-gallery img {
+    min-height: 280px;
+  }
+
+  .cbd-image-wrap,
+  .cbd-image {
+    min-height: 260px;
+  }
+
+  .ticket-options {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 0 8px;
+  }
+
+  .ticket-options .ticket-button {
+    width: 100%;
+  }
+
+  .age-gate-panel {
+    padding: 30px 22px;
+  }
+}
+
+/* =========================
+   REDUCED MOTION
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: .01ms !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
