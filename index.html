@@ -2,13 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Kink Korps — Anything Goes Play Party</title>
 
   <meta
     name="description"
-    content="Kink Korps presents the Anything Goes Play Party in Fort Lauderdale. Friday, August 28, 2026, 10 PM–4 AM at Nu Vibez."
+    content="Kink Korps presents Anything Goes, a fetish-friendly play party in Fort Lauderdale on Friday, August 28, 2026."
   >
 
   <meta name="theme-color" content="#050505">
@@ -22,14 +22,17 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Kink Korps">
   <meta property="og:title" content="Anything Goes — Kink Korps">
+
   <meta
     property="og:description"
-    content="Fetish play party in Fort Lauderdale. Friday, August 28, 2026, 10 PM–4 AM at Nu Vibez."
+    content="Fetish-friendly play party in Fort Lauderdale. Friday, August 28, 2026, 10 PM–4 AM at Nu Vibez."
   >
+
   <meta
     property="og:image"
     content="https://krystal929-afk.github.io/Kink-Korps/assets/Hero-flyer.jpg"
   >
+
   <meta
     property="og:url"
     content="https://krystal929-afk.github.io/Kink-Korps/"
@@ -38,10 +41,12 @@
   <!-- Twitter / X -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Anything Goes — Kink Korps">
+
   <meta
     name="twitter:description"
-    content="Fetish play party in Fort Lauderdale. Friday, August 28, 2026, 10 PM–4 AM at Nu Vibez."
+    content="Fetish-friendly play party in Fort Lauderdale. Friday, August 28, 2026, 10 PM–4 AM at Nu Vibez."
   >
+
   <meta
     name="twitter:image"
     content="https://krystal929-afk.github.io/Kink-Korps/assets/Hero-flyer.jpg"
@@ -49,7 +54,11 @@
 
   <link rel="stylesheet" href="styles.css">
 
-  <!-- Age Gate -->
+
+  <!-- =====================================================
+       21+ AGE GATE
+       ===================================================== -->
+
   <script>
     document.documentElement.classList.add("age-gate-loading");
 
@@ -57,55 +66,59 @@
       const ageGate = document.getElementById("age-gate");
       const enterButton = document.getElementById("age-enter");
       const exitButton = document.getElementById("age-exit");
+
       const storageKey = "kinkKorpsAgeVerified";
 
-      function unlockSite() {
+      function lockPage() {
+        document.body.classList.add("age-gate-open");
+        ageGate.classList.remove("is-hidden");
+      }
+
+      function unlockPage() {
         ageGate.classList.add("is-hidden");
         document.body.classList.remove("age-gate-open");
         document.documentElement.classList.remove("age-gate-loading");
       }
 
-      function showGate() {
-        ageGate.classList.remove("is-hidden");
-        document.body.classList.add("age-gate-open");
-        document.documentElement.classList.remove("age-gate-loading");
-      }
-
-      let alreadyVerified = false;
+      let verified = false;
 
       try {
-        alreadyVerified = localStorage.getItem(storageKey) === "true";
+        verified = sessionStorage.getItem(storageKey) === "true";
       } catch (error) {
-        alreadyVerified = false;
+        verified = false;
       }
 
-      if (alreadyVerified) {
-        unlockSite();
+      if (verified) {
+        unlockPage();
       } else {
-        showGate();
+        lockPage();
       }
 
       enterButton.addEventListener("click", function () {
         try {
-          localStorage.setItem(storageKey, "true");
+          sessionStorage.setItem(storageKey, "true");
         } catch (error) {
-          // The site still works if localStorage is unavailable.
+          // The gate still works if sessionStorage is unavailable.
         }
 
-        unlockSite();
+        unlockPage();
       });
 
       exitButton.addEventListener("click", function () {
         if (window.history.length > 1) {
           window.history.back();
         } else {
-          window.location.href = "https://www.google.com/";
+          window.location.href = "about:blank";
         }
       });
     });
   </script>
 
-  <!-- Event structured data -->
+
+  <!-- =====================================================
+       EVENT STRUCTURED DATA
+       ===================================================== -->
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -121,7 +134,7 @@
     ],
     "location": {
       "@type": "Place",
-      "name": "Nu Vibez",
+      "name": "Nu Vibez Lounge",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "1745 Northwest 38th Avenue",
@@ -144,12 +157,15 @@
     }
   }
   </script>
+
 </head>
+
 
 <body class="age-gate-open">
 
+
   <!-- =====================================================
-       21+ AGE GATE
+       21+ POPUP
        ===================================================== -->
 
   <div
@@ -160,6 +176,7 @@
     aria-labelledby="age-gate-title"
     aria-describedby="age-gate-description"
   >
+
     <div class="age-gate-panel">
 
       <img
@@ -178,7 +195,10 @@
         21+ ONLY
       </h2>
 
-      <p id="age-gate-description" class="age-gate-copy">
+      <p
+        id="age-gate-description"
+        class="age-gate-copy"
+      >
         Anything Goes is a 21+ fetish-friendly event.
       </p>
 
@@ -193,7 +213,7 @@
           id="age-enter"
           class="ticket-button age-enter-button"
         >
-          Enter — I’m 21+
+          ENTER — I'M 21+
         </button>
 
         <button
@@ -201,16 +221,17 @@
           id="age-exit"
           class="age-exit-button"
         >
-          Exit
+          EXIT
         </button>
 
       </div>
 
       <p class="age-gate-note">
-        Please drink responsibly and respect everyone's boundaries.
+        Please respect everyone's boundaries and play responsibly.
       </p>
 
     </div>
+
   </div>
 
 
@@ -225,12 +246,14 @@
       href="#top"
       aria-label="Kink Korps home"
     >
+
       <img
         src="assets/kink-korps-logo.png"
         alt="Kink Korps"
         width="104"
         height="50"
       >
+
     </a>
 
     <a
@@ -244,6 +267,7 @@
 
 
   <main id="top">
+
 
     <!-- ===================================================
          HERO
@@ -264,6 +288,7 @@
         >
 
       </div>
+
 
       <div class="hero-copy">
 
@@ -378,7 +403,7 @@
     >
 
       <p class="eyebrow">
-        FEATURED MOMENT
+        FEATURED
       </p>
 
       <h2 id="rin-title">
@@ -398,7 +423,7 @@
           </p>
 
           <a
-            class="ticket-button rin-link-button"
+            class="ticket-button"
             href="https://linktr.ee/rincloud"
             target="_blank"
             rel="noopener noreferrer"
@@ -431,6 +456,7 @@
       </h2>
 
       <div class="feature-grid">
+
 
         <a
           class="profile-card external-card"
@@ -608,16 +634,19 @@
 
     <section
       class="section sweet-section"
-      aria-labelledby="sweet-title"
+      aria-labelledby="treats-title"
     >
 
       <p class="eyebrow">
         TREATS
       </p>
 
-      <h2 id="sweet-title">
+      <h2 id="treats-title">
         Sweet n Thick
       </h2>
+
+
+      <!-- Main Sweet n Thick information -->
 
       <div class="sweet-intro">
 
@@ -639,7 +668,17 @@
             Vegan and Gluten-Free Available
           </p>
 
+          <a
+            href="https://instagram.com/sweeetnthick"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="external-link-label"
+          >
+            @sweeetnthick ↗
+          </a>
+
         </div>
+
 
         <img
           src="assets/Sweet thick.JPG"
@@ -650,6 +689,8 @@
 
       </div>
 
+
+      <!-- Sweet Thickness feature -->
 
       <div class="sweet-thickness-feature">
 
@@ -683,27 +724,20 @@
           </h3>
 
           <p>
-            Sweet Thickness will be on-site with her CBD items and delicious
-            treats throughout the night.
+            Sweet Thickness will be on-site with her CBD items and treats
+            throughout the night.
           </p>
 
           <p>
-            She'll also be offering bottle service for guests who preorder
-            in advance.
+            She will also be offering bottle service for guests who
+            preorder in advance.
           </p>
 
           <p class="preorder-note">
-            <strong>Preorders must be made in advance and are subject to availability.</strong>
+            <strong>
+              Preorders must be done in advance and are subject to availability.
+            </strong>
           </p>
-
-          <a
-            href="https://instagram.com/sweeetnthick"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="external-link-label"
-          >
-            @sweeetnthick ↗
-          </a>
 
         </div>
 
@@ -745,6 +779,7 @@
 
         </div>
 
+
         <div>
 
           <strong>
@@ -757,6 +792,7 @@
           </span>
 
         </div>
+
 
         <div>
 
@@ -807,6 +843,7 @@
 
         </div>
 
+
         <div>
 
           <strong>
@@ -818,6 +855,7 @@
           </span>
 
         </div>
+
 
         <div>
 
@@ -935,6 +973,7 @@
 
       </div>
 
+
       <div class="ticket-options">
 
         <a
@@ -965,6 +1004,7 @@
         </a>
 
       </div>
+
 
       <p class="ticket-confirmation">
         Ticket will be emailed after payment is confirmed
@@ -1047,6 +1087,7 @@
       </p>
 
     </footer>
+
 
   </main>
 
