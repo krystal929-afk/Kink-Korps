@@ -8,3 +8,5 @@ Updates:
 - Existing Mr. Satan, Satanica Lux, House Conduct, Spunk Lube, ticket-coming-soon, and all current links retained.
 
 Upload/replace index.html, styles.css, and assets/hero-flyer.jpg.
+
+Pages refresh: 2026-08-21 17:40 ET
