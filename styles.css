@@ -1,22 +1,44 @@
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+/* =========================================================
+   KINK KORPS
+   ANYTHING GOES 2026
+   ========================================================= */
+
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Roboto+Condensed:wght@300;400;500;600;700&display=swap");
 
 
 /* =========================================================
-   KINK KORPS — ANYTHING GOES
+   ROOT
    ========================================================= */
 
 :root {
-  --bg: #050505;
-  --panel: #0b0b0d;
-  --text: #f4f1eb;
-  --muted: #b9b2a8;
+  --black: #050505;
+  --black-soft: #0b0b0d;
+  --panel: #101014;
+  --panel-light: #15151a;
 
-  --red: #ed1c24;
-  --green: #9eff00;
-  --purple: #7a2cff;
+  --text: #f3f3f3;
+  --muted: #b8b8c0;
+  --dim: #7f7f89;
 
-  --line: #242428;
-  --content-width: 1280px;
+  --pink: #ff1593;
+  --pink-bright: #ff3eb5;
+  --purple: #a531ff;
+  --green: #a6ff00;
+  --cyan: #29d9ff;
+
+  --line: rgba(255, 255, 255, 0.12);
+  --line-bright: rgba(255, 21, 147, 0.35);
+
+  --shadow:
+    0 30px 80px rgba(0, 0, 0, 0.55);
+
+  --glow-pink:
+    0 0 24px rgba(255, 21, 147, 0.22);
+
+  --glow-green:
+    0 0 24px rgba(166, 255, 0, 0.16);
+
+  --container: 1180px;
 }
 
 
@@ -32,39 +54,39 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 78px;
+  background: var(--black);
 }
 
 body {
   margin: 0;
+  padding: 0 0 76px;
 
-  background:
-    radial-gradient(
-      circle at 85% 8%,
-      rgba(122, 44, 255, 0.06),
-      transparent 18%
-    ),
-    radial-gradient(
-      circle at 10% 30%,
-      rgba(237, 28, 36, 0.05),
-      transparent 24%
-    ),
-    var(--bg);
+  overflow-x: hidden;
 
   color: var(--text);
 
-  font-family: Inter, Arial, sans-serif;
+  font-family:
+    "Roboto Condensed",
+    Arial,
+    sans-serif;
 
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-}
-
-body.age-gate-open {
-  overflow: hidden;
-}
-
-html.age-gate-loading body {
-  overflow: hidden;
+  background:
+    radial-gradient(
+      circle at 10% 12%,
+      rgba(255, 21, 147, 0.12),
+      transparent 27%
+    ),
+    radial-gradient(
+      circle at 88% 20%,
+      rgba(166, 255, 0, 0.08),
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at 70% 70%,
+      rgba(165, 49, 255, 0.09),
+      transparent 30%
+    ),
+    var(--black);
 }
 
 img {
@@ -77,31 +99,16 @@ a {
   text-decoration: none;
 }
 
-button {
+button,
+input,
+textarea,
+select {
   font: inherit;
 }
 
-p {
-  margin-top: 0;
-}
-
-strong {
-  font-weight: 700;
-}
-
-
-/* =========================================================
-   ACCESSIBILITY
-   ========================================================= */
-
-:focus-visible {
-  outline: 3px solid #fff;
-  outline-offset: 4px;
-}
-
 ::selection {
-  background: var(--green);
   color: #000;
+  background: var(--green);
 }
 
 
@@ -110,40 +117,60 @@ strong {
    ========================================================= */
 
 h1,
-h2 {
-  margin: 0.16em 0;
+h2,
+h3,
+h4 {
+  margin: 0;
 
-  font-family: Anton, Impact, sans-serif;
+  font-family:
+    "Oswald",
+    sans-serif;
 
   text-transform: uppercase;
-  line-height: 0.96;
-  letter-spacing: 0.012em;
 }
 
 h1 {
-  font-size: clamp(56px, 9vw, 110px);
-  line-height: 0.92;
-  letter-spacing: -0.01em;
+  max-width: 900px;
+
+  font-size:
+    clamp(54px, 8vw, 116px);
+
+  font-weight: 700;
+  line-height: 0.88;
+
+  letter-spacing: -0.035em;
 }
 
 h2 {
-  font-size: clamp(40px, 5.4vw, 72px);
+  max-width: 960px;
+
+  font-size:
+    clamp(40px, 6vw, 78px);
+
+  line-height: 0.98;
+
+  letter-spacing: -0.02em;
 }
 
 h3 {
-  margin: 6px 0 14px;
+  font-size:
+    clamp(27px, 3vw, 42px);
 
-  font: 700 clamp(28px, 3.7vw, 48px) / 1 Oswald, sans-serif;
+  line-height: 1;
+}
 
-  text-transform: uppercase;
+p {
+  margin-top: 0;
 }
 
 .eyebrow {
-  margin: 0 0 10px;
+  margin: 0 0 12px;
 
-  color: var(--red);
+  color: var(--green);
 
-  font: 600 12px Oswald, sans-serif;
+  font:
+    700 13px / 1.2 "Oswald",
+    sans-serif;
 
   letter-spacing: 0.2em;
   text-transform: uppercase;
@@ -151,279 +178,103 @@ h3 {
 
 
 /* =========================================================
-   21+ AGE GATE
+   LAYOUT
    ========================================================= */
 
-.age-gate {
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  min-height: 100dvh;
-  padding: 20px;
-
-  background:
-    radial-gradient(
-      circle at 50% 35%,
-      rgba(237, 28, 36, 0.14),
-      transparent 32%
-    ),
-    radial-gradient(
-      circle at 50% 75%,
-      rgba(158, 255, 0, 0.05),
-      transparent 35%
-    ),
-    rgba(0, 0, 0, 0.98);
-
-  opacity: 1;
-  visibility: visible;
-
-  transition:
-    opacity 0.35s ease,
-    visibility 0.35s ease;
-}
-
-.age-gate.is-hidden {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-}
-
-.age-gate-panel {
-  width: min(100%, 560px);
-
-  padding: clamp(30px, 6vw, 58px);
-
-  text-align: center;
-
-  background:
-    linear-gradient(
-      145deg,
-      rgba(20, 20, 22, 0.98),
-      rgba(7, 7, 8, 0.98)
-    );
-
-  border: 1px solid var(--line);
-
-  box-shadow:
-    0 30px 100px rgba(0, 0, 0, 0.8),
-    0 0 60px rgba(237, 28, 36, 0.08);
-}
-
-.age-gate-logo {
-  width: 160px;
-  height: 90px;
-
-  object-fit: contain;
-
-  margin: 0 auto 20px;
-}
-
-.age-gate-eyebrow {
-  margin: 0 0 8px;
-
-  color: var(--red);
-
-  font: 700 14px Oswald, sans-serif;
-
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-}
-
-.age-gate-panel h2 {
-  margin: 0 0 18px;
-
-  color: #fff;
-
-  font-size: clamp(52px, 12vw, 88px);
-  line-height: 0.9;
-}
-
-.age-gate-copy {
-  max-width: 420px;
-
-  margin: 0 auto 12px;
-
-  color: var(--text);
-
-  font: 500 21px / 1.4 Oswald, sans-serif;
-}
-
-.age-gate-confirm {
-  max-width: 420px;
+.container {
+  width: min(
+    calc(100% - 36px),
+    var(--container)
+  );
 
   margin: 0 auto;
-
-  color: var(--muted);
-
-  font-size: 14px;
-  line-height: 1.55;
 }
 
-.age-gate-actions {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+.section {
+  position: relative;
 
-  max-width: 360px;
-
-  margin: 30px auto 0;
+  padding:
+    clamp(68px, 8vw, 112px)
+    0;
 }
 
-.age-enter-button {
-  width: 100%;
-
-  min-height: 56px;
-
-  font-size: 16px;
-}
-
-.age-exit-button {
-  min-height: 46px;
-
-  background: transparent;
-  color: #888;
-
-  border: 1px solid #333;
-
-  font: 600 13px Oswald, sans-serif;
-
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-
-  cursor: pointer;
-
-  transition:
-    color 0.18s ease,
-    border-color 0.18s ease,
-    background-color 0.18s ease;
-}
-
-.age-exit-button:hover {
-  color: #fff;
-
-  border-color: #777;
-
-  background: rgba(255, 255, 255, 0.04);
-}
-
-.age-gate-note {
-  margin: 24px 0 0;
-
-  color: #666;
-
-  font-size: 11px;
-  line-height: 1.5;
+.flush {
+  padding-top: 34px;
 }
 
 
 /* =========================================================
-   NAVIGATION
+   HEADER
    ========================================================= */
 
-.nav {
+.site-header {
   position: sticky;
+  z-index: 100;
   top: 0;
-  z-index: 20;
 
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
-  gap: 18px;
+  border-bottom:
+    1px solid rgba(255, 255, 255, 0.08);
 
-  padding: 10px clamp(16px, 4vw, 52px);
-
-  background: rgba(5, 5, 5, 0.94);
-
-  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  background:
+    rgba(5, 5, 5, 0.9);
 
   backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+}
+
+.header-inner {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  min-height: 68px;
+
+  gap: 30px;
 }
 
 .brand {
-  display: inline-flex;
+  flex: 0 0 auto;
+
+  color: var(--pink);
+
+  font:
+    700 22px / 1 "Oswald",
+    sans-serif;
+
+  letter-spacing: 0.08em;
+
+  text-shadow:
+    0 0 18px rgba(255, 21, 147, 0.35);
+}
+
+.site-nav {
+  display: flex;
+
   align-items: center;
-}
 
-.brand img {
-  width: 104px;
-  height: 50px;
+  gap: 22px;
 
-  object-fit: contain;
-}
-
-.nav-ticket-button {
-  box-shadow: 0 0 24px rgba(237, 28, 36, 0.15);
-}
-
-
-/* =========================================================
-   BUTTONS
-   ========================================================= */
-
-.ticket-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  min-height: 50px;
-
-  padding: 0 22px;
-
-  background: var(--red);
-  color: #fff;
-
-  border: 1px solid rgba(255, 255, 255, 0.15);
-
-  font: 700 15px Oswald, sans-serif;
+  font:
+    600 13px / 1 "Oswald",
+    sans-serif;
 
   letter-spacing: 0.08em;
   text-transform: uppercase;
+}
 
-  cursor: pointer;
+.site-nav a {
+  color: var(--muted);
 
   transition:
-    background-color 0.18s ease,
     color 0.18s ease,
-    border-color 0.18s ease,
-    transform 0.18s ease;
+    text-shadow 0.18s ease;
 }
 
-.ticket-button:hover {
-  background: #ff252d;
-
-  transform: translateY(-2px);
-}
-
-.ticket-button:active {
-  transform: translateY(0);
-}
-
-.ticket-button.small {
-  min-height: 38px;
-
-  padding: 0 14px;
-
-  font-size: 12px;
-}
-
-.ticket-button-outline {
-  background: transparent;
-
-  border-color: var(--green);
-
+.site-nav a:hover {
   color: var(--green);
-}
 
-.ticket-button-outline:hover {
-  background: var(--green);
-
-  color: #000;
+  text-shadow:
+    0 0 12px rgba(166, 255, 0, 0.25);
 }
 
 
@@ -431,157 +282,704 @@ h3 {
    HERO
    ========================================================= */
 
-.hero {
-  display: grid;
-
-  grid-template-columns: 1.05fr 0.95fr;
-  align-items: center;
-
-  max-width: var(--content-width);
-
-  margin: 0 auto;
-
-  padding:
-    clamp(28px, 5vw, 72px)
-    clamp(16px, 5vw, 70px)
-    clamp(56px, 7vw, 90px);
-
-  gap: clamp(34px, 5vw, 70px);
+.hero-section {
+  overflow: hidden;
 }
 
-.hero-art img {
+.hero-grid {
+  display: grid;
+
+  grid-template-columns:
+    minmax(320px, 0.82fr)
+    minmax(0, 1.18fr);
+
+  align-items: center;
+
+  gap:
+    clamp(40px, 7vw, 90px);
+}
+
+.hero-image-wrap {
+  position: relative;
+
+  max-width: 620px;
+
+  margin: 0 auto;
+}
+
+.hero-image-wrap::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 8% -8%;
+
+  z-index: -1;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 21, 147, 0.22),
+      transparent 65%
+    );
+
+  filter: blur(18px);
+}
+
+.hero-flyer {
   width: 100%;
-  height: auto;
 
-  object-fit: contain;
+  border:
+    1px solid rgba(255, 255, 255, 0.15);
 
-  border: 1px solid var(--line);
+  box-shadow:
+    0 35px 90px rgba(0, 0, 0, 0.7),
+    0 0 40px rgba(255, 21, 147, 0.1);
 }
 
 .hero-copy {
   min-width: 0;
 }
 
-.tagline {
-  margin: 18px 0 12px;
+.hero-copy h1 {
+  background:
+    linear-gradient(
+      135deg,
+      #fff 10%,
+      var(--pink) 48%,
+      var(--green) 92%
+    );
 
-  color: var(--green);
+  -webkit-background-clip: text;
+  background-clip: text;
 
-  font: 500 clamp(22px, 3.2vw, 34px) / 1.12 Oswald, sans-serif;
+  color: transparent;
 }
 
-.intro {
-  max-width: 620px;
+.hero-lead {
+  max-width: 720px;
 
-  margin-bottom: 10px;
+  margin:
+    28px 0;
 
   color: var(--muted);
 
-  font-size: 18px;
-  line-height: 1.5;
+  font-size:
+    clamp(18px, 2vw, 22px);
+
+  line-height: 1.58;
 }
 
-.hero-ticket-price {
-  margin: 0 0 8px;
+.hero-meta {
+  display: grid;
 
-  color: #fff;
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
 
-  font: 700 clamp(18px, 2vw, 24px) / 1.2 Oswald, sans-serif;
+  gap: 10px;
 
-  letter-spacing: 0.04em;
+  max-width: 720px;
+
+  margin:
+    32px 0;
+}
+
+.hero-meta > div {
+  padding:
+    18px 20px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.045),
+      rgba(255, 255, 255, 0.015)
+    );
+
+  border:
+    1px solid var(--line);
+}
+
+.meta-label {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: var(--pink);
+
+  font:
+    600 11px / 1 "Oswald",
+    sans-serif;
+
+  letter-spacing: 0.15em;
   text-transform: uppercase;
 }
 
-.age-note {
-  margin: 10px 0 0;
+.hero-meta strong {
+  font:
+    600 19px / 1.2 "Oswald",
+    sans-serif;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   HERO SHIBARI FEATURE BANNER
+   ========================================================= */
+
+.feature-banner {
+  max-width: 760px;
+
+  margin:
+    34px 0;
+
+  padding:
+    clamp(24px, 4vw, 36px);
+
+  background:
+    linear-gradient(
+      130deg,
+      rgba(255, 21, 147, 0.12),
+      rgba(165, 49, 255, 0.08),
+      rgba(166, 255, 0, 0.04)
+    );
+
+  border:
+    1px solid rgba(255, 21, 147, 0.34);
+
+  box-shadow:
+    var(--glow-pink);
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+.feature-banner::after {
+  content: "";
+
+  position: absolute;
+
+  width: 220px;
+  height: 220px;
+
+  right: -90px;
+  top: -100px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(166, 255, 0, 0.07);
+
+  filter: blur(12px);
+}
+
+.feature-label {
+  margin:
+    0 0 10px;
 
   color: var(--green);
 
-  font: 600 13px Oswald, sans-serif;
+  font:
+    700 12px / 1 "Oswald",
+    sans-serif;
+
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.feature-title {
+  font-size:
+    clamp(32px, 4vw, 50px);
+
+  color: #fff;
+}
+
+.feature-copy {
+  margin:
+    16px 0 0;
+
+  color: var(--muted);
+
+  font-size: 19px;
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.hero-buttons {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 12px;
+
+  margin-top: 28px;
+}
+
+.ticket-button {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  min-height: 52px;
+
+  padding:
+    14px 25px;
+
+  border:
+    1px solid var(--pink);
+
+  background:
+    var(--pink);
+
+  color: #050505;
+
+  font:
+    700 14px / 1 "Oswald",
+    sans-serif;
+
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+
+  box-shadow:
+    0 0 22px rgba(255, 21, 147, 0.16);
+
+  transition:
+    transform 0.16s ease,
+    background 0.16s ease,
+    color 0.16s ease,
+    box-shadow 0.16s ease;
+}
+
+.ticket-button:hover {
+  transform:
+    translateY(-2px);
+
+  background:
+    var(--pink-bright);
+
+  box-shadow:
+    0 0 30px rgba(255, 21, 147, 0.28);
+}
+
+.ticket-button-outline {
+  color: var(--text);
+
+  background:
+    transparent;
+
+  border-color:
+    rgba(255, 255, 255, 0.25);
+
+  box-shadow: none;
+}
+
+.ticket-button-outline:hover {
+  color: #050505;
+
+  background: var(--green);
+
+  border-color: var(--green);
+
+  box-shadow:
+    var(--glow-green);
+}
+
+.inline-link {
+  display: inline-block;
+
+  color: var(--green);
+
+  font:
+    600 15px / 1.2 "Oswald",
+    sans-serif;
 
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
-.hero-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-
-  margin-top: 26px;
-}
-
-.hero-ticket-button {
-  box-shadow: 0 0 26px rgba(237, 28, 36, 0.16);
+.inline-link:hover {
+  color: #c7ff70;
 }
 
 
 /* =========================================================
-   GENERAL SECTIONS
+   COUNTDOWN
    ========================================================= */
 
-.section {
-  max-width: var(--content-width);
+.countdown-section {
+  border-top:
+    1px solid var(--line);
 
-  margin: 0 auto;
+  border-bottom:
+    1px solid var(--line);
 
-  padding:
-    clamp(56px, 7vw, 96px)
-    clamp(16px, 5vw, 70px);
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 21, 147, 0.055),
+      rgba(0, 0, 0, 0)
+    );
 }
 
-.copy-wide {
+.countdown-panel {
+  text-align: center;
+
+  max-width: 1000px;
+
+  margin: 0 auto;
+}
+
+.countdown-panel h2 {
+  margin:
+    0 auto;
+
   max-width: 900px;
+}
 
-  color: #d8d1c7;
+.countdown-intro {
+  margin:
+    20px auto 36px;
 
-  font-size: clamp(18px, 1.8vw, 24px);
+  color: var(--muted);
+
+  font-size: 19px;
+}
+
+.countdown-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: 12px;
+
+  max-width: 880px;
+
+  margin:
+    0 auto;
+}
+
+.countdown-box {
+  position: relative;
+
+  padding:
+    clamp(24px, 4vw, 40px)
+    12px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.05),
+      rgba(255, 255, 255, 0.01)
+    );
+
+  border:
+    1px solid rgba(255, 21, 147, 0.28);
+
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.26);
+}
+
+.countdown-box span {
+  display: block;
+
+  color: #fff;
+
+  font:
+    700 clamp(46px, 7vw, 86px) / 0.95
+    "Oswald",
+    sans-serif;
+
+  letter-spacing: -0.03em;
+
+  text-shadow:
+    0 0 28px rgba(255, 21, 147, 0.18);
+}
+
+.countdown-box small {
+  display: block;
+
+  margin-top: 12px;
+
+  color: var(--green);
+
+  font:
+    600 12px / 1 "Oswald",
+    sans-serif;
+
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.countdown-message {
+  margin:
+    28px 0 0;
+
+  color: var(--dim);
+
+  font-size: 15px;
+}
+
+
+/* =========================================================
+   HIGHLIGHTS
+   ========================================================= */
+
+.highlights-section h2 {
+  margin-bottom: 34px;
+}
+
+.detail-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 12px;
+
+  margin-top: 30px;
+}
+
+.detail-grid > div {
+  min-height: 190px;
+
+  padding:
+    26px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.045),
+      rgba(255, 255, 255, 0.012)
+    );
+
+  border:
+    1px solid var(--line);
+}
+
+.detail-grid strong {
+  display: block;
+
+  margin-bottom: 12px;
+
+  color: var(--green);
+
+  font:
+    700 24px / 1.05
+    "Oswald",
+    sans-serif;
+
+  text-transform: uppercase;
+}
+
+.detail-grid span {
+  color: var(--muted);
+
+  font-size: 17px;
   line-height: 1.55;
 }
 
-.copy-wide p {
-  margin: 0 0 18px;
-}
-
-.flush {
-  padding-top: 0;
-}
-
 
 /* =========================================================
-   GALLERIES
+   SARITA
    ========================================================= */
+
+.sarita-section {
+  border-top:
+    1px solid rgba(255, 21, 147, 0.18);
+
+  border-bottom:
+    1px solid rgba(255, 21, 147, 0.18);
+
+  background:
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(255, 21, 147, 0.1),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 90% 75%,
+      rgba(165, 49, 255, 0.08),
+      transparent 27%
+    );
+}
+
+.sarita-section > .container > h2 {
+  color: var(--pink);
+
+  text-shadow:
+    0 0 28px rgba(255, 21, 147, 0.2);
+}
+
+.sarita-intro {
+  max-width: 850px;
+
+  margin:
+    24px 0 38px;
+
+  color: var(--muted);
+
+  font-size:
+    clamp(19px, 2vw, 23px);
+
+  line-height: 1.55;
+}
+
+.sarita-card {
+  display: grid;
+
+  grid-template-columns:
+    minmax(300px, 0.85fr)
+    minmax(0, 1.15fr);
+
+  gap:
+    clamp(30px, 6vw, 70px);
+
+  align-items: center;
+
+  padding:
+    clamp(18px, 3vw, 28px);
+
+  border:
+    1px solid rgba(255, 21, 147, 0.22);
+
+  background:
+    rgba(7, 7, 9, 0.72);
+
+  box-shadow:
+    var(--shadow);
+}
+
+.sarita-lead-image {
+  overflow: hidden;
+
+  background:
+    #000;
+}
+
+.sarita-lead-image img {
+  width: 100%;
+  height: auto;
+
+  object-fit: cover;
+}
+
+.sarita-copy {
+  padding:
+    10px
+    clamp(0px, 3vw, 20px);
+}
+
+.sarita-copy h3 {
+  margin-bottom: 18px;
+
+  color: var(--green);
+
+  font-size:
+    clamp(34px, 5vw, 60px);
+}
+
+.sarita-copy p {
+  max-width: 650px;
+
+  color: var(--muted);
+
+  font-size: 19px;
+  line-height: 1.6;
+}
+
+.sarita-gallery {
+  margin-top: 18px;
+}
 
 .gallery {
   display: grid;
 
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
 
   gap: 10px;
 }
 
 .gallery img {
   width: 100%;
-  height: auto;
+  height: 100%;
 
-  object-fit: contain;
+  min-height: 340px;
+
+  object-fit: cover;
 
   background: #000;
 
-  border: 1px solid var(--line);
+  border:
+    1px solid var(--line);
 }
 
-.venue-gallery {
-  margin-top: 14px;
+.gallery-copy-card {
+  display: flex;
+
+  flex-direction: column;
+  justify-content: center;
+
+  min-height: 340px;
+
+  padding:
+    28px;
+
+  background:
+    linear-gradient(
+      140deg,
+      rgba(255, 21, 147, 0.13),
+      rgba(166, 255, 0, 0.035)
+    );
+
+  border:
+    1px solid var(--line-bright);
+}
+
+.gallery-copy-card h3 {
+  margin-bottom: 15px;
+
+  color: #fff;
+
+  font-size:
+    clamp(27px, 3vw, 38px);
+}
+
+.gallery-copy-card p,
+.gallery-copy-card li {
+  color: var(--muted);
+
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.gallery-copy-card ul {
+  padding-left: 18px;
+
+  margin-bottom: 0;
 }
 
 
 /* =========================================================
-   RIN CLOUD
+   RIN
    ========================================================= */
 
 .rin-section {
-  padding-top: clamp(40px, 5vw, 70px);
+  background:
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(165, 49, 255, 0.08),
+      transparent 35%
+    );
 }
 
 .rin-card {
@@ -589,30 +987,25 @@ h3 {
 
   margin-top: 28px;
 
-  padding: clamp(24px, 5vw, 42px);
+  padding:
+    clamp(28px, 5vw, 46px);
 
   background:
     linear-gradient(
       135deg,
-      rgba(122, 44, 255, 0.10),
-      rgba(237, 28, 36, 0.05)
-    ),
-    var(--panel);
+      rgba(165, 49, 255, 0.11),
+      rgba(255, 21, 147, 0.04)
+    );
 
-  border: 1px solid var(--line);
+  border:
+    1px solid var(--line);
 }
 
 .rin-copy {
-  max-width: 700px;
-}
-
-.rin-copy h3 {
-  color: #fff;
+  max-width: 720px;
 }
 
 .rin-copy p {
-  max-width: 650px;
-
   color: var(--muted);
 
   font-size: 18px;
@@ -625,559 +1018,91 @@ h3 {
 
 
 /* =========================================================
-   FEATURED PROFILES
-   ========================================================= */
-
-.feature-grid {
-  display: grid;
-
-  grid-template-columns: 1fr 1fr;
-
-  gap: 18px;
-
-  margin-top: 32px;
-}
-
-.profile-card {
-  display: grid;
-
-  grid-template-columns: 48% 1fr;
-
-  overflow: hidden;
-
-  background: var(--panel);
-
-  border: 1px solid var(--line);
-}
-
-.profile-card img {
-  width: 100%;
-  height: auto;
-
-  object-fit: contain;
-
-  background: #000;
-}
-
-.profile-card > div {
-  align-self: center;
-
-  padding: 26px;
-}
-
-.profile-card p {
-  color: var(--muted);
-
-  line-height: 1.6;
-}
-
-.external-card {
-  transition: transform 0.18s ease;
-}
-
-.external-card:hover {
-  transform: translateY(-2px);
-}
-
-.external-link-label {
-  display: inline-block;
-
-  margin-top: 12px;
-
-  color: var(--green);
-
-  font: 600 12px Oswald, sans-serif;
-
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-
-  transition: color 0.18s ease;
-}
-
-.external-link-label:hover {
-  color: #c7ff70;
-}
-
-
-/* =========================================================
-   NU VIBEZ
+   VENUE
    ========================================================= */
 
 .location-section {
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
+  border-top:
+    1px solid var(--line);
+
+  border-bottom:
+    1px solid var(--line);
 }
 
 .location-copy {
-  max-width: 760px;
+  max-width: 800px;
+
+  margin:
+    25px 0 18px;
 
   color: var(--muted);
 
-  font-size: 19px;
+  font-size:
+    clamp(18px, 2vw, 21px);
+
   line-height: 1.6;
 }
 
 .venue-address {
-  margin: 14px 0 0;
+  color: #fff;
 
-  color: var(--text);
+  font:
+    600 19px / 1.4 "Oswald",
+    sans-serif;
 
-  font: 600 16px / 1.5 Oswald, sans-serif;
-
-  letter-spacing: 0.03em;
+  text-transform: uppercase;
 }
 
 .venue-social-link {
-  margin-bottom: 14px;
+  margin-top: 10px;
 }
 
 
 /* =========================================================
-   SWEET N THICK
+   PRICING
    ========================================================= */
-
-.sweet-section {
-  border-bottom: 1px solid var(--line);
-}
-
-.sweet-intro {
-  display: grid;
-
-  grid-template-columns: 1fr 180px;
-
-  align-items: center;
-
-  gap: 28px;
-
-  max-width: 850px;
-
-  margin-top: 28px;
-}
-
-.sweet-copy {
-  min-width: 0;
-}
-
-.sweet-copy h3 {
-  margin-top: 0;
-
-  color: #fff;
-}
-
-.sweet-brand-line {
-  margin-bottom: 8px;
-
-  color: var(--green);
-
-  font: 700 22px Oswald, sans-serif;
-
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-
-.sweet-products {
-  margin-bottom: 8px;
-
-  color: var(--muted);
-
-  font: 500 18px / 1.45 Oswald, sans-serif;
-
-  letter-spacing: 0.03em;
-}
-
-.sweet-diet {
-  margin-bottom: 0;
-
-  color: #fff;
-
-  font: 600 15px / 1.5 Oswald, sans-serif;
-
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-
-.sweet-intro > img {
-  width: 100%;
-
-  border-radius: 12px;
-
-  border: 1px solid var(--line);
-}
-
-.sweet-thickness-feature {
-  display: grid;
-
-  grid-template-columns: 1.15fr 0.85fr;
-
-  gap: 28px;
-
-  align-items: center;
-
-  margin-top: 38px;
-}
-
-.sweet-thickness-gallery {
-  display: grid;
-
-  grid-template-columns: 1fr 1fr;
-
-  gap: 10px;
-}
-
-.sweet-thickness-gallery img {
-  width: 100%;
-  height: auto;
-
-  object-fit: cover;
-
-  background: #000;
-
-  border: 1px solid var(--line);
-}
-
-.sweet-thickness-copy {
-  padding: 8px 0;
-}
-
-.sweet-thickness-copy h3 {
-  color: #fff;
-}
-
-.sweet-thickness-copy p:not(.eyebrow) {
-  color: var(--muted);
-
-  font-size: 17px;
-  line-height: 1.6;
-}
-
-.preorder-note {
-  padding: 14px 16px;
-
-  background: rgba(158, 255, 0, 0.05);
-
-  border-left: 3px solid var(--green);
-}
-
-.preorder-note strong {
-  color: #fff;
-}
-
-
-/* =========================================================
-   CBD
-   ========================================================= */
-
-.cbd-feature {
-  display: grid;
-
-  grid-template-columns: minmax(220px, 0.8fr) 1.2fr;
-
-  gap: 28px;
-
-  align-items: center;
-
-  margin-top: 38px;
-  padding-top: 38px;
-
-  border-top: 1px solid var(--line);
-}
-
-.cbd-image-wrap {
-  min-width: 0;
-}
-
-.cbd-image {
-  width: 100%;
-  height: auto;
-
-  object-fit: contain;
-
-  background: #000;
-
-  border: 1px solid var(--line);
-}
-
-.cbd-copy {
-  min-width: 0;
-}
-
-.cbd-copy h3 {
-  color: #fff;
-}
-
-.cbd-copy p:not(.eyebrow) {
-  max-width: 650px;
-
-  color: var(--muted);
-
-  font-size: 17px;
-  line-height: 1.6;
-}
-
-
-/* =========================================================
-   DRESS CODE
-   ========================================================= */
-
-.detail-grid {
-  display: grid;
-
-  grid-template-columns: repeat(3, 1fr);
-
-  align-items: stretch;
-
-  gap: 10px;
-
-  margin-top: 30px;
-}
-
-.detail-grid > div {
-  display: flex;
-
-  flex-direction: column;
-
-  gap: 10px;
-
-  padding: 22px;
-
-  background: var(--panel);
-
-  border: 1px solid var(--line);
-}
-
-.detail-grid strong {
-  display: block;
-
-  color: var(--green);
-
-  font: 700 23px Oswald, sans-serif;
-
-  text-transform: uppercase;
-}
-
-.detail-grid span {
-  color: var(--muted);
-
-  line-height: 1.5;
-}
-
-
-/* =========================================================
-   CONSENT
-   ========================================================= */
-
-.conduct-section {
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-}
-
-.conduct-section h2 {
-  max-width: 1000px;
-}
-
-.conduct-grid {
-  display: grid;
-
-  grid-template-columns: repeat(3, 1fr);
-
-  align-items: stretch;
-
-  gap: 10px;
-
-  margin-top: 30px;
-}
-
-.conduct-grid > div {
-  display: flex;
-
-  flex-direction: column;
-
-  gap: 10px;
-
-  padding: 20px;
-
-  background: var(--panel);
-
-  border: 1px solid var(--line);
-}
-
-.conduct-grid strong {
-  display: block;
-
-  color: var(--green);
-
-  font: 700 22px / 1.1 Oswald, sans-serif;
-
-  text-transform: uppercase;
-}
-
-.conduct-grid span {
-  color: var(--muted);
-
-  line-height: 1.55;
-}
-
-
-/* =========================================================
-   SPONSOR
-   ========================================================= */
-
-.sponsor-strip {
-  display: grid;
-
-  grid-template-columns: minmax(0, 700px);
-
-  justify-content: center;
-
-  border-top: 1px solid var(--line);
-}
-
-.logo-block {
-  display: flex;
-
-  flex-direction: column;
-  justify-content: center;
-
-  min-height: 220px;
-
-  padding: 24px;
-
-  background: #000;
-
-  border: 1px solid var(--line);
-}
-
-.logo-block img {
-  width: auto;
-
-  max-width: 320px;
-  max-height: 120px;
-
-  object-fit: contain;
-
-  margin: auto;
-}
-
-
-/* =========================================================
-   CLOSING
-   ========================================================= */
-
-.closing-line {
-  text-align: center;
-
-  border-top: 1px solid var(--line);
-}
-
-.closing-line blockquote {
-  max-width: 900px;
-
-  margin: 0 auto;
-
-  color: var(--text);
-
-  font: 600 clamp(26px, 4vw, 48px) / 1.15 Oswald, sans-serif;
-}
-
-
-/* =========================================================
-   TICKETS
-   ========================================================= */
-
-.cta {
-  padding: 88px 16px 105px;
-
-  text-align: center;
-
-  border-top: 1px solid var(--line);
-
-  background:
-    radial-gradient(
-      circle at 50% 10%,
-      rgba(237, 28, 36, 0.16),
-      transparent 32%
-    ),
-    radial-gradient(
-      circle at 15% 90%,
-      rgba(122, 44, 255, 0.12),
-      transparent 30%
-    ),
-    #050505;
-}
-
-.ticket-panel {
-  width: min(100%, 850px);
-
-  margin: 0 auto;
-
-  padding: clamp(30px, 5vw, 56px);
-
-  background:
-    linear-gradient(
-      145deg,
-      rgba(15, 15, 18, 0.98),
-      rgba(5, 5, 5, 0.98)
-    );
-
-  border: 1px solid rgba(255, 255, 255, 0.12);
-
-  box-shadow:
-    0 30px 90px rgba(0, 0, 0, 0.45),
-    0 0 60px rgba(237, 28, 36, 0.05);
-}
-
-.cta-logo {
-  width: 160px;
-  height: 90px;
-
-  object-fit: contain;
-
-  margin: 0 auto 18px;
-}
-
-.ticket-event-meta {
-  margin: 10px auto 28px;
-
-  color: var(--green);
-
-  font: 600 14px / 1.4 Oswald, sans-serif;
-
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
 
 .ticket-price-display {
   display: grid;
 
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
 
-  max-width: 520px;
+  max-width: 600px;
 
-  margin: 30px auto;
+  margin-top: 32px;
 
-  border: 1px solid var(--line);
+  border:
+    1px solid var(--line);
 }
 
 .ticket-price-display > div {
-  padding: 24px 16px;
+  padding:
+    28px 24px;
 
-  background: rgba(255, 255, 255, 0.02);
+  text-align: center;
+
+  background:
+    rgba(255, 255, 255, 0.025);
 }
 
 .ticket-price-display > div + div {
-  border-left: 1px solid var(--line);
+  border-left:
+    1px solid var(--line);
 }
 
-.ticket-price-label {
+.price-label {
   display: block;
 
-  margin-bottom: 4px;
+  margin-bottom: 8px;
 
-  color: var(--muted);
+  color: var(--green);
 
-  font: 600 12px Oswald, sans-serif;
+  font:
+    600 12px / 1 "Oswald",
+    sans-serif;
 
-  letter-spacing: 0.14em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
@@ -1186,71 +1111,107 @@ h3 {
 
   color: #fff;
 
-  font: 700 clamp(42px, 6vw, 64px) / 1 Anton, Impact, sans-serif;
-}
-
-.ticket-price-display > div:first-child strong {
-  color: var(--green);
-}
-
-.ticket-info {
-  max-width: 560px;
-
-  margin: 0 auto 28px;
-
-  color: var(--muted);
-
-  font-size: 17px;
-  line-height: 1.5;
-}
-
-.ticket-info p {
-  margin: 10px auto 24px;
-}
-
-.ticket-info strong {
-  color: #fff;
-}
-
-.ticket-important {
-  margin-top: 12px !important;
-
-  padding: 16px 18px;
-
-  background: rgba(158, 255, 0, 0.045);
-
-  border-left: 3px solid var(--green);
-}
-
-.ticket-options {
-  display: flex;
-
-  flex-wrap: wrap;
-
-  justify-content: center;
-
-  gap: 12px;
-}
-
-.ticket-options .ticket-button {
-  min-width: 180px;
-}
-
-.ticket-confirmation {
-  margin-top: 24px;
-
-  color: #888;
-
-  font-size: 14px;
+  font:
+    700 54px / 1 "Oswald",
+    sans-serif;
 }
 
 
 /* =========================================================
-   GRAND MOBILE TICKET DOCK
+   CTA
    ========================================================= */
 
-.mobile-ticket-bar {
-  display: none;
+.cta {
+  padding:
+    clamp(72px, 10vw, 130px)
+    18px;
+
+  border-top:
+    1px solid var(--line);
+
+  background:
+    radial-gradient(
+      circle at 50% 10%,
+      rgba(255, 21, 147, 0.16),
+      transparent 34%
+    ),
+    radial-gradient(
+      circle at 15% 90%,
+      rgba(165, 49, 255, 0.12),
+      transparent 32%
+    ),
+    #050505;
+}
+
+.ticket-panel {
+  width:
+    min(100%, 900px);
+
+  margin: 0 auto;
+
+  padding:
+    clamp(32px, 6vw, 62px);
+
+  text-align: center;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(17, 17, 21, 0.98),
+      rgba(5, 5, 5, 0.98)
+    );
+
+  border:
+    1px solid rgba(255, 255, 255, 0.13);
+
+  box-shadow:
+    var(--shadow);
+}
+
+.cta-logo {
+  width:
+    min(100%, 340px);
+
+  max-height: 440px;
+
+  object-fit: contain;
+
+  margin:
+    0 auto 28px;
+
+  border:
+    1px solid var(--line);
+}
+
+.ticket-panel h2 {
+  margin:
+    0 auto;
+
+  max-width: 780px;
+}
+
+.ticket-event-meta {
+  margin:
+    22px auto 0;
+
+  color: var(--green);
+
+  font:
+    600 14px / 1.45
+    "Oswald",
+    sans-serif;
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.ticket-panel .ticket-price-display {
+  margin:
+    36px auto;
+}
+
+.cta-buttons {
+  justify-content: center;
 }
 
 
@@ -1259,35 +1220,29 @@ h3 {
    ========================================================= */
 
 .contact-section {
-  padding:
-    clamp(56px, 7vw, 86px)
-    16px;
+  border-top:
+    1px solid var(--line);
+}
 
+.contact-panel {
   text-align: center;
-
-  border-top: 1px solid var(--line);
-
-  background:
-    radial-gradient(
-      circle at center,
-      rgba(158, 255, 0, 0.045),
-      transparent 40%
-    );
 }
 
-.contact-section h2 {
-  margin-bottom: 16px;
+.contact-panel h2 {
+  margin:
+    0 auto;
 }
 
-.contact-section > p:not(.eyebrow) {
-  max-width: 560px;
+.contact-panel > p:not(.eyebrow) {
+  max-width: 650px;
 
-  margin: 0 auto 26px;
+  margin:
+    20px auto 28px;
 
   color: var(--muted);
 
-  font-size: 17px;
-  line-height: 1.55;
+  font-size: 18px;
+  line-height: 1.6;
 }
 
 
@@ -1295,446 +1250,330 @@ h3 {
    FOOTER
    ========================================================= */
 
-footer {
-  padding: 26px;
+.site-footer {
+  padding:
+    36px 0 100px;
 
-  color: #707070;
+  border-top:
+    1px solid var(--line);
 
-  font-size: 12px;
+  background:
+    #030303;
+}
 
+.footer-inner {
   text-align: center;
-
-  border-top: 1px solid var(--line);
 }
 
 .footer-links {
   display: flex;
 
   justify-content: center;
+  flex-wrap: wrap;
 
-  gap: 22px;
+  gap: 24px;
 
-  margin-bottom: 16px;
+  margin-bottom: 18px;
 }
 
 .footer-link {
-  color: var(--green);
+  color: var(--muted);
 
-  font: 600 14px Oswald, sans-serif;
+  font:
+    600 13px / 1
+    "Oswald",
+    sans-serif;
 
   letter-spacing: 0.08em;
-
   text-transform: uppercase;
-
-  transition: color 0.18s ease;
 }
 
 .footer-link:hover {
-  color: #c7ff70;
+  color: var(--green);
+}
+
+.footer-inner p {
+  margin: 0;
+
+  color: var(--dim);
+
+  font-size: 14px;
 }
 
 
 /* =========================================================
-   TABLET / MOBILE
+   MOBILE TICKET BAR
    ========================================================= */
 
-@media (max-width: 850px) {
+.mobile-ticket-bar {
+  position: fixed;
 
-  html {
-    scroll-padding-top: 62px;
+  z-index: 200;
+
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 12px;
+
+  min-height: 68px;
+
+  padding:
+    8px
+    max(12px, env(safe-area-inset-left));
+
+  border-top:
+    1px solid rgba(255, 255, 255, 0.13);
+
+  background:
+    rgba(5, 5, 5, 0.96);
+
+  backdrop-filter:
+    blur(14px);
+}
+
+.mobile-ticket-copy {
+  display: flex;
+
+  flex-direction: column;
+
+  min-width: 0;
+}
+
+.mobile-ticket-copy strong {
+  color: #fff;
+
+  font:
+    700 14px / 1.1
+    "Oswald",
+    sans-serif;
+
+  letter-spacing: 0.05em;
+}
+
+.mobile-ticket-copy span {
+  margin-top: 4px;
+
+  color: var(--green);
+
+  font:
+    600 11px / 1.1
+    "Oswald",
+    sans-serif;
+
+  letter-spacing: 0.06em;
+}
+
+.mobile-ticket-button {
+  min-height: 44px;
+
+  padding:
+    10px 17px;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1040px) {
+
+  .site-nav {
+    display: none;
   }
 
-  body {
-    padding-bottom: 150px;
+  .hero-grid {
+    grid-template-columns:
+      minmax(0, 0.9fr)
+      minmax(0, 1.1fr);
+
+    gap: 38px;
   }
-
-
-  /* Navigation */
-
-  .nav {
-    grid-template-columns: auto auto;
-
-    justify-content: space-between;
-
-    gap: 12px;
-
-    padding: 8px 14px;
-  }
-
-  .brand img {
-    width: 82px;
-    height: 42px;
-  }
-
-  .ticket-button.small {
-    min-height: 38px;
-
-    display: inline-flex;
-  }
-
-
-  /* Hero */
-
-  .hero {
-    display: block;
-
-    padding: 16px 14px 44px;
-  }
-
-  .hero-art {
-    margin-bottom: 24px;
-  }
-
-  .hero h1 {
-    font-size: clamp(48px, 14vw, 72px);
-
-    margin-bottom: 8px;
-  }
-
-  .hero .tagline {
-    font-size: clamp(20px, 6vw, 28px);
-  }
-
-
-  /* General */
-
-  .section {
-    padding: 46px 14px;
-  }
-
-  h2 {
-    font-size: clamp(34px, 10vw, 50px);
-  }
-
-
-  /* Gallery */
 
   .gallery {
-    grid-template-columns: 1fr;
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
   }
 
-
-  /* Rin */
-
-  .rin-card {
-    margin-top: 22px;
-
-    padding: 24px 20px;
+  .gallery img,
+  .gallery-copy-card {
+    min-height: 420px;
   }
 
-
-  /* Featured */
-
-  .feature-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .profile-card {
-    grid-template-columns: 1fr;
-  }
-
-  .profile-card img {
-    width: 100%;
-    height: auto;
-  }
-
-
-  /* Sweet Thickness */
-
-  .sweet-intro {
-    grid-template-columns: 1fr;
-
-    gap: 22px;
-  }
-
-  .sweet-intro > img {
-    width: 180px;
-  }
-
-  .sweet-thickness-feature {
-    grid-template-columns: 1fr;
-
-    gap: 24px;
-  }
-
-  .sweet-thickness-gallery {
-    grid-template-columns: 1fr 1fr;
-  }
-
-
-  /* CBD */
-
-  .cbd-feature {
-    grid-template-columns: 1fr;
-
-    gap: 24px;
-  }
-
-
-  /* Details */
-
-  .detail-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .conduct-grid {
-    grid-template-columns: 1fr;
-  }
-
-
-  /* Sponsor */
-
-  .sponsor-strip {
-    grid-template-columns: 1fr;
-  }
-
-
-  /* Tickets */
-
-  .cta {
-    padding: 70px 14px 84px;
-  }
-
-
-  /* Grand persistent mobile ticket dock */
-
-  .mobile-ticket-bar {
-    position: fixed;
-
-    left: 12px;
-    right: 12px;
-    bottom: calc(12px + env(safe-area-inset-bottom));
-
-    z-index: 50;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    gap: 10px;
-
-    padding: 16px;
-
-    background:
-      linear-gradient(
-        145deg,
-        rgba(15, 15, 18, 0.98),
-        rgba(5, 5, 5, 0.98)
-      );
-
-    border: 1px solid rgba(255, 255, 255, 0.12);
-
-    box-shadow:
-      0 18px 50px rgba(0, 0, 0, 0.60),
-      0 0 28px rgba(237, 28, 36, 0.10);
-
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-  }
-
-  .mobile-ticket-copy {
-    width: 100%;
-
-    text-align: center;
-  }
-
-  .mobile-ticket-copy strong {
-    display: block;
-
-    color: #fff;
-
-    font: 700 20px / 1 Oswald, sans-serif;
-
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-
-  .mobile-ticket-copy span {
-    display: block;
-
-    margin-top: 6px;
-
-    color: var(--green);
-
-    font: 700 13px / 1 Oswald, sans-serif;
-
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-  }
-
-  .mobile-ticket-button {
-    width: 100%;
-
-    min-height: 56px;
-
-    padding: 0 20px;
-
-    background: var(--red);
-
-    color: #fff;
-
-    font: 700 17px / 1 Oswald, sans-serif;
-
-    letter-spacing: 0.10em;
-    text-transform: uppercase;
-
-    box-shadow:
-      0 10px 24px rgba(237, 28, 36, 0.22);
-  }
-
-  .mobile-ticket-button:hover {
-    background: #ff252d;
-  }
 }
 
 
-/* =========================================================
-   SMALL PHONES
-   ========================================================= */
+@media (max-width: 820px) {
 
-@media (max-width: 520px) {
-
-  /* Age gate */
-
-  .age-gate {
-    padding: 14px;
+  body {
+    padding-bottom: 74px;
   }
 
-  .age-gate-panel {
-    padding: 28px 20px;
+  .section {
+    padding:
+      64px 0;
   }
 
-  .age-gate-logo {
-    width: 130px;
-    height: 74px;
+  .hero-grid {
+    grid-template-columns:
+      1fr;
   }
 
-  .age-gate-panel h2 {
-    font-size: clamp(50px, 17vw, 72px);
+  .hero-image-wrap {
+    max-width: 560px;
   }
 
-  .age-gate-copy {
+  .hero-copy {
+    text-align: left;
+  }
+
+  .hero-meta {
+    grid-template-columns:
+      1fr 1fr;
+  }
+
+  .countdown-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .sarita-card {
+    grid-template-columns:
+      1fr;
+  }
+
+  .sarita-lead-image {
+    max-width: 620px;
+
+    margin:
+      0 auto;
+  }
+
+  .detail-grid {
+    grid-template-columns:
+      1fr;
+  }
+
+  .detail-grid > div {
+    min-height: auto;
+  }
+
+}
+
+
+@media (max-width: 620px) {
+
+  .container {
+    width:
+      min(
+        calc(100% - 26px),
+        var(--container)
+      );
+  }
+
+  .header-inner {
+    min-height: 58px;
+  }
+
+  .brand {
     font-size: 19px;
   }
 
-
-  /* Navigation */
-
-  .nav {
-    padding: 7px 12px;
+  h1 {
+    font-size:
+      clamp(49px, 17vw, 76px);
   }
 
-  .brand img {
-    width: 76px;
-    height: 38px;
+  h2 {
+    font-size:
+      clamp(37px, 12vw, 56px);
   }
 
-  .ticket-button.small {
-    min-height: 36px;
-
-    padding: 0 10px;
-
-    font-size: 10px;
+  .hero-meta {
+    grid-template-columns:
+      1fr;
   }
 
+  .feature-banner {
+    padding: 22px;
+  }
 
-  /* Hero */
-
-  .hero-actions {
+  .hero-buttons {
     flex-direction: column;
-
-    align-items: stretch;
   }
 
-  .hero-actions .ticket-button {
+  .hero-buttons .ticket-button {
     width: 100%;
   }
 
-
-  /* Sweet Thickness */
-
-  .sweet-intro > img {
-    width: 160px;
+  .countdown-grid {
+    gap: 8px;
   }
 
-  .sweet-thickness-gallery {
-    grid-template-columns: 1fr;
+  .countdown-box {
+    padding:
+      24px 6px;
   }
 
+  .countdown-box span {
+    font-size:
+      clamp(42px, 16vw, 66px);
+  }
 
-  /* Tickets */
+  .gallery {
+    grid-template-columns:
+      1fr;
+  }
+
+  .gallery img {
+    min-height: 0;
+
+    height: auto;
+
+    object-fit: contain;
+  }
+
+  .gallery-copy-card {
+    min-height: auto;
+  }
 
   .ticket-price-display {
-    grid-template-columns: 1fr;
+    grid-template-columns:
+      1fr;
   }
 
   .ticket-price-display > div + div {
     border-left: 0;
 
-    border-top: 1px solid var(--line);
-  }
-
-  .ticket-options {
-    flex-direction: column;
-
-    align-items: stretch;
-  }
-
-  .ticket-options .ticket-button {
-    width: 100%;
-  }
-
-
-  /* Mobile ticket dock */
-
-  .mobile-ticket-bar {
-    left: 8px;
-    right: 8px;
-
-    padding: 14px;
-  }
-
-  .mobile-ticket-copy strong {
-    font-size: 18px;
+    border-top:
+      1px solid var(--line);
   }
 
   .mobile-ticket-copy span {
-    font-size: 12px;
+    font-size: 10px;
   }
 
-  .mobile-ticket-button {
-    min-height: 54px;
-
-    font-size: 16px;
-  }
-
-
-  /* Footer */
-
-  .footer-links {
-    flex-wrap: wrap;
-
-    gap: 14px 20px;
-  }
 }
 
 
-/* =========================================================
-   REDUCED MOTION
-   ========================================================= */
+@media (max-width: 430px) {
 
-@media (prefers-reduced-motion: reduce) {
-
-  html {
-    scroll-behavior: auto;
+  .mobile-ticket-copy {
+    max-width: 175px;
   }
 
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
+  .mobile-ticket-button {
+    padding:
+      10px 13px;
+
+    font-size: 12px;
   }
+
 }
