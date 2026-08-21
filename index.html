@@ -1,484 +1,1390 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Kink Korps | Return of the Anything Goes Play Party</title>
+  <title>Kink Korps - Anything Goes Play Party</title>
+
   <meta
     name="description"
-    content="Kink Korps presents Return of the Anything Goes Play Party on August 28 at Nu Vibez Lounge in Lauderhill. Featuring a midnight shibari performance by Sarita Bon Bon with rope bunny Sweet Thickness."
-  />
+    content="Kink Korps presents Anything Goes, a fetish-friendly play party in Lauderhill on Friday, August 28, 2026, featuring a midnight shibari performance by Sarita Bon Bon with rope bunny Sweet Thickness."
+  >
 
-  <meta property="og:title" content="Kink Korps | Return of the Anything Goes Play Party" />
+  <meta name="theme-color" content="#050505">
+
+  <link
+    rel="canonical"
+    href="https://krystal929-afk.github.io/Kink-Korps/"
+  >
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Kink Korps">
+  <meta property="og:title" content="Anything Goes - Kink Korps">
+
   <meta
     property="og:description"
-    content="August 28 • 10 PM • Nu Vibez Lounge • Featuring shibari by Sarita Bon Bon with rope bunny Sweet Thickness at midnight."
-  />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="assets/hero-flyer-2026.png" />
+    content="Friday, August 28, 2026, 10 PM-4 AM at Nu Vibez. Featuring shibari by Sarita Bon Bon with rope bunny Sweet Thickness at midnight."
+  >
 
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Kink Korps | Return of the Anything Goes Play Party" />
+  <meta
+    property="og:image"
+    content="https://krystal929-afk.github.io/Kink-Korps/assets/hero-flyer-2026.png"
+  >
+
+  <meta
+    property="og:url"
+    content="https://krystal929-afk.github.io/Kink-Korps/"
+  >
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Anything Goes - Kink Korps">
+
   <meta
     name="twitter:description"
-    content="August 28 • 10 PM • Nu Vibez Lounge • Featuring shibari by Sarita Bon Bon with rope bunny Sweet Thickness at midnight."
-  />
-  <meta name="twitter:image" content="assets/hero-flyer-2026.png" />
+    content="Friday, August 28, 2026, 10 PM-4 AM at Nu Vibez. Featuring shibari by Sarita Bon Bon with rope bunny Sweet Thickness at midnight."
+  >
 
-  <link rel="stylesheet" href="styles.css" />
+  <meta
+    name="twitter:image"
+    content="https://krystal929-afk.github.io/Kink-Korps/assets/hero-flyer-2026.png"
+  >
+
+  <link rel="stylesheet" href="styles.css">
+
+
+  <!-- =====================================================
+       21+ AGE GATE
+       ===================================================== -->
+
+  <script>
+    document.documentElement.classList.add("age-gate-loading");
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const ageGate = document.getElementById("age-gate");
+      const enterButton = document.getElementById("age-enter");
+      const exitButton = document.getElementById("age-exit");
+      const storageKey = "kinkKorpsAgeVerified";
+
+      function lockPage() {
+        document.body.classList.add("age-gate-open");
+        ageGate.classList.remove("is-hidden");
+      }
+
+      function unlockPage() {
+        ageGate.classList.add("is-hidden");
+        document.body.classList.remove("age-gate-open");
+        document.documentElement.classList.remove("age-gate-loading");
+      }
+
+      let verified = false;
+
+      try {
+        verified = sessionStorage.getItem(storageKey) === "true";
+      } catch (error) {
+        verified = false;
+      }
+
+      if (verified) {
+        unlockPage();
+      } else {
+        lockPage();
+      }
+
+      enterButton.addEventListener("click", function () {
+        try {
+          sessionStorage.setItem(storageKey, "true");
+        } catch (error) {
+          // Gate still works if storage is unavailable.
+        }
+
+        unlockPage();
+      });
+
+      exitButton.addEventListener("click", function () {
+        if (window.history.length > 1) {
+          window.history.back();
+        } else {
+          window.location.href = "about:blank";
+        }
+      });
+    });
+  </script>
+
+
+  <!-- =====================================================
+       EVENT STRUCTURED DATA
+       ===================================================== -->
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": "Kink Korps - Anything Goes",
+    "description": "Fetish-friendly play party presented by Kink Korps in Lauderhill, featuring a midnight shibari performance by Sarita Bon Bon with rope bunny Sweet Thickness.",
+    "startDate": "2026-08-28T22:00:00-04:00",
+    "endDate": "2026-08-29T04:00:00-04:00",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "image": [
+      "https://krystal929-afk.github.io/Kink-Korps/assets/hero-flyer-2026.png"
+    ],
+    "location": {
+      "@type": "Place",
+      "name": "Nu Vibez Lounge",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "1745 Northwest 38th Avenue",
+        "addressLocality": "Lauderhill",
+        "addressRegion": "FL",
+        "addressCountry": "US"
+      }
+    },
+    "organizer": {
+      "@type": "Organization",
+      "name": "Kink Korps",
+      "url": "https://krystal929-afk.github.io/Kink-Korps/"
+    },
+    "offers": {
+      "@type": "Offer",
+      "url": "https://krystal929-afk.github.io/Kink-Korps/#tickets",
+      "price": "15",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock"
+    }
+  }
+  </script>
 </head>
-<body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a href="#top" class="brand">KINK KORPS</a>
 
-      <nav class="site-nav" aria-label="Primary">
-        <a href="#hero">Home</a>
-        <a href="#countdown">Countdown</a>
-        <a href="#sarita">Sarita Bon Bon</a>
-        <a href="#venue">Venue</a>
-        <a href="#details">Details</a>
-        <a href="#tickets">Tickets</a>
-      </nav>
+
+<body class="age-gate-open">
+
+
+  <!-- =====================================================
+       21+ POPUP
+       ===================================================== -->
+
+  <div
+    id="age-gate"
+    class="age-gate"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="age-gate-title"
+    aria-describedby="age-gate-description"
+  >
+
+    <div class="age-gate-panel">
+
+      <img
+        class="age-gate-logo"
+        src="assets/kink-korps-logo.png"
+        alt="Kink Korps"
+        width="160"
+        height="90"
+      >
+
+      <p class="age-gate-eyebrow">
+        ADULTS ONLY
+      </p>
+
+      <h2 id="age-gate-title">
+        21+ ONLY
+      </h2>
+
+      <p
+        id="age-gate-description"
+        class="age-gate-copy"
+      >
+        Anything Goes is a 21+ fetish-friendly event.
+      </p>
+
+      <p class="age-gate-confirm">
+        By entering, you confirm that you are 21 years of age or older.
+      </p>
+
+      <div class="age-gate-actions">
+
+        <button
+          type="button"
+          id="age-enter"
+          class="ticket-button age-enter-button"
+        >
+          ENTER &mdash; I'M 21+
+        </button>
+
+        <button
+          type="button"
+          id="age-exit"
+          class="age-exit-button"
+        >
+          EXIT
+        </button>
+
+      </div>
+
+      <p class="age-gate-note">
+        Please respect everyone's boundaries and play responsibly.
+      </p>
+
     </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       NAVIGATION
+       ===================================================== -->
+
+  <header class="nav">
+
+    <a
+      class="brand"
+      href="#top"
+      aria-label="Kink Korps home"
+    >
+
+      <img
+        src="assets/kink-korps-logo.png"
+        alt="Kink Korps"
+        width="104"
+        height="50"
+      >
+
+    </a>
+
+    <a
+      class="ticket-button small nav-ticket-button"
+      href="#tickets"
+    >
+      Get Tickets &mdash; $15
+    </a>
+
   </header>
 
+
   <main id="top">
-    <!-- HERO -->
-    <section class="hero-section section flush" id="hero">
-      <div class="container hero-grid">
-        <div class="hero-image-wrap">
-          <img
-            src="assets/hero-flyer-2026.png"
-            alt="Kink Korps Return of the Anything Goes Play Party flyer"
-            class="hero-flyer"
-          />
-        </div>
 
-        <div class="hero-copy">
-          <p class="eyebrow">Kink Korps Presents</p>
-          <h1>Return of the Anything Goes Play Party</h1>
 
-          <p class="hero-lead">
-            A dark, decadent night of music, play, spectacle, and kink-friendly energy.
-            Join us for an unforgettable return featuring live performance, seductive atmosphere,
-            and the full Kink Korps vibe.
-          </p>
+    <!-- ===================================================
+         HERO
+         =================================================== -->
 
-          <div class="hero-meta">
-            <div>
-              <span class="meta-label">Date</span>
-              <strong>August 28, 2026</strong>
-            </div>
-            <div>
-              <span class="meta-label">Time</span>
-              <strong>10 PM</strong>
-            </div>
-            <div>
-              <span class="meta-label">Venue</span>
-              <strong>Nu Vibez Lounge</strong>
-            </div>
-            <div>
-              <span class="meta-label">Location</span>
-              <strong>Lauderhill, FL</strong>
-            </div>
-          </div>
+    <section
+      class="hero"
+      aria-labelledby="hero-title"
+    >
 
-          <div class="feature-banner">
-            <p class="feature-label">Midnight Feature</p>
-            <h2 class="feature-title">Shibari by Sarita Bon Bon</h2>
-            <p class="feature-copy">
-              Featuring <strong>Sarita Bon Bon</strong> with rope bunny
-              <strong>Sweet Thickness</strong> at <strong>midnight</strong>.
-            </p>
-          </div>
+      <div class="hero-art">
 
-          <div class="hero-buttons">
-            <a
-              class="ticket-button"
-              href="https://fetlife.com/events/2026/08/28/kink-korps-anything-goes-esqhs5"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Get Tickets
-            </a>
-
-            <a class="ticket-button ticket-button-outline" href="#sarita">
-              View Feature
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- COUNTDOWN -->
-    <section class="section countdown-section" id="countdown">
-      <div class="container">
-        <div class="countdown-panel">
-          <p class="eyebrow">Countdown to Anything Goes</p>
-          <h2>We’re getting closer.</h2>
-          <p class="countdown-intro">
-            The doors open at <strong>10:00 PM</strong> on <strong>August 28, 2026</strong>.
-          </p>
-
-          <div class="countdown-grid" aria-live="polite">
-            <div class="countdown-box">
-              <span id="days">00</span>
-              <small>Days</small>
-            </div>
-            <div class="countdown-box">
-              <span id="hours">00</span>
-              <small>Hours</small>
-            </div>
-            <div class="countdown-box">
-              <span id="minutes">00</span>
-              <small>Minutes</small>
-            </div>
-            <div class="countdown-box">
-              <span id="seconds">00</span>
-              <small>Seconds</small>
-            </div>
-          </div>
-
-          <p id="countdown-message" class="countdown-message">
-            Countdown to August 28, 2026 at 10:00 PM.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- EVENT HIGHLIGHTS -->
-    <section class="section highlights-section">
-      <div class="container">
-        <p class="eyebrow">What to Expect</p>
-        <h2>Play, performance, music, and atmosphere.</h2>
-
-        <div class="detail-grid">
-          <div>
-            <strong>Peep Show</strong>
-            <span>
-              A playful, voyeur-friendly edge woven into the full Anything Goes experience.
-            </span>
-          </div>
-
-          <div>
-            <strong>Hostess & Door Diva</strong>
-            <span>
-              Satanica Lux sets the tone and greets the night with her signature energy.
-            </span>
-          </div>
-
-          <div>
-            <strong>Host + DJ</strong>
-            <span>
-              Mr. Satan delivers the soundtrack and keeps the floor alive all night.
-            </span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- SARITA FEATURE -->
-    <section class="section sarita-section" id="sarita">
-      <div class="container">
-        <p class="eyebrow">Featured Midnight Performance</p>
-        <h2>Sarita Bon Bon</h2>
-
-        <p class="sarita-intro">
-          Sarita Bon Bon takes center stage at midnight for a featured shibari performance
-          with rope bunny <strong>Sweet Thickness</strong>. This is not a side note — it’s one
-          of the night’s signature moments.
-        </p>
-
-        <div class="sarita-card">
-          <div class="sarita-lead-image">
-            <img
-              src="assets/sarita-bonbon-1.jpg"
-              alt="Sarita Bon Bon portrait in pink lighting"
-            />
-          </div>
-
-          <div class="sarita-copy">
-            <h3>At Midnight</h3>
-            <p>
-              Expect an intoxicating live shibari feature blending sensuality, tension,
-              ritual, and visual drama. Sarita Bon Bon brings commanding stage presence,
-              theatrical glamour, and unforgettable energy to the room.
-            </p>
-
-            <p>
-              Follow Sarita on Instagram:
-            </p>
-
-            <a
-              class="inline-link"
-              href="https://www.instagram.com/sarita.bonbon/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              @sarita.bonbon
-            </a>
-          </div>
-        </div>
-
-        <div class="gallery sarita-gallery">
-          <img
-            src="assets/sarita-bonbon-2.jpg"
-            alt="Sarita Bon Bon in devil horn look with dramatic lighting"
-          />
-          <img
-            src="assets/sarita-bonbon-3.jpg"
-            alt="Sarita Bon Bon full body portrait in spotlight"
-          />
-          <img
-            src="assets/sarita-bonbon-4.jpg"
-            alt="Sarita Bon Bon in black and gold styling"
-          />
-          <div class="gallery-copy-card">
-            <h3>Why she’s featured</h3>
-            <p>
-              Sarita’s section is placed high on the page because the shibari show is
-              one of the biggest draws of the event.
-            </p>
-            <ul>
-              <li>Featured at midnight</li>
-              <li>With rope bunny Sweet Thickness</li>
-              <li>Built into the event identity, not buried as an extra</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- RIN CLOUD -->
-    <section class="section rin-section" id="rin">
-      <div class="container">
-        <p class="eyebrow">Kink Korps Energy</p>
-        <h2>Rin Cloud</h2>
-
-        <div class="rin-card">
-          <div class="rin-copy">
-            <p>
-              Rin stays in the Kink Korps world as a mascot-like presence and part of the page’s
-              recurring vibe. She helps carry the personality of Anything Goes and keeps the page
-              feeling like a full universe, not just an event listing.
-            </p>
-
-            <a
-              href="https://www.instagram.com/kink_korps"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="ticket-button rin-link-button"
-            >
-              Follow Kink Korps
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- VENUE -->
-    <section class="section location-section" id="venue">
-      <div class="container">
-        <p class="eyebrow">Venue</p>
-        <h2>Nu Vibez Lounge</h2>
-
-        <p class="location-copy">
-          Nu Vibez Lounge in Lauderhill hosts the return of Anything Goes. Expect music,
-          atmosphere, movement, and immersive late-night energy.
-        </p>
-
-        <p class="venue-address">
-          Lauderhill, Florida
-        </p>
-
-        <a
-          href="https://www.instagram.com/nuvibezlounge/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-link venue-social-link"
-        >
-          Visit Nu Vibez Lounge on Instagram
-        </a>
-      </div>
-    </section>
-
-    <!-- EVENT DETAILS -->
-    <section class="section" id="details">
-      <div class="container">
-        <p class="eyebrow">Event Details</p>
-        <h2>Dress to express. Consent is mandatory. Free parking.</h2>
-
-        <div class="detail-grid">
-          <div>
-            <strong>Dress to Express</strong>
-            <span>
-              Bring your style, your edge, your fantasy, your scene energy.
-            </span>
-          </div>
-
-          <div>
-            <strong>Consent is Mandatory</strong>
-            <span>
-              Respect, communication, and boundaries are non-negotiable.
-            </span>
-          </div>
-
-          <div>
-            <strong>Free Parking</strong>
-            <span>
-              Pull up without the extra hassle.
-            </span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- AGE + PRICING -->
-    <section class="section">
-      <div class="container">
-        <p class="eyebrow">Admission</p>
-        <h2>21+ • Presale $15 • Door $20</h2>
-
-        <div class="ticket-price-display">
-          <div>
-            <span class="price-label">Presale</span>
-            <strong>$15</strong>
-          </div>
-
-          <div>
-            <span class="price-label">At The Door</span>
-            <strong>$20</strong>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- TICKETS CTA -->
-    <section class="cta" id="tickets">
-      <div class="ticket-panel">
         <img
           src="assets/hero-flyer-2026.png"
-          alt="Anything Goes flyer"
-          class="cta-logo"
-        />
+          alt="Return of the Anything Goes Play Party featuring Sarita Bon Bon"
+          fetchpriority="high"
+          decoding="async"
+        >
 
-        <p class="eyebrow">Get In The Room</p>
-        <h2>Ready for Anything Goes?</h2>
+      </div>
 
-        <p class="ticket-event-meta">
-          August 28, 2026 • 10 PM • Nu Vibez Lounge • Lauderhill
+
+      <div class="hero-copy">
+
+        <p class="eyebrow">
+          KINK KORPS PRESENTS
         </p>
 
-        <div class="ticket-price-display">
-          <div>
-            <span class="price-label">Presale</span>
-            <strong>$15</strong>
+        <h1 id="hero-title">
+          ANYTHING<br>GOES
+        </h1>
+
+        <p class="tagline">
+          Pure Fetish. Real Freedom.
+        </p>
+
+        <p class="intro">
+          Friday, August 28 • 10 PM - 4 AM<br>
+          Nu Vibez • Lauderhill
+        </p>
+
+        <p class="hero-ticket-price">
+          $15 Advance • $20 Door
+        </p>
+
+        <p class="age-note">
+          21+ • Fetish-Friendly Event
+        </p>
+
+
+        <!-- COUNTDOWN -->
+
+        <div
+          class="event-countdown"
+          aria-label="Countdown to Anything Goes"
+        >
+
+          <p class="eyebrow countdown-eyebrow">
+            COUNTDOWN TO ANYTHING GOES
+          </p>
+
+          <div class="countdown-grid">
+
+            <div class="countdown-unit">
+              <strong id="countdown-days">00</strong>
+              <span>DAYS</span>
+            </div>
+
+            <div class="countdown-unit">
+              <strong id="countdown-hours">00</strong>
+              <span>HOURS</span>
+            </div>
+
+            <div class="countdown-unit">
+              <strong id="countdown-minutes">00</strong>
+              <span>MIN</span>
+            </div>
+
+            <div class="countdown-unit">
+              <strong id="countdown-seconds">00</strong>
+              <span>SEC</span>
+            </div>
+
           </div>
 
-          <div>
-            <span class="price-label">Door</span>
-            <strong>$20</strong>
-          </div>
+          <p
+            id="countdown-status"
+            class="countdown-status"
+          >
+            August 28 • 10 PM
+          </p>
+
         </div>
 
-        <div class="hero-buttons cta-buttons">
+
+        <div class="hero-actions">
+
           <a
-            class="ticket-button"
-            href="https://fetlife.com/events/2026/08/28/kink-korps-anything-goes-esqhs5"
-            target="_blank"
-            rel="noopener noreferrer"
+            class="ticket-button hero-ticket-button"
+            href="#tickets"
           >
-            Buy Tickets
+            Get Tickets &mdash; $15
           </a>
 
           <a
             class="ticket-button ticket-button-outline"
-            href="https://www.instagram.com/kink_korps"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Follow Kink Korps
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section class="section contact-section">
-      <div class="container contact-panel">
-        <p class="eyebrow">Questions?</p>
-        <h2>Contact Us</h2>
-
-        <p>
-          Have a question about Anything Goes, tickets, or the event?
-          Get in touch.
-        </p>
-
-        <a
-          class="ticket-button"
-          href="mailto:mrsatanplaysgoodmusic@gmail.com"
-        >
-          Contact Us
-        </a>
-      </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="site-footer">
-      <div class="container footer-inner">
-        <div class="footer-links">
-          <a
-            href="https://www.instagram.com/kink_korps"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="footer-link"
-          >
-            Instagram
-          </a>
-
-          <a
-            href="https://www.facebook.com/share/1GfdckdrfF/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="footer-link"
-          >
-            Facebook
-          </a>
-
-          <a
             href="https://fetlife.com/events/2026/08/28/kink-korps-anything-goes-esqhs5"
             target="_blank"
             rel="noopener noreferrer"
-            class="footer-link"
           >
-            FetLife
+            FetLife Event
           </a>
+
         </div>
 
-        <p>Kink Korps · Anything Goes Play Party · Lauderhill</p>
       </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         SARITA BON BON
+         =================================================== -->
+
+    <section
+      class="section sarita-section"
+      aria-labelledby="sarita-title"
+    >
+
+      <p class="eyebrow">
+        MIDNIGHT FEATURE
+      </p>
+
+      <h2 id="sarita-title">
+        Sarita Bon Bon
+      </h2>
+
+
+      <div class="sarita-feature">
+
+        <div class="sarita-copy">
+
+          <h3>
+            Shibari at Midnight
+          </h3>
+
+          <p>
+            At midnight, Sarita Bon Bon performs a live shibari scene
+            with rope bunny Sweet Thickness.
+          </p>
+
+          <a
+            href="https://www.instagram.com/sarita.bonbon/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="external-link-label sarita-social-link"
+          >
+            @sarita.bonbon ↗
+          </a>
+
+        </div>
+
+
+        <div class="sarita-gallery">
+
+          <img
+            src="assets/sarita-bonbon-1.jpg"
+            alt="Sarita Bon Bon"
+            loading="lazy"
+            decoding="async"
+          >
+
+          <img
+            src="assets/sarita-bonbon-2.jpg"
+            alt="Sarita Bon Bon"
+            loading="lazy"
+            decoding="async"
+          >
+
+          <img
+            src="assets/sarita-bonbon-3.jpg"
+            alt="Sarita Bon Bon"
+            loading="lazy"
+            decoding="async"
+          >
+
+          <img
+            src="assets/sarita-bonbon-4.jpg"
+            alt="Sarita Bon Bon"
+            loading="lazy"
+            decoding="async"
+          >
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         THE NIGHT
+         =================================================== -->
+
+    <section
+      class="section"
+      aria-labelledby="night-title"
+    >
+
+      <p class="eyebrow">
+        THE NIGHT
+      </p>
+
+      <h2 id="night-title">
+        The night is entirely yours to shape.
+      </h2>
+
+      <div class="copy-wide">
+
+        <p>
+          Whether you’re coming to surrender to the music, connect with the
+          community, or unleash your desires, the night is entirely yours to shape.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         ATMOSPHERE
+         =================================================== -->
+
+    <section
+      class="gallery section flush"
+      aria-label="Anything Goes atmosphere"
+    >
+
+      <img
+        src="assets/play-1.jpg"
+        alt="Anything Goes play atmosphere"
+        loading="lazy"
+        decoding="async"
+      >
+
+      <img
+        src="assets/play-2.jpg"
+        alt="Anything Goes play atmosphere"
+        loading="lazy"
+        decoding="async"
+      >
+
+    </section>
+
+
+    <!-- ===================================================
+         RIN CLOUD
+         =================================================== -->
+
+    <section
+      class="section rin-section"
+      aria-labelledby="rin-title"
+    >
+
+      <p class="eyebrow">
+        FEATURED
+      </p>
+
+      <h2 id="rin-title">
+        Rin Cloud
+      </h2>
+
+      <div class="rin-card">
+
+        <div class="rin-copy">
+
+          <h3>
+            Everyone’s fave pop star princess
+          </h3>
+
+          <p>
+            Rin Cloud shown doing a fetish scene with Mr. Satan.
+          </p>
+
+          <a
+            class="ticket-button rin-link-button"
+            href="https://linktr.ee/rincloud"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Rin Cloud’s Linktree ↗
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         FEATURED
+         =================================================== -->
+
+    <section
+      class="section"
+      aria-labelledby="featured-title"
+    >
+
+      <p class="eyebrow">
+        FEATURED
+      </p>
+
+      <h2 id="featured-title">
+        Music by Mr. Satan
+      </h2>
+
+      <div class="feature-grid">
+
+
+        <!-- MR. SATAN -->
+
+        <a
+          class="profile-card external-card"
+          href="https://krystal929-afk.github.io/Mr.Satan-EPK/?v=9"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+
+          <img
+            src="assets/mr-satan.jpg"
+            alt="Mr. Satan"
+            loading="lazy"
+            decoding="async"
+          >
+
+          <div>
+
+            <p class="eyebrow">
+              MUSIC BY
+            </p>
+
+            <h3>
+              MR. SATAN
+            </h3>
+
+            <p>
+              Taking control of the sound system for the night, Mr. Satan
+              brings dark, heavy-hitting rhythms and hypnotic beats crafted
+              to keep the dance floor surging and the energy electric from
+              start to finish.
+            </p>
+
+            <span class="external-link-label">
+              VIEW EPK ↗
+            </span>
+
+          </div>
+
+        </a>
+
+
+        <!-- SATANICA -->
+
+        <a
+          class="profile-card external-card"
+          href="https://x.com/satanica_lux"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+
+          <img
+            src="assets/satanica-lux.jpg"
+            alt="Satanica Lux"
+            loading="lazy"
+            decoding="async"
+          >
+
+          <div>
+
+            <p class="eyebrow">
+              DOOR DIVA
+            </p>
+
+            <h3>
+              SATANICA LUX
+            </h3>
+
+            <p>
+              Setting the tone at the door and welcoming you into the night.
+            </p>
+
+            <span class="external-link-label">
+              @SATANICA_LUX ↗
+            </span>
+
+          </div>
+
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         VENUE
+         =================================================== -->
+
+    <section
+      class="section location-section"
+      aria-labelledby="venue-title"
+    >
+
+      <p class="eyebrow">
+        THE VENUE
+      </p>
+
+      <h2 id="venue-title">
+        Nu Vibez
+      </h2>
+
+      <div class="location-copy">
+
+        <p>
+          Nu Vibez Lounge in Lauderhill is the home of Anything Goes.
+          Expect a dark, high-energy space built for music, movement, and
+          late-night freedom &mdash; complete with a full bar, hookah, and room to play.
+        </p>
+
+        <p class="venue-address">
+          1745 Northwest 38th Avenue, Lauderhill, FL
+        </p>
+
+      </div>
+
+      <a
+        href="https://www.instagram.com/nuvibezlounge/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="external-link-label venue-social-link"
+      >
+        @nuvibezlounge ↗
+      </a>
+
+
+      <div class="gallery venue-gallery">
+
+        <img
+          src="assets/NV-logo.jpg"
+          alt="Nu Vibez Logo"
+          loading="lazy"
+          decoding="async"
+        >
+
+        <img
+          src="assets/NV-staff.jpg"
+          alt="Nu Vibez"
+          loading="lazy"
+          decoding="async"
+        >
+
+        <img
+          src="assets/NV-bucket.jpg"
+          alt="Nu Vibez drinks"
+          loading="lazy"
+          decoding="async"
+        >
+
+        <img
+          src="assets/NV-staff2.jpg"
+          alt="Nu Vibez"
+          loading="lazy"
+          decoding="async"
+        >
+
+        <img
+          src="assets/NV-waffles.jpg"
+          alt="Nu Vibez food"
+          loading="lazy"
+          decoding="async"
+        >
+
+        <img
+          src="assets/NV-breakfast.jpg"
+          alt="Nu Vibez brunch"
+          loading="lazy"
+          decoding="async"
+        >
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         SWEET N THICK
+         =================================================== -->
+
+    <section
+      class="section sweet-section"
+      aria-labelledby="treats-title"
+    >
+
+      <p class="eyebrow">
+        TREATS
+      </p>
+
+      <h2 id="treats-title">
+        Sweet n Thick
+      </h2>
+
+
+      <!-- SWEET N THICK INTRO -->
+
+      <div class="sweet-intro">
+
+        <div class="sweet-copy">
+
+          <h3>
+            Sydney aka Sweet Thickness
+          </h3>
+
+          <p class="sweet-brand-line">
+            Sweet n Thick Goodies
+          </p>
+
+          <p class="sweet-products">
+            Treats, Treezzz and Topicals
+          </p>
+
+          <p class="sweet-diet">
+            Vegan and Gluten-Free Available
+          </p>
+
+          <a
+            href="https://instagram.com/sweeetnthick"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="external-link-label"
+          >
+            @sweeetnthick ↗
+          </a>
+
+        </div>
+
+        <img
+          src="assets/Sweet thick.JPG"
+          alt="Sweet n Thick Goodies"
+          loading="lazy"
+          decoding="async"
+        >
+
+      </div>
+
+
+      <!-- SWEET THICKNESS FEATURE -->
+
+      <div class="sweet-thickness-feature">
+
+        <div class="sweet-thickness-gallery">
+
+          <img
+            src="assets/sweet-thickness-1.jpg"
+            alt="Sweet Thickness at Anything Goes"
+            loading="lazy"
+            decoding="async"
+          >
+
+          <img
+            src="assets/sweet-thickness-2.jpg"
+            alt="Sweet Thickness at Anything Goes"
+            loading="lazy"
+            decoding="async"
+          >
+
+        </div>
+
+
+        <div class="sweet-thickness-copy">
+
+          <p class="eyebrow">
+            SWEET THICKNESS
+          </p>
+
+          <h3>
+            More than just treats.
+          </h3>
+
+          <p>
+            Sweet Thickness will be on-site with her CBD items and treats
+            throughout the night.
+          </p>
+
+          <p>
+            At midnight, she joins Sarita Bon Bon as rope bunny for the
+            featured shibari performance.
+          </p>
+
+          <p>
+            She will also be offering bottle service for guests who
+            preorder in advance.
+          </p>
+
+          <p class="preorder-note">
+            <strong>
+              Preorders must be done in advance and are subject to availability.
+            </strong>
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- CBD INFORMATION -->
+
+      <div class="cbd-feature">
+
+        <div class="cbd-image-wrap">
+
+          <img
+            src="assets/power-plant.jpg"
+            alt="Cannabis plant"
+            class="cbd-image"
+            loading="lazy"
+            decoding="async"
+          >
+
+        </div>
+
+
+        <div class="cbd-copy">
+
+          <p class="eyebrow">
+            CBD
+          </p>
+
+          <h3>
+            CBD? What are its benefits?
+          </h3>
+
+          <p>
+            CBD means cannabidiol, a compound found in the cannabis flower.
+            CBD can be used from head to toes, oral or topical.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         DRESS CODE
+         =================================================== -->
+
+    <section
+      class="section details"
+      aria-labelledby="vibe-title"
+    >
+
+      <p class="eyebrow">
+        THE VIBE &amp; DRESS CODE
+      </p>
+
+      <h2 id="vibe-title">
+        Dress to Express.
+      </h2>
+
+      <div class="detail-grid">
+
+        <div>
+
+          <strong>
+            DRESS TO EXPRESS
+          </strong>
+
+          <span>
+            Wear whatever makes you feel unapologetically sexy. Leather,
+            latex, lace, vinyl, harnesses, mesh, or full fetish wear. If it
+            makes you feel fierce and powerful, wear it.
+          </span>
+
+        </div>
+
+
+        <div>
+
+          <strong>
+            PLAY &amp; DANCE
+          </strong>
+
+          <span>
+            Dedicated spaces to move, dance, explore, and let loose in a
+            welcoming, non-judgmental environment.
+          </span>
+
+        </div>
+
+
+        <div>
+
+          <strong>
+            ATMOSPHERE
+          </strong>
+
+          <span>
+            Fetish-friendly, body-positive, and radically inclusive.
+          </span>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         CONSENT
+         =================================================== -->
+
+    <section
+      class="section conduct-section"
+      aria-labelledby="consent-title"
+    >
+
+      <p class="eyebrow">
+        CONSENT &amp; ETIQUETTE
+      </p>
+
+      <h2 id="consent-title">
+        Consent is Mandatory.
+      </h2>
+
+      <div class="conduct-grid">
+
+        <div>
+
+          <strong>
+            CONSENT IS MANDATORY
+          </strong>
+
+          <span>
+            Always get explicit, enthusiastic consent before engaging,
+            touching, or joining in. “No” is always a full sentence.
+          </span>
+
+        </div>
+
+
+        <div>
+
+          <strong>
+            RESPECT THE VIBE
+          </strong>
+
+          <span>
+            Honor everyone’s boundaries, privacy, and personal expression.
+          </span>
+
+        </div>
+
+
+        <div>
+
+          <strong>
+            LOOK OUT FOR EACH OTHER
+          </strong>
+
+          <span>
+            Bring good energy, play safely, and keep the community thriving.
+          </span>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         SPONSOR
+         =================================================== -->
+
+    <section
+      class="section sponsor-strip sponsor-single"
+      aria-label="Sponsor"
+    >
+
+      <a
+        class="logo-block external-card"
+        href="https://www.spunklube.com"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+
+        <p class="eyebrow">
+          SPONSORED BY
+        </p>
+
+        <img
+          src="assets/spunk-logo.jpg"
+          alt="Spunk Lube"
+          loading="lazy"
+          decoding="async"
+        >
+
+        <span class="external-link-label">
+          SPUNKLUBE.COM ↗
+        </span>
+
+      </a>
+
+    </section>
+
+
+    <!-- ===================================================
+         CLOSING
+         =================================================== -->
+
+    <section class="section closing-line">
+
+      <blockquote>
+        Dress up, strip down, dance, and play. See you on the floor.
+      </blockquote>
+
+    </section>
+
+
+    <!-- ===================================================
+         TICKETS
+         =================================================== -->
+
+    <section
+      class="cta"
+      id="tickets"
+      aria-labelledby="tickets-title"
+    >
+
+      <div class="ticket-panel">
+
+        <img
+          class="cta-logo"
+          src="assets/kink-korps-logo.png"
+          alt="Kink Korps"
+          width="160"
+          height="90"
+          loading="lazy"
+          decoding="async"
+        >
+
+        <p class="eyebrow">
+          ADVANCE TICKETS
+        </p>
+
+        <h2 id="tickets-title">
+          ANYTHING GOES
+        </h2>
+
+        <p class="ticket-event-meta">
+          AUGUST 28 • 10 PM-4 AM • NU VIBEZ • LAUDERHILL
+        </p>
+
+
+        <div class="ticket-price-display">
+
+          <div>
+
+            <span class="ticket-price-label">
+              ADVANCE
+            </span>
+
+            <strong>
+              $15
+            </strong>
+
+          </div>
+
+
+          <div>
+
+            <span class="ticket-price-label">
+              AT THE DOOR
+            </span>
+
+            <strong>
+              $20
+            </strong>
+
+          </div>
+
+        </div>
+
+
+        <div class="ticket-info">
+
+          <p>
+            Choose your payment method below.
+          </p>
+
+          <p class="ticket-important">
+            <strong>Important:</strong>
+            Put your <strong>Name + Email</strong> in the payment note
+            so we can send your ticket.
+          </p>
+
+        </div>
+
+
+        <div class="ticket-options">
+
+          <a
+            class="ticket-button"
+            href="https://cash.app/$Geo969/15"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Cash App &mdash; $15
+          </a>
+
+          <a
+            class="ticket-button"
+            href="https://venmo.com/thesatans?txn=pay&amount=15&note=Anything+Goes+Ticket"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Venmo &mdash; $15
+          </a>
+
+          <a
+            class="ticket-button"
+            href="https://paypal.me/krystalalvarez544/15"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            PayPal &mdash; $15
+          </a>
+
+        </div>
+
+        <p class="ticket-confirmation">
+          Ticket will be emailed after payment is confirmed.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         CONTACT
+         =================================================== -->
+
+    <section
+      class="contact-section"
+      aria-labelledby="contact-title"
+    >
+
+      <p class="eyebrow">
+        QUESTIONS?
+      </p>
+
+      <h2 id="contact-title">
+        Contact Us
+      </h2>
+
+      <p>
+        Have a question about Anything Goes, tickets, or the event?
+        Get in touch.
+      </p>
+
+      <a
+        class="ticket-button"
+        href="mailto:mrsatanplaysgoodmusic@gmail.com"
+      >
+        Contact Us
+      </a>
+
+    </section>
+
+
+    <!-- ===================================================
+         FOOTER
+         =================================================== -->
+
+    <footer>
+
+      <div class="footer-links">
+
+        <a
+          href="https://www.instagram.com/kink_korps"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="footer-link"
+        >
+          Instagram
+        </a>
+
+        <a
+          href="https://www.facebook.com/share/1GfdckdrfF/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="footer-link"
+        >
+          Facebook
+        </a>
+
+        <a
+          href="https://fetlife.com/events/2026/08/28/kink-korps-anything-goes-esqhs5"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="footer-link"
+        >
+          FetLife
+        </a>
+
+      </div>
+
+      <p>
+        Kink Korps · Anything Goes Play Party · Lauderhill
+      </p>
+
     </footer>
+
   </main>
 
-  <!-- MOBILE TICKET BAR -->
+
+  <!-- =====================================================
+       MOBILE TICKET DOCK
+       ===================================================== -->
+
   <div class="mobile-ticket-bar">
+
     <div class="mobile-ticket-copy">
       <strong>ANYTHING GOES</strong>
-      <span>$15 PRESALE • AUGUST 28</span>
+      <span>$15 ADVANCE • AUGUST 28</span>
     </div>
 
     <a
       class="ticket-button mobile-ticket-button"
-      href="https://fetlife.com/events/2026/08/28/kink-korps-anything-goes-esqhs5"
-      target="_blank"
-      rel="noopener noreferrer"
+      href="#tickets"
     >
       Get Tickets
     </a>
+
   </div>
 
-  <script src="script.js"></script>
+
+  <!-- =====================================================
+       EVENT COUNTDOWN
+       ===================================================== -->
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const days = document.getElementById("countdown-days");
+      const hours = document.getElementById("countdown-hours");
+      const minutes = document.getElementById("countdown-minutes");
+      const seconds = document.getElementById("countdown-seconds");
+      const status = document.getElementById("countdown-status");
+
+      if (!days || !hours || !minutes || !seconds) {
+        return;
+      }
+
+      const eventStart = new Date("2026-08-28T22:00:00-04:00").getTime();
+      const eventEnd = new Date("2026-08-29T04:00:00-04:00").getTime();
+
+      function twoDigits(value) {
+        return String(value).padStart(2, "0");
+      }
+
+      function updateCountdown() {
+        const now = Date.now();
+        const remaining = eventStart - now;
+
+        if (now >= eventStart && now < eventEnd) {
+          days.textContent = "00";
+          hours.textContent = "00";
+          minutes.textContent = "00";
+          seconds.textContent = "00";
+
+          if (status) {
+            status.textContent = "ANYTHING GOES IS HAPPENING NOW";
+          }
+
+          return;
+        }
+
+        if (now >= eventEnd) {
+          days.textContent = "00";
+          hours.textContent = "00";
+          minutes.textContent = "00";
+          seconds.textContent = "00";
+
+          if (status) {
+            status.textContent = "THANK YOU FOR COMING";
+          }
+
+          return;
+        }
+
+        const totalSeconds = Math.floor(remaining / 1000);
+
+        const remainingDays = Math.floor(totalSeconds / 86400);
+        const remainingHours = Math.floor((totalSeconds % 86400) / 3600);
+        const remainingMinutes = Math.floor((totalSeconds % 3600) / 60);
+        const remainingSeconds = totalSeconds % 60;
+
+        days.textContent = twoDigits(remainingDays);
+        hours.textContent = twoDigits(remainingHours);
+        minutes.textContent = twoDigits(remainingMinutes);
+        seconds.textContent = twoDigits(remainingSeconds);
+      }
+
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+    });
+  </script>
+
+
 </body>
 </html>
