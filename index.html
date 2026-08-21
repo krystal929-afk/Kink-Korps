@@ -29,7 +29,7 @@
 
   <meta
     property="og:image"
-    content="https://krystal929-afk.github.io/Kink-Korps/assets/Hero-flyer.jpg"
+    content="https://krystal929-afk.github.io/Kink-Korps/assets/hero-flyer-2026.png"
   >
 
   <meta
@@ -47,10 +47,140 @@
 
   <meta
     name="twitter:image"
-    content="https://krystal929-afk.github.io/Kink-Korps/assets/Hero-flyer.jpg"
+    content="https://krystal929-afk.github.io/Kink-Korps/assets/hero-flyer-2026.png"
   >
 
   <link rel="stylesheet" href="styles.css">
+
+  <!-- Approved 2026 flyer accent refresh + styles for only the new additions -->
+  <style>
+    :root {
+      --red: #ff1593;
+      --green: #a6ff00;
+      --purple: #8b2cff;
+    }
+
+    .event-countdown {
+      max-width: var(--content-width);
+      margin: 0 auto;
+      padding: 0 clamp(16px, 5vw, 70px) clamp(56px, 7vw, 90px);
+    }
+
+    .event-countdown-inner {
+      padding: clamp(22px, 4vw, 34px);
+      background: var(--panel);
+      border: 1px solid var(--line);
+    }
+
+    .event-countdown-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .event-countdown-unit {
+      padding: 18px 10px;
+      text-align: center;
+      background: #050505;
+      border: 1px solid var(--line);
+    }
+
+    .event-countdown-unit strong {
+      display: block;
+      color: #fff;
+      font: 700 clamp(30px, 5vw, 54px) / 1 Anton, Impact, sans-serif;
+    }
+
+    .event-countdown-unit span {
+      display: block;
+      margin-top: 7px;
+      color: var(--green);
+      font: 600 10px / 1 Oswald, sans-serif;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .event-countdown-status {
+      margin: 16px 0 0;
+      color: var(--muted);
+      font: 600 13px / 1.4 Oswald, sans-serif;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .sarita-section {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .sarita-feature {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 28px;
+      align-items: start;
+      margin-top: 28px;
+    }
+
+    .sarita-copy {
+      padding: 26px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+    }
+
+    .sarita-copy p:not(.eyebrow) {
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .sarita-gallery {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .sarita-gallery img {
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      background: #000;
+      border: 1px solid var(--line);
+    }
+
+    @media (max-width: 850px) {
+      .event-countdown {
+        padding: 0 14px 44px;
+      }
+
+      .sarita-feature {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .event-countdown-grid {
+        gap: 5px;
+      }
+
+      .event-countdown-unit {
+        padding: 14px 4px;
+      }
+
+      .event-countdown-unit strong {
+        font-size: clamp(26px, 10vw, 38px);
+      }
+
+      .event-countdown-unit span {
+        font-size: 8px;
+        letter-spacing: 0.06em;
+      }
+
+      .sarita-gallery {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 
 
   <!-- =====================================================
@@ -127,7 +257,7 @@
     "eventStatus": "https://schema.org/EventScheduled",
     "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
     "image": [
-      "https://krystal929-afk.github.io/Kink-Korps/assets/Hero-flyer.jpg"
+      "https://krystal929-afk.github.io/Kink-Korps/assets/hero-flyer-2026.png"
     ],
     "location": {
       "@type": "Place",
@@ -277,8 +407,8 @@
       <div class="hero-art">
 
         <img
-          src="assets/Hero-flyer.jpg"
-          alt="Anything Goes Play Party"
+          src="assets/hero-flyer-2026.png"
+          alt="Return of the Anything Goes Play Party"
           fetchpriority="high"
           decoding="async"
         >
@@ -330,6 +460,121 @@
           >
             FetLife Event
           </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         COUNTDOWN
+         =================================================== -->
+
+    <section class="event-countdown" aria-label="Countdown to Anything Goes">
+      <div class="event-countdown-inner">
+        <p class="eyebrow">COUNTDOWN TO ANYTHING GOES</p>
+
+        <div class="event-countdown-grid">
+          <div class="event-countdown-unit">
+            <strong id="countdown-days">00</strong>
+            <span>Days</span>
+          </div>
+
+          <div class="event-countdown-unit">
+            <strong id="countdown-hours">00</strong>
+            <span>Hours</span>
+          </div>
+
+          <div class="event-countdown-unit">
+            <strong id="countdown-minutes">00</strong>
+            <span>Minutes</span>
+          </div>
+
+          <div class="event-countdown-unit">
+            <strong id="countdown-seconds">00</strong>
+            <span>Seconds</span>
+          </div>
+        </div>
+
+        <p id="countdown-status" class="event-countdown-status">
+          August 28 • 10 PM
+        </p>
+      </div>
+    </section>
+
+
+    <!-- ===================================================
+         SARITA BON BON
+         =================================================== -->
+
+    <section
+      class="section sarita-section"
+      aria-labelledby="sarita-title"
+    >
+
+      <p class="eyebrow">
+        MIDNIGHT FEATURE
+      </p>
+
+      <h2 id="sarita-title">
+        Sarita Bon Bon
+      </h2>
+
+      <div class="sarita-feature">
+
+        <div class="sarita-copy">
+
+          <h3>
+            Shibari at Midnight
+          </h3>
+
+          <p>
+            Sarita Bon Bon performs a live shibari scene with rope bunny
+            Sweet Thickness at midnight.
+          </p>
+
+          <a
+            href="https://www.instagram.com/sarita.bonbon/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="external-link-label"
+          >
+            @sarita.bonbon ↗
+          </a>
+
+        </div>
+
+        <div class="sarita-gallery">
+
+          <img
+            src="assets/sarita-bonbon-1.jpg"
+            alt="Sarita Bon Bon"
+            loading="lazy"
+            decoding="async"
+          >
+
+          <img
+            src="assets/sarita-bonbon-2.jpg"
+            alt="Sarita Bon Bon"
+            loading="lazy"
+            decoding="async"
+          >
+
+          <img
+            src="assets/sarita-bonbon-3.jpg"
+            alt="Sarita Bon Bon"
+            loading="lazy"
+            decoding="async"
+          >
+
+          <img
+            src="assets/sarita-bonbon-4.jpg"
+            alt="Sarita Bon Bon"
+            loading="lazy"
+            decoding="async"
+          >
 
         </div>
 
@@ -730,6 +975,11 @@
           <p>
             Sweet Thickness will be on-site with her CBD items and treats
             throughout the night.
+          </p>
+
+          <p>
+            At midnight, she joins Sarita Bon Bon as rope bunny for the featured
+            shibari performance.
           </p>
 
           <p>
@@ -1181,6 +1431,75 @@
     </a>
 
   </div>
+
+
+  <!-- =====================================================
+       EVENT COUNTDOWN SCRIPT
+       ===================================================== -->
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const days = document.getElementById("countdown-days");
+      const hours = document.getElementById("countdown-hours");
+      const minutes = document.getElementById("countdown-minutes");
+      const seconds = document.getElementById("countdown-seconds");
+      const status = document.getElementById("countdown-status");
+
+      if (!days || !hours || !minutes || !seconds) {
+        return;
+      }
+
+      const eventStart = new Date("2026-08-28T22:00:00-04:00").getTime();
+      const eventEnd = new Date("2026-08-29T04:00:00-04:00").getTime();
+
+      function twoDigits(value) {
+        return String(value).padStart(2, "0");
+      }
+
+      function updateCountdown() {
+        const now = Date.now();
+        const remaining = eventStart - now;
+
+        if (now >= eventStart && now < eventEnd) {
+          days.textContent = "00";
+          hours.textContent = "00";
+          minutes.textContent = "00";
+          seconds.textContent = "00";
+
+          if (status) {
+            status.textContent = "ANYTHING GOES IS HAPPENING NOW";
+          }
+          return;
+        }
+
+        if (now >= eventEnd) {
+          days.textContent = "00";
+          hours.textContent = "00";
+          minutes.textContent = "00";
+          seconds.textContent = "00";
+
+          if (status) {
+            status.textContent = "THANK YOU FOR COMING";
+          }
+          return;
+        }
+
+        const totalSeconds = Math.floor(remaining / 1000);
+        const remainingDays = Math.floor(totalSeconds / 86400);
+        const remainingHours = Math.floor((totalSeconds % 86400) / 3600);
+        const remainingMinutes = Math.floor((totalSeconds % 3600) / 60);
+        const remainingSeconds = totalSeconds % 60;
+
+        days.textContent = twoDigits(remainingDays);
+        hours.textContent = twoDigits(remainingHours);
+        minutes.textContent = twoDigits(remainingMinutes);
+        seconds.textContent = twoDigits(remainingSeconds);
+      }
+
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+    });
+  </script>
 
 
 </body>
