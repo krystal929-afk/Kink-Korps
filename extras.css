@@ -1,0 +1,322 @@
+/* Kink Korps gallery + newsletter additions */
+
+.access-section {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.access-card {
+  position: relative;
+  min-height: 330px;
+  padding: clamp(28px, 5vw, 48px);
+  overflow: hidden;
+  background: var(--panel);
+  border: 1px solid var(--line);
+}
+
+.access-card:first-child {
+  box-shadow: 10px 10px 0 rgba(139, 44, 255, 0.18);
+}
+
+.access-card:last-child {
+  box-shadow: 10px 10px 0 rgba(255, 21, 147, 0.15);
+}
+
+.access-card h2 {
+  max-width: 620px;
+  margin: 0 0 20px;
+  font-family: Anton, Impact, sans-serif;
+  font-size: clamp(48px, 7vw, 92px);
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  line-height: 0.9;
+  text-transform: uppercase;
+}
+
+.access-card > p:not(.kicker) {
+  max-width: 610px;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.access-card .button {
+  margin-top: 18px;
+}
+
+.signup-form {
+  display: grid;
+  gap: 12px;
+  max-width: 620px;
+  margin-top: 26px;
+}
+
+.signup-form label,
+.vault-form label {
+  font-family: Oswald, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.signup-form input[type="email"],
+.vault-form input[type="email"] {
+  width: 100%;
+  min-height: 54px;
+  padding: 13px 16px;
+  color: var(--text);
+  background: #070708;
+  border: 1px solid #49444c;
+  border-radius: 0;
+  outline: none;
+  font: inherit;
+}
+
+.signup-form input[type="email"]:focus,
+.vault-form input[type="email"]:focus {
+  border-color: var(--green);
+  box-shadow: 0 0 0 1px var(--green);
+}
+
+.form-note,
+.form-status,
+.vault-note,
+.vault-status {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+.form-status[data-state="success"],
+.vault-status[data-state="success"] {
+  color: var(--green);
+}
+
+.form-status[data-state="error"],
+.vault-status[data-state="error"] {
+  color: #ff7184;
+}
+
+.honeypot {
+  position: absolute !important;
+  left: -9999px !important;
+  width: 1px !important;
+  height: 1px !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+.vault-page {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 12% 10%, rgba(139, 44, 255, 0.14), transparent 28rem),
+    radial-gradient(circle at 88% 24%, rgba(255, 21, 147, 0.1), transparent 30rem),
+    var(--bg);
+}
+
+.vault-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 14px var(--pad);
+  background: rgba(5, 5, 5, 0.95);
+  border-bottom: 1px solid var(--line);
+  backdrop-filter: blur(12px);
+}
+
+.vault-header img {
+  width: 132px;
+  max-height: 58px;
+  object-fit: contain;
+}
+
+.vault-header a {
+  color: var(--green);
+  font-family: Oswald, sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.vault-shell {
+  width: min(1100px, 100%);
+  margin: 0 auto;
+  padding: clamp(64px, 9vw, 120px) var(--pad);
+}
+
+.vault-intro {
+  max-width: 820px;
+  margin-bottom: 38px;
+}
+
+.vault-intro h1 {
+  margin: 0 0 20px;
+  font-family: Anton, Impact, sans-serif;
+  font-size: clamp(68px, 12vw, 150px);
+  font-weight: 400;
+  letter-spacing: -0.035em;
+  line-height: 0.8;
+  text-transform: uppercase;
+}
+
+.vault-intro h1 span {
+  color: var(--pink);
+  text-shadow: 5px 4px 0 rgba(139, 44, 255, 0.65);
+}
+
+.vault-intro > p:not(.kicker) {
+  max-width: 720px;
+  color: var(--muted);
+  font-size: 17px;
+}
+
+.vault-panel {
+  padding: clamp(24px, 5vw, 46px);
+  background: var(--panel);
+  border: 1px solid var(--line);
+  box-shadow: 12px 12px 0 rgba(183, 255, 0, 0.1);
+}
+
+.vault-panel h2 {
+  margin: 0 0 12px;
+  font-family: Anton, Impact, sans-serif;
+  font-size: clamp(38px, 6vw, 68px);
+  font-weight: 400;
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+.vault-form {
+  display: grid;
+  gap: 13px;
+  max-width: 620px;
+  margin-top: 24px;
+}
+
+.opt-in-row {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 10px;
+  align-items: start;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.opt-in-row input {
+  margin-top: 3px;
+}
+
+.vault-account {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 28px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--line);
+}
+
+.vault-account p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.gallery-list {
+  display: grid;
+  gap: 26px;
+}
+
+.private-gallery {
+  padding: clamp(20px, 4vw, 34px);
+  background: #09090a;
+  border: 1px solid var(--line);
+}
+
+.private-gallery h3 {
+  margin: 0;
+  font-family: Anton, Impact, sans-serif;
+  font-size: clamp(36px, 5vw, 60px);
+  font-weight: 400;
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+.private-gallery .gallery-meta {
+  margin: 8px 0 20px;
+  color: var(--green);
+  font-family: Oswald, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.private-photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 22px;
+}
+
+.private-photo-grid figure {
+  margin: 0;
+  overflow: hidden;
+  background: #111;
+  border: 1px solid var(--line);
+}
+
+.private-photo-grid img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+.private-photo-grid figcaption {
+  padding: 8px 9px 10px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.vault-empty {
+  padding: 28px;
+  color: var(--muted);
+  background: rgba(255, 255, 255, 0.015);
+  border: 1px dashed #4a454c;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+@media (max-width: 760px) {
+  .access-section {
+    grid-template-columns: 1fr;
+  }
+
+  .private-photo-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 460px) {
+  .vault-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .private-photo-grid {
+    grid-template-columns: 1fr;
+  }
+}
