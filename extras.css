@@ -337,6 +337,10 @@
   border: 1px dashed #4a454c;
 }
 
+.poster-note {
+  display: none !important;
+}
+
 [hidden] {
   display: none !important;
 }
