@@ -70,6 +70,10 @@ a {
   background: var(--green);
 }
 
+section[id] {
+  scroll-margin-top: 120px;
+}
+
 .age-gate-loading body,
 body.age-gate-open {
   overflow: hidden;
@@ -130,21 +134,6 @@ body.age-gate-open {
   letter-spacing: 0.1em;
 }
 
-.signal-bar {
-  overflow: hidden;
-  padding: 9px 16px;
-  color: #050505;
-  background: var(--green);
-  font-family: Oswald, sans-serif;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.11em;
-  line-height: 1;
-  text-align: center;
-  text-transform: uppercase;
-  white-space: nowrap;
-}
-
 .site-header {
   position: sticky;
   top: 0;
@@ -153,23 +142,29 @@ body.age-gate-open {
   align-items: center;
   justify-content: space-between;
   gap: 30px;
-  min-height: 82px;
-  padding: 12px var(--pad);
-  background: rgba(5, 5, 5, 0.94);
+  min-height: 78px;
+  padding: 10px var(--pad);
+  background: rgba(5, 5, 5, 0.95);
   border-bottom: 1px solid var(--line);
   backdrop-filter: blur(12px);
 }
 
+.brand {
+  flex: 0 0 auto;
+}
+
 .brand img {
-  width: 136px;
-  max-height: 58px;
+  width: 132px;
+  max-height: 56px;
   object-fit: contain;
 }
 
 .site-nav {
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   gap: clamp(16px, 3vw, 34px);
+  min-width: 0;
   font-family: Oswald, sans-serif;
   font-size: 13px;
   font-weight: 700;
@@ -179,6 +174,7 @@ body.age-gate-open {
 
 .site-nav a {
   position: relative;
+  flex: 0 0 auto;
   text-decoration: none;
 }
 
@@ -330,7 +326,7 @@ main {
 
 .hero-poster-wall {
   position: relative;
-  min-height: 650px;
+  min-height: 590px;
 }
 
 .poster {
@@ -355,24 +351,76 @@ main {
   transform: rotate(-1deg);
 }
 
-.poster-main img {
-  width: 100%;
+.brand-poster {
+  min-height: 540px;
+  padding: clamp(28px, 4vw, 44px);
+  color: var(--text);
+  background:
+    linear-gradient(145deg, rgba(139, 44, 255, 0.16), transparent 38%),
+    linear-gradient(15deg, rgba(255, 21, 147, 0.12), transparent 44%),
+    #09090a;
   border: 1px solid #4f4a53;
 }
 
-.poster-stamp {
+.brand-poster::after {
+  content: "";
   position: absolute;
-  right: -22px;
-  bottom: 32px;
-  padding: 8px 12px;
-  color: #050505;
-  background: var(--green);
+  inset: 12px;
+  pointer-events: none;
+  border: 1px dashed rgba(183, 255, 0, 0.35);
+}
+
+.brand-poster-logo {
+  width: min(180px, 58%) !important;
+  margin: 0 0 54px;
+  border: 0 !important;
+}
+
+.brand-poster-label,
+.brand-poster-year {
+  position: relative;
+  z-index: 1;
+  margin: 0;
   font-family: Oswald, sans-serif;
-  font-size: 12px;
   font-weight: 700;
-  letter-spacing: 0.11em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  transform: rotate(-7deg);
+}
+
+.brand-poster-label {
+  color: var(--green);
+  font-size: 12px;
+}
+
+.brand-poster h2 {
+  position: relative;
+  z-index: 1;
+  margin: 10px 0 24px;
+  color: var(--pink);
+  font-family: Anton, Impact, sans-serif;
+  font-size: clamp(62px, 7.3vw, 104px);
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  line-height: 0.78;
+  text-transform: uppercase;
+  text-shadow: 4px 4px 0 rgba(139, 44, 255, 0.68);
+}
+
+.brand-poster-date {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  color: var(--text);
+  font-family: Anton, Impact, sans-serif;
+  font-size: clamp(72px, 9vw, 126px);
+  line-height: 0.82;
+  text-transform: uppercase;
+}
+
+.brand-poster-year {
+  margin-top: 16px;
+  color: var(--muted);
+  font-size: 11px;
 }
 
 .poster-note {
@@ -498,6 +546,8 @@ main {
   position: relative;
   z-index: 1;
   width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
   transform: rotate(1.2deg);
   border: 1px solid #4b474d;
 }
@@ -530,6 +580,7 @@ main {
 .event-status {
   display: inline-grid;
   gap: 3px;
+  max-width: 100%;
   margin: 6px 0 26px;
   padding: 14px 18px;
   color: #050505;
@@ -547,7 +598,7 @@ main {
 
 .event-status strong {
   font-family: Anton, Impact, sans-serif;
-  font-size: 28px;
+  font-size: clamp(22px, 3.1vw, 34px);
   line-height: 1;
 }
 
@@ -555,7 +606,7 @@ main {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-bottom: 28px;
+  margin-bottom: 22px;
 }
 
 .event-tags span {
@@ -570,8 +621,8 @@ main {
   text-transform: uppercase;
 }
 
-.archive-note {
-  margin: 0 0 12px;
+.event-update-note {
+  margin: 0 0 14px;
   color: var(--muted);
   font-size: 14px;
 }
@@ -602,7 +653,7 @@ main {
 }
 
 .next-slot::after {
-  content: "?";
+  content: "+";
   position: absolute;
   right: 24px;
   top: 50%;
@@ -733,26 +784,24 @@ main {
 }
 
 .rules-grid article {
-  min-height: 270px;
+  min-height: 220px;
   padding: clamp(24px, 4vw, 38px);
   background: rgba(255, 255, 255, 0.012);
   border-right: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
 }
 
-.rules-grid article:nth-child(2),
-.rules-grid article:nth-child(5) {
+.rules-grid article:nth-child(2) {
   background: rgba(139, 44, 255, 0.055);
 }
 
-.rules-grid article:nth-child(3),
-.rules-grid article:nth-child(4) {
+.rules-grid article:nth-child(3) {
   background: rgba(255, 21, 147, 0.04);
 }
 
 .rule-number {
   display: block;
-  margin-bottom: 34px;
+  margin-bottom: 30px;
   color: var(--green);
   font-family: Anton, Impact, sans-serif;
   font-size: 34px;
@@ -856,16 +905,15 @@ main {
 
 @media (max-width: 980px) {
   .site-header {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 12px;
+    flex-wrap: wrap;
+    gap: 10px 20px;
   }
 
   .site-nav {
-    width: 100%;
-    justify-content: space-between;
-    overflow-x: auto;
-    padding-bottom: 4px;
+    flex: 1 1 500px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 10px 24px;
   }
 
   .hero {
@@ -875,7 +923,7 @@ main {
   }
 
   .hero-poster-wall {
-    min-height: 680px;
+    min-height: 590px;
   }
 
   .poster-main {
@@ -908,35 +956,52 @@ main {
   }
 
   .rules-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
 @media (max-width: 700px) {
-  .signal-bar {
-    text-align: left;
+  section[id] {
+    scroll-margin-top: 110px;
   }
 
   .site-header {
-    position: relative;
+    position: sticky;
+    top: 0;
+    display: block;
     min-height: auto;
-    padding-top: 16px;
-    padding-bottom: 16px;
+    padding: 9px 14px 10px;
+  }
+
+  .brand {
+    display: block;
+    width: max-content;
+    margin: 0 auto 7px;
   }
 
   .brand img {
-    width: 120px;
+    width: 100px;
+    max-height: 42px;
   }
 
   .site-nav {
-    gap: 18px;
-    justify-content: flex-start;
-    font-size: 11px;
-    scrollbar-width: none;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0;
+    width: 100%;
+    font-size: 10px;
+    letter-spacing: 0.05em;
   }
 
-  .site-nav::-webkit-scrollbar {
-    display: none;
+  .site-nav a {
+    min-width: 0;
+    padding: 6px 2px;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  .site-nav a::after {
+    bottom: 1px;
   }
 
   .hero {
@@ -962,11 +1027,29 @@ main {
   }
 
   .hero-poster-wall {
-    min-height: 560px;
+    min-height: 500px;
   }
 
   .poster-main {
     width: min(390px, 86%);
+  }
+
+  .brand-poster {
+    min-height: 450px;
+    padding: 28px;
+  }
+
+  .brand-poster-logo {
+    width: 142px !important;
+    margin-bottom: 42px;
+  }
+
+  .brand-poster h2 {
+    font-size: clamp(56px, 17vw, 82px);
+  }
+
+  .brand-poster-date {
+    font-size: clamp(64px, 20vw, 94px);
   }
 
   .poster-note {
@@ -995,6 +1078,10 @@ main {
 
   .event-copy h3 {
     font-size: clamp(58px, 20vw, 92px);
+  }
+
+  .event-status {
+    width: 100%;
   }
 
   .next-slot::after {
@@ -1034,8 +1121,28 @@ main {
 }
 
 @media (max-width: 420px) {
+  .site-header {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .site-nav {
+    font-size: 9px;
+    letter-spacing: 0.025em;
+  }
+
   .hero-poster-wall {
-    min-height: 480px;
+    min-height: 450px;
+  }
+
+  .brand-poster {
+    min-height: 410px;
+    padding: 24px;
+  }
+
+  .brand-poster-logo {
+    width: 126px !important;
+    margin-bottom: 34px;
   }
 
   .poster-note-one {
@@ -1044,9 +1151,5 @@ main {
 
   .poster-note-two {
     bottom: 9%;
-  }
-
-  .event-status {
-    width: 100%;
   }
 }
