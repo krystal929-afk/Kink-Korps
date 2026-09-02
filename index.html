@@ -38,6 +38,7 @@
   >
 
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="extras.css">
 
   <script>
     document.documentElement.classList.add("age-gate-loading");
@@ -136,9 +137,9 @@
 
     <nav class="site-nav" aria-label="Primary navigation">
       <a href="#parties">Parties</a>
+      <a href="gallery.html">Galleries</a>
       <a href="#about">About</a>
-      <a href="#vibe">The Vibe</a>
-      <a href="#contact">Follow</a>
+      <a href="#access">Join</a>
     </nav>
   </header>
 
@@ -338,6 +339,41 @@
       </div>
     </section>
 
+    <section id="access" class="section access-section" aria-label="Kink Korps access and newsletter">
+      <article class="access-card">
+        <p class="kicker">PRIVATE GALLERIES</p>
+        <h2>Party photos stay private.</h2>
+        <p>
+          Attendee galleries live in the Kink Korps Vault instead of the public
+          website. Use the email connected to your gallery access to get in.
+        </p>
+        <a class="button button-primary" href="gallery.html">Open the Vault</a>
+      </article>
+
+      <article class="access-card">
+        <p class="kicker">JOIN THE LIST</p>
+        <h2>Get the next drop.</h2>
+        <p>
+          Party dates, ticket drops, lineup announcements, and whatever Kink Korps
+          is plotting next. Newsletter signup is separate from gallery access.
+        </p>
+
+        <form id="newsletter-signup-form" class="signup-form">
+          <label for="newsletter-email">Email address</label>
+          <input id="newsletter-email" name="email" type="email" autocomplete="email" required placeholder="you@example.com">
+
+          <label class="honeypot" aria-hidden="true">
+            Website
+            <input id="newsletter-website" name="website" type="text" tabindex="-1" autocomplete="off">
+          </label>
+
+          <button class="button button-primary" type="submit">Join the Kink Korps List</button>
+          <p class="form-note">By subscribing, you agree to receive Kink Korps event emails. Unsubscribe anytime.</p>
+          <p id="newsletter-status" class="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </article>
+    </section>
+
     <section id="contact" class="section contact-section">
       <div class="contact-copy">
         <p class="kicker">STAY IN THE LOOP</p>
@@ -382,5 +418,54 @@
     <p class="footer-small">© 2026 Kink Korps</p>
   </footer>
 
+  <script>
+    (function () {
+      const form = document.getElementById("newsletter-signup-form");
+      const status = document.getElementById("newsletter-status");
+      const endpoint = "https://psfwkawwkzjifzyscuph.supabase.co/functions/v1/newsletter-signup";
+      const anonJwt = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJIUzI1NiIsInJlZiI6InBzZndrYXd3a3pqaWZ6eXNjdXBoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODgzNDQzODMsImV4cCI6MjEwMzkyMDM4M30.NK6ppFvU_wFkqiNs2b9UvvPtur8QDpkzmdWH1ELexx0";
+
+      if (!form || !status) return;
+
+      function setStatus(text, state) {
+        status.textContent = text;
+        if (state) status.dataset.state = state;
+        else delete status.dataset.state;
+      }
+
+      form.addEventListener("submit", async function (event) {
+        event.preventDefault();
+
+        const email = document.getElementById("newsletter-email").value.trim().toLowerCase();
+        const website = document.getElementById("newsletter-website").value;
+        const button = form.querySelector("button[type='submit']");
+
+        button.disabled = true;
+        setStatus("Adding you to the list…");
+
+        try {
+          const response = await fetch(endpoint, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "apikey": anonJwt,
+              "Authorization": `Bearer ${anonJwt}`,
+            },
+            body: JSON.stringify({ email, source: "website", website }),
+          });
+
+          if (!response.ok) throw new Error("signup failed");
+
+          form.reset();
+          setStatus("You’re on the list. 🖤", "success");
+        } catch (error) {
+          console.error(error);
+          setStatus("That didn’t go through. Try again in a minute.", "error");
+        } finally {
+          button.disabled = false;
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
