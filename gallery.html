@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Private Galleries | Kink Korps</title>
-  <meta name="description" content="Private attendee galleries for Kink Korps events.">
+  <title>The Vault | Kink Korps Members</title>
+  <meta name="description" content="The Kink Korps member Vault: private party galleries, early ticket access, announcements, and member drops.">
   <meta name="theme-color" content="#050505">
   <meta name="robots" content="noindex,nofollow,noarchive">
   <link rel="stylesheet" href="styles.css">
@@ -20,46 +20,62 @@
 
   <main class="vault-shell">
     <section class="vault-intro">
-      <p class="kicker">PRIVATE GALLERIES</p>
+      <p class="kicker">KINK KORPS MEMBERS</p>
       <h1>THE<br><span>VAULT</span></h1>
       <p>
-        Party photos live here instead of the public website. Sign in with the
-        email connected to your gallery access and we’ll send you a private login link.
+        This is the member side of Kink Korps. Join once and the Vault is yours:
+        private party galleries, early ticket access, first announcements, and
+        whatever member-only drops we add next.
       </p>
     </section>
 
     <section id="login-panel" class="vault-panel">
-      <p class="kicker">EMAIL ACCESS</p>
-      <h2>Send me the link.</h2>
+      <p class="kicker">JOIN OR SIGN IN</p>
+      <h2>One email. No password.</h2>
       <p class="vault-note">
-        No password to remember. Your email is used for gallery access only unless
-        you separately choose to join the Kink Korps list below.
+        New here? Entering your email joins Kink Korps. Already in the Korps?
+        The same form signs you back in. We’ll email you a one-time private link.
       </p>
+
+      <div class="member-benefits" aria-label="Kink Korps member benefits">
+        <span>Private Galleries</span>
+        <span>Early Tickets</span>
+        <span>First Announcements</span>
+        <span>Member Drops</span>
+      </div>
 
       <form id="vault-login-form" class="vault-form">
         <label for="vault-email">Email address</label>
         <input id="vault-email" name="email" type="email" autocomplete="email" required placeholder="you@example.com">
 
-        <label class="opt-in-row" for="vault-newsletter">
-          <input id="vault-newsletter" type="checkbox">
-          <span>Also keep me posted about future Kink Korps parties and ticket drops.</span>
-        </label>
-
-        <button class="button button-primary" type="submit">Email My Private Link</button>
+        <button class="button button-primary" type="submit">Join / Enter the Korps</button>
+        <p class="vault-note">
+          By joining Kink Korps, you agree to receive member emails about parties,
+          early ticket access, announcements, and member perks. You can unsubscribe
+          from emails later without deleting your member account.
+        </p>
         <p id="vault-login-status" class="vault-status" role="status" aria-live="polite"></p>
       </form>
     </section>
 
     <section id="gallery-panel" class="vault-panel" hidden>
       <div class="vault-account">
-        <p id="vault-account-email"></p>
+        <div>
+          <p class="kicker">MEMBER ACCESS</p>
+          <p id="vault-account-email"></p>
+        </div>
         <button id="vault-signout" class="button button-ghost" type="button">Sign Out</button>
+      </div>
+
+      <div class="vault-member-banner">
+        <strong>You’re in the Korps.</strong>
+        <span>Published galleries are available to every active member.</span>
       </div>
 
       <div id="gallery-list" class="gallery-list"></div>
       <div id="gallery-empty" class="vault-empty" hidden>
-        <strong>No gallery is assigned to this email yet.</strong><br>
-        If you attended and expected access, contact Kink Korps using the same email address you signed in with.
+        <strong>The Vault is open. The shelves are just empty right now.</strong><br>
+        Published party galleries will appear here automatically for every Kink Korps member.
       </div>
       <p id="gallery-status" class="vault-status" role="status" aria-live="polite"></p>
     </section>
@@ -70,8 +86,6 @@
 
     const SUPABASE_URL = "https://psfwkawwkzjifzyscuph.supabase.co";
     const SUPABASE_KEY = "sb_publishable_QBzdRHqal1-FLSrS4tR6hw_r1AYuHjc";
-    const NEWSLETTER_ANON_JWT = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJIUzI1NiIsInJlZiI6InBzZndrYXd3a3pqaWZ6eXNjdXBoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODgzNDQzODMsImV4cCI6MjEwMzkyMDM4M30.NK6ppFvU_wFkqiNs2b9UvvPtur8QDpkzmdWH1ELexx0";
-    const NEWSLETTER_ENDPOINT = `${SUPABASE_URL}/functions/v1/newsletter-signup`;
     const REDIRECT_URL = "https://krystal929-afk.github.io/Kink-Korps/gallery.html";
 
     const supabase = createClient(SUPABASE_URL, SUPABASE_KEY, {
@@ -97,29 +111,13 @@
       else delete node.dataset.state;
     }
 
-    async function newsletterSignup(email, source) {
-      const response = await fetch(NEWSLETTER_ENDPOINT, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "apikey": NEWSLETTER_ANON_JWT,
-          "Authorization": `Bearer ${NEWSLETTER_ANON_JWT}`,
-        },
-        body: JSON.stringify({ email, source, website: "" }),
-      });
-
-      if (!response.ok) {
-        throw new Error("Newsletter signup could not be saved.");
-      }
-    }
-
     async function loadGalleries(user) {
       loginPanel.hidden = true;
       galleryPanel.hidden = false;
       accountEmail.textContent = `Signed in as ${user.email}`;
       galleryList.innerHTML = "";
       galleryEmpty.hidden = true;
-      setStatus(galleryStatus, "Loading your galleries…");
+      setStatus(galleryStatus, "Loading the Vault…");
 
       const { data: galleries, error: galleryError } = await supabase
         .from("galleries")
@@ -127,7 +125,7 @@
         .order("event_date", { ascending: false });
 
       if (galleryError) {
-        setStatus(galleryStatus, "Could not load galleries. Try signing out and back in.", "error");
+        setStatus(galleryStatus, "The Vault didn’t open cleanly. Sign out and try again.", "error");
         return;
       }
 
@@ -145,7 +143,7 @@
         .order("sort_order", { ascending: true });
 
       if (photoError) {
-        setStatus(galleryStatus, "Your gallery opened, but its photos could not be loaded.", "error");
+        setStatus(galleryStatus, "The galleries opened, but the photos didn’t. Try again in a minute.", "error");
         return;
       }
 
@@ -232,28 +230,26 @@
     loginForm.addEventListener("submit", async (event) => {
       event.preventDefault();
       const email = document.getElementById("vault-email").value.trim().toLowerCase();
-      const newsletter = document.getElementById("vault-newsletter").checked;
       const submitButton = loginForm.querySelector("button[type='submit']");
 
       submitButton.disabled = true;
-      setStatus(loginStatus, "Sending your private link…");
+      setStatus(loginStatus, "Sending your Korps link…");
 
       try {
-        if (newsletter) {
-          await newsletterSignup(email, "gallery_login");
-        }
-
         const { error } = await supabase.auth.signInWithOtp({
           email,
           options: {
             shouldCreateUser: true,
             emailRedirectTo: REDIRECT_URL,
+            data: {
+              membership_source: "vault",
+            },
           },
         });
 
         if (error) throw error;
 
-        setStatus(loginStatus, "Check your email. Your private login link is on the way.", "success");
+        setStatus(loginStatus, "Check your email. Your Kink Korps link is on the way. 🖤", "success");
       } catch (error) {
         console.error(error);
         setStatus(loginStatus, "That didn’t go through. Check the email address and try again.", "error");
