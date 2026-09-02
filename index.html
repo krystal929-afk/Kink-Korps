@@ -137,9 +137,9 @@
 
     <nav class="site-nav" aria-label="Primary navigation">
       <a href="#parties">Parties</a>
-      <a href="gallery.html">Galleries</a>
       <a href="#about">About</a>
       <a href="#access">Join</a>
+      <a href="gallery.html">Vault</a>
     </nav>
   </header>
 
@@ -339,37 +339,37 @@
       </div>
     </section>
 
-    <section id="access" class="section access-section" aria-label="Kink Korps access and newsletter">
-      <article class="access-card">
-        <p class="kicker">PRIVATE GALLERIES</p>
-        <h2>Party photos stay private.</h2>
-        <p>
-          Attendee galleries live in the Kink Korps Vault instead of the public
-          website. Use the email connected to your gallery access to get in.
-        </p>
-        <a class="button button-primary" href="gallery.html">Open the Vault</a>
-      </article>
+    <section id="access" class="section membership-section" aria-label="Join Kink Korps">
+      <article class="membership-card">
+        <div class="membership-copy">
+          <p class="kicker">JOIN KINK KORPS</p>
+          <h2>Get inside before everybody else does.</h2>
+          <p>
+            Joining the Korps gives you one member account for the whole thing.
+            You do not have to attend every party to belong here.
+          </p>
 
-      <article class="access-card">
-        <p class="kicker">JOIN THE LIST</p>
-        <h2>Get the next drop.</h2>
-        <p>
-          Party dates, ticket drops, lineup announcements, and whatever Kink Korps
-          is plotting next. Newsletter signup is separate from gallery access.
-        </p>
+          <div class="member-benefits" aria-label="Kink Korps member benefits">
+            <span>Private Party Galleries</span>
+            <span>Early Ticket Access</span>
+            <span>First Announcements</span>
+            <span>Member-Only Drops</span>
+          </div>
 
-        <form id="newsletter-signup-form" class="signup-form">
-          <label for="newsletter-email">Email address</label>
-          <input id="newsletter-email" name="email" type="email" autocomplete="email" required placeholder="you@example.com">
+          <a class="text-link member-vault-link" href="gallery.html">Already a member? Enter the Vault ↗</a>
+        </div>
 
-          <label class="honeypot" aria-hidden="true">
-            Website
-            <input id="newsletter-website" name="website" type="text" tabindex="-1" autocomplete="off">
-          </label>
+        <form id="korps-join-form" class="signup-form membership-form">
+          <label for="korps-email">Email address</label>
+          <input id="korps-email" name="email" type="email" autocomplete="email" required placeholder="you@example.com">
 
-          <button class="button button-primary" type="submit">Join the Kink Korps List</button>
-          <p class="form-note">By subscribing, you agree to receive Kink Korps event emails. Unsubscribe anytime.</p>
-          <p id="newsletter-status" class="form-status" role="status" aria-live="polite"></p>
+          <button class="button button-primary" type="submit">Join the Korps</button>
+          <p class="form-note">
+            By joining Kink Korps, you agree to receive member emails about parties,
+            early ticket access, announcements, and member perks. You can unsubscribe
+            from emails later without deleting your member account.
+          </p>
+          <p id="korps-join-status" class="form-status" role="status" aria-live="polite"></p>
         </form>
       </article>
     </section>
@@ -418,54 +418,57 @@
     <p class="footer-small">© 2026 Kink Korps</p>
   </footer>
 
-  <script>
-    (function () {
-      const form = document.getElementById("newsletter-signup-form");
-      const status = document.getElementById("newsletter-status");
-      const endpoint = "https://psfwkawwkzjifzyscuph.supabase.co/functions/v1/newsletter-signup";
-      const anonJwt = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJIUzI1NiIsInJlZiI6InBzZndrYXd3a3pqaWZ6eXNjdXBoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODgzNDQzODMsImV4cCI6MjEwMzkyMDM4M30.NK6ppFvU_wFkqiNs2b9UvvPtur8QDpkzmdWH1ELexx0";
+  <script type="module">
+    import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
-      if (!form || !status) return;
+    const SUPABASE_URL = "https://psfwkawwkzjifzyscuph.supabase.co";
+    const SUPABASE_KEY = "sb_publishable_QBzdRHqal1-FLSrS4tR6hw_r1AYuHjc";
+    const REDIRECT_URL = "https://krystal929-afk.github.io/Kink-Korps/gallery.html";
+    const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 
-      function setStatus(text, state) {
-        status.textContent = text;
-        if (state) status.dataset.state = state;
-        else delete status.dataset.state;
-      }
+    const form = document.getElementById("korps-join-form");
+    const status = document.getElementById("korps-join-status");
 
+    function setStatus(text, state = "") {
+      status.textContent = text;
+      if (state) status.dataset.state = state;
+      else delete status.dataset.state;
+    }
+
+    if (form && status) {
       form.addEventListener("submit", async function (event) {
         event.preventDefault();
 
-        const email = document.getElementById("newsletter-email").value.trim().toLowerCase();
-        const website = document.getElementById("newsletter-website").value;
+        const email = document.getElementById("korps-email").value.trim().toLowerCase();
         const button = form.querySelector("button[type='submit']");
 
         button.disabled = true;
-        setStatus("Adding you to the list…");
+        setStatus("Opening the door…");
 
         try {
-          const response = await fetch(endpoint, {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              "apikey": anonJwt,
-              "Authorization": `Bearer ${anonJwt}`,
+          const { error } = await supabase.auth.signInWithOtp({
+            email,
+            options: {
+              shouldCreateUser: true,
+              emailRedirectTo: REDIRECT_URL,
+              data: {
+                membership_source: "website",
+              },
             },
-            body: JSON.stringify({ email, source: "website", website }),
           });
 
-          if (!response.ok) throw new Error("signup failed");
+          if (error) throw error;
 
           form.reset();
-          setStatus("You’re on the list. 🖤", "success");
+          setStatus("Check your email. Tap the link to enter the Korps. 🖤", "success");
         } catch (error) {
           console.error(error);
-          setStatus("That didn’t go through. Try again in a minute.", "error");
+          setStatus("That didn’t go through. Check the email and try again.", "error");
         } finally {
           button.disabled = false;
         }
       });
-    })();
+    }
   </script>
 </body>
 </html>
