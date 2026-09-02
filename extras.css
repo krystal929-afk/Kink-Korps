@@ -1,55 +1,84 @@
-/* Kink Korps gallery + newsletter additions */
+/* Kink Korps membership + Vault additions */
 
-.access-section {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 18px;
-}
-
-.access-card {
+.membership-section {
   position: relative;
-  min-height: 330px;
-  padding: clamp(28px, 5vw, 48px);
+}
+
+.membership-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(300px, 0.88fr);
+  gap: clamp(34px, 7vw, 90px);
+  align-items: center;
+  padding: clamp(30px, 6vw, 62px);
   overflow: hidden;
-  background: var(--panel);
+  background:
+    linear-gradient(120deg, rgba(139, 44, 255, 0.11), transparent 42%),
+    var(--panel);
   border: 1px solid var(--line);
+  box-shadow: 12px 12px 0 rgba(255, 21, 147, 0.14);
 }
 
-.access-card:first-child {
-  box-shadow: 10px 10px 0 rgba(139, 44, 255, 0.18);
-}
-
-.access-card:last-child {
-  box-shadow: 10px 10px 0 rgba(255, 21, 147, 0.15);
-}
-
-.access-card h2 {
-  max-width: 620px;
-  margin: 0 0 20px;
+.membership-copy h2 {
+  max-width: 760px;
+  margin: 0 0 22px;
   font-family: Anton, Impact, sans-serif;
-  font-size: clamp(48px, 7vw, 92px);
+  font-size: clamp(54px, 8vw, 112px);
   font-weight: 400;
-  letter-spacing: -0.025em;
-  line-height: 0.9;
+  letter-spacing: -0.03em;
+  line-height: 0.88;
   text-transform: uppercase;
 }
 
-.access-card > p:not(.kicker) {
-  max-width: 610px;
+.membership-copy > p:not(.kicker) {
+  max-width: 700px;
+  margin: 0;
   color: var(--muted);
-  font-size: 16px;
+  font-size: 17px;
   line-height: 1.7;
 }
 
-.access-card .button {
-  margin-top: 18px;
+.member-benefits {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin: 28px 0;
 }
 
-.signup-form {
+.member-benefits span {
+  padding: 8px 11px;
+  color: #050505;
+  background: var(--green);
+  font-family: Oswald, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transform: rotate(-0.5deg);
+}
+
+.member-benefits span:nth-child(even) {
+  color: #fff;
+  background: var(--purple);
+  transform: rotate(0.8deg);
+}
+
+.member-vault-link {
+  margin-top: 4px;
+}
+
+.signup-form,
+.vault-form {
   display: grid;
   gap: 12px;
   max-width: 620px;
   margin-top: 26px;
+}
+
+.membership-form {
+  margin-top: 0;
+  padding: clamp(24px, 4vw, 36px);
+  background: #080809;
+  border: 1px solid #353138;
 }
 
 .signup-form label,
@@ -196,24 +225,7 @@
 }
 
 .vault-form {
-  display: grid;
-  gap: 13px;
-  max-width: 620px;
   margin-top: 24px;
-}
-
-.opt-in-row {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 10px;
-  align-items: start;
-  color: var(--muted);
-  font-size: 13px;
-  line-height: 1.5;
-}
-
-.opt-in-row input {
-  margin-top: 3px;
 }
 
 .vault-account {
@@ -222,7 +234,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 14px;
-  margin-bottom: 28px;
+  margin-bottom: 20px;
   padding-bottom: 18px;
   border-bottom: 1px solid var(--line);
 }
@@ -231,6 +243,35 @@
   margin: 0;
   color: var(--muted);
   font-size: 13px;
+}
+
+.vault-account .kicker {
+  margin-bottom: 5px;
+  color: var(--green);
+}
+
+.vault-member-banner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 24px;
+  margin-bottom: 26px;
+  padding: 14px 16px;
+  color: #050505;
+  background: var(--green);
+  font-family: Oswald, sans-serif;
+  text-transform: uppercase;
+}
+
+.vault-member-banner strong {
+  font-size: 14px;
+  letter-spacing: 0.07em;
+}
+
+.vault-member-banner span {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
 }
 
 .gallery-list {
@@ -300,11 +341,17 @@
   display: none !important;
 }
 
-@media (max-width: 760px) {
-  .access-section {
+@media (max-width: 860px) {
+  .membership-card {
     grid-template-columns: 1fr;
   }
 
+  .membership-form {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 760px) {
   .private-photo-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
