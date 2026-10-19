@@ -1,0 +1,361 @@
+/* ==========================================================================
+   Oct 23 "Anything Goes" PARTY SKIN — event-only look, taken from the six
+   party flyers (purple graveyard / toxic green / blood red, gothic type).
+   Not the permanent Kink Korps brand. Delete this file + its <link> block
+   in index.html to fall back to the neutral theme.css tokens.
+   ========================================================================== */
+
+/* Cinzel's "+" is a hairline at small sizes ("21+" read as "21-"); borrow a sans "+" only. */
+@font-face {
+  font-family: "KK Plus";
+  src: local("Arial Bold"), local("Arial-BoldMT"), local("Helvetica Bold"), local("Roboto Bold"), local("DejaVu Sans Bold"), local("Liberation Sans Bold");
+  font-weight: 100 900;
+  unicode-range: U+002B;
+}
+
+body.page-oct23 {
+  /* fonts */
+  --font-display: "Metal Mania", Impact, fantasy;           /* spiky flyer headline */
+  --font-label: "KK Plus", Cinzel, "Trajan Pro", Georgia, serif;        /* small-caps info lines */
+  --font-accent: "UnifrakturCook", "Old English Text MT", serif; /* Live Deliciously */
+  --font-body: Inter, Arial, sans-serif;
+
+  /* colors */
+  --bg: #07050b;
+  --bg-soft: #0e0916;
+  --panel: #120b1c;
+  --text: #f4eefb;
+  --muted: #c9bdd9;          /* 11.4:1 on --bg, 10.8:1 on --panel */
+  --line: #3b2654;
+
+  --accent: #9dff2f;         /* toxic green: CTAs ("GOES") */
+  --accent-2: #b14dff;       /* witch purple */
+  --blood: #ff2a2a;          /* "Live Deliciously" red */
+  --ember: #ff7a1a;          /* jack-o'-lantern orange */
+  --on-accent: #0a0710;      /* 15:1 on --accent */
+  --kicker: #d6a8ff;         /* purple labels, 10:1 on --bg */
+
+  --card-shadow: 0 0 0 1px color-mix(in srgb, var(--accent-2) 30%, transparent),
+                 0 18px 60px -20px color-mix(in srgb, var(--accent-2) 55%, transparent);
+  --button-shadow: 0 0 22px -4px color-mix(in srgb, var(--accent) 70%, transparent);
+
+  --pent: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.5' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='11'/%3E%3Cpath d='M12 22 L6.12 3.91 L21.51 15.09 L2.49 15.09 L17.88 3.91 Z'/%3E%3C/svg%3E");
+
+  background:
+    radial-gradient(60vmax 45vmax at 85% -5%, color-mix(in srgb, var(--accent-2) 26%, transparent), transparent 70%),
+    radial-gradient(50vmax 40vmax at -10% 40%, color-mix(in srgb, var(--accent) 7%, transparent), transparent 70%),
+    radial-gradient(60vmax 40vmax at 50% 110%, color-mix(in srgb, var(--blood) 12%, transparent), transparent 70%),
+    var(--bg);
+  background-attachment: fixed;
+  color: var(--text);
+}
+body.page-oct23::before { display: none; }
+.page-oct23 ::selection { color: var(--on-accent); background: var(--accent); }
+
+/* ---------- shared bits ---------- */
+.pent {
+  display: inline-block;
+  width: 1em; height: 1em;
+  vertical-align: -0.12em;
+  background: currentColor;
+  -webkit-mask: var(--pent) center / contain no-repeat;
+          mask: var(--pent) center / contain no-repeat;
+}
+
+.page-oct23 .kicker,
+.page-oct23 .detail-label,
+.page-oct23 .seasonal-kicker,
+.page-oct23 .price span,
+.page-oct23 .price em { font-family: var(--font-label); font-weight: 700; letter-spacing: 0.18em; }
+
+/* Section headings: flyer metal type with a purple glow */
+.page-oct23 .section-heading h2,
+.page-oct23 .manifesto-copy h2,
+.page-oct23 .contact-copy h2,
+.page-oct23 .ticket-copy h2 {
+  font-family: var(--font-display);
+  letter-spacing: 0.01em;
+  line-height: 0.95;
+  text-shadow: 0 0 28px color-mix(in srgb, var(--accent-2) 55%, transparent);
+}
+.page-oct23 .section-heading h2,
+.page-oct23 .manifesto-copy h2,
+.page-oct23 .contact-copy h2 { font-size: clamp(46px, 7vw, 100px); }
+
+/* Pentagram divider over each section kicker */
+.page-oct23 .section-heading .kicker,
+.page-oct23 .ticket-copy .kicker,
+.page-oct23 .contact-copy .kicker,
+.page-oct23 .manifesto-copy .kicker,
+.page-oct23 .sponsor-section .kicker {
+  display: flex; align-items: center; gap: 12px;
+}
+.page-oct23 .section-heading .kicker::before,
+.page-oct23 .ticket-copy .kicker::before,
+.page-oct23 .contact-copy .kicker::before,
+.page-oct23 .manifesto-copy .kicker::before,
+.page-oct23 .sponsor-section .kicker::before {
+  content: "";
+  flex: 0 0 auto;
+  width: 18px; height: 18px;
+  background: var(--blood);
+  -webkit-mask: var(--pent) center / contain no-repeat;
+          mask: var(--pent) center / contain no-repeat;
+  filter: drop-shadow(0 0 6px var(--blood));
+}
+.page-oct23 .sponsor-section .kicker { justify-content: center; }
+.page-oct23 .sponsor-section .kicker::after {
+  content: ""; width: 18px; height: 18px; background: var(--blood);
+  -webkit-mask: var(--pent) center / contain no-repeat;
+          mask: var(--pent) center / contain no-repeat;
+}
+
+/* Thin purple-to-green rule between sections (flyer frame lines) */
+.page-oct23 main > .section { position: relative; border-top: 0; }
+.page-oct23 main > .section::after {
+  content: "";
+  position: absolute; left: var(--pad); right: var(--pad); top: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent-2), var(--accent), var(--accent-2), transparent);
+  opacity: 0.55;
+}
+.page-oct23 .sponsor-section { border-top: 0; border-bottom: 0; }
+
+/* ---------- header / nav ---------- */
+.page-oct23 .site-header {
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  border-bottom-color: var(--line);
+}
+.page-oct23 .site-nav { font-family: var(--font-label); font-weight: 700; letter-spacing: 0.14em; }
+.page-oct23 .site-nav a::after { background: var(--accent); }
+
+/* ---------- buttons ---------- */
+.page-oct23 .button { font-family: var(--font-label); font-weight: 900; letter-spacing: 0.12em; border-radius: 2px; }
+.page-oct23 .button-primary:hover,
+.page-oct23 .button-primary:focus-visible {
+  color: var(--on-accent); background: #c8ff7a; border-color: #c8ff7a;
+  box-shadow: 0 0 30px -2px color-mix(in srgb, var(--accent) 85%, transparent);
+}
+.page-oct23 .button-ghost { border-color: color-mix(in srgb, var(--accent-2) 70%, transparent); }
+.page-oct23 .button-ghost:hover,
+.page-oct23 .button-ghost:focus-visible { color: var(--accent); border-color: var(--accent); }
+.page-oct23 :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+/* ---------- hero ---------- */
+.page-oct23 .hero { min-height: 0; padding-top: clamp(44px, 7vw, 100px); padding-bottom: clamp(56px, 8vw, 110px); }
+.page-oct23 .seasonal-kicker { color: var(--ember); text-shadow: 0 0 10px color-mix(in srgb, var(--ember) 60%, transparent); }
+.page-oct23 .hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(70px, 10vw, 150px);
+  letter-spacing: 0.005em;
+  line-height: 0.92;
+  color: #ece6f2;
+  background: linear-gradient(180deg, #ffffff 0%, #d9d2e3 45%, #8d84a0 100%);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 18px color-mix(in srgb, var(--accent-2) 70%, transparent))
+          drop-shadow(0 3px 0 #2a0d44);
+}
+.page-oct23 .hero h1 span {
+  display: inline-block;
+  color: var(--accent);
+  background: linear-gradient(180deg, #d9ff9a 0%, var(--accent) 45%, #49b200 100%);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 16px color-mix(in srgb, var(--accent) 65%, transparent));
+}
+.page-oct23 .hero-sub {
+  margin-top: 22px;
+  color: #ff4fd8;               /* flyer magenta "DANCE AND PLAY PARTY", 6.9:1 on bg */
+  font-family: var(--font-label);
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-shadow: 0 0 14px color-mix(in srgb, #ff4fd8 50%, transparent);
+}
+.page-oct23 .hero-tagline,
+.page-oct23 .poster-script {
+  color: var(--blood);
+  font-family: var(--font-accent);
+  font-weight: 700;
+  text-transform: none;
+  letter-spacing: 0.01em;
+  text-shadow: 0 0 18px color-mix(in srgb, var(--blood) 55%, transparent);
+}
+.page-oct23 .hero-tagline { margin-top: 4px; font-size: clamp(36px, 4.4vw, 58px); color: #ff3b3b; }
+.page-oct23 .hero-facts { font-family: var(--font-label); font-weight: 700; letter-spacing: 0.06em; color: var(--muted); }
+.page-oct23 .hero-facts strong { color: var(--accent); }
+
+/* Flyer as hero image */
+.flyer-hero {
+  position: relative;
+  width: min(430px, 100%);
+  margin: 0 auto;
+  display: grid; justify-items: center; gap: 0;
+}
+.flyer-hero img {
+  width: 100%;
+  border: 1px solid color-mix(in srgb, var(--accent-2) 60%, transparent);
+  box-shadow:
+    0 0 0 6px var(--bg),
+    0 0 0 7px color-mix(in srgb, var(--accent-2) 35%, transparent),
+    0 30px 80px -20px color-mix(in srgb, var(--accent-2) 80%, transparent),
+    0 0 120px -30px color-mix(in srgb, var(--accent) 50%, transparent);
+}
+.page-oct23 .flyer-hero .poster-price {
+  margin: -18px 0 0;
+  position: relative; z-index: 1;
+  padding: 10px 16px;
+  color: var(--on-accent);
+  background: var(--accent);
+  font-family: var(--font-label);
+  font-weight: 900; font-size: 13px; letter-spacing: 0.14em;
+  box-shadow: var(--button-shadow);
+}
+
+/* ---------- event details ---------- */
+.page-oct23 .details-grid { border-color: var(--line); background: color-mix(in srgb, var(--panel) 70%, transparent); }
+.page-oct23 .detail { border-color: var(--line); }
+.page-oct23 .detail strong {
+  font-family: var(--font-label);
+  font-weight: 900;
+  font-size: clamp(24px, 2.4vw, 32px);
+  letter-spacing: 0.02em;
+  line-height: 1.1;
+}
+.page-oct23 .detail-price strong { color: var(--accent); text-shadow: 0 0 14px color-mix(in srgb, var(--accent) 45%, transparent); }
+.page-oct23 .detail-wide strong { color: #ff4fd8; }
+
+/* ---------- tickets ---------- */
+.page-oct23 .ticket-panel {
+  position: relative;
+  background:
+    radial-gradient(120% 90% at 0% 0%, color-mix(in srgb, var(--accent-2) 22%, transparent), transparent 60%),
+    radial-gradient(90% 80% at 100% 100%, color-mix(in srgb, var(--accent) 10%, transparent), transparent 60%),
+    var(--panel);
+  border-color: color-mix(in srgb, var(--accent-2) 55%, transparent);
+}
+.page-oct23 .ticket-copy h2 { font-size: clamp(54px, 7vw, 96px); color: var(--text); }
+.page-oct23 .price { background: color-mix(in srgb, var(--bg) 85%, transparent); border-color: var(--line); }
+.page-oct23 .price strong { font-family: var(--font-display); }
+.page-oct23 .js-price-pre { border-color: var(--accent); box-shadow: inset 0 0 24px -10px var(--accent); }
+.page-oct23 .js-price-door strong { color: var(--ember); }
+body.page-oct23[data-ticket-state="door"] .js-price-pre { box-shadow: none; }
+body.page-oct23[data-ticket-state="door"] .js-price-door { border-color: var(--accent); box-shadow: inset 0 0 24px -10px var(--accent); }
+body.page-oct23[data-ticket-state="door"] .js-price-door strong { color: var(--accent); }
+.page-oct23 .pay-title { font-family: var(--font-label); font-weight: 900; letter-spacing: 0.12em; color: var(--accent); }
+.page-oct23 .pay-option { border-radius: 2px; box-shadow: 0 0 18px -8px color-mix(in srgb, var(--accent) 80%, transparent); }
+.page-oct23 .pay-name { font-family: var(--font-label); font-weight: 900; }
+.page-oct23 .pay-option:hover,
+.page-oct23 .pay-option:focus-visible { color: var(--on-accent); background: #c8ff7a; border-color: #c8ff7a; }
+.page-oct23 .pay-copy { color: var(--text); background: color-mix(in srgb, var(--bg) 70%, transparent); }
+.page-oct23 .pay-copy:hover .pay-copy-hint,
+.page-oct23 .pay-copy:focus-visible .pay-copy-hint { color: var(--on-accent); }
+
+/* ---------- hosts ---------- */
+.page-oct23 .host-card {
+  background: var(--panel);
+  border-color: color-mix(in srgb, var(--accent-2) 45%, transparent);
+  box-shadow: var(--card-shadow);
+}
+.page-oct23 .host-card figure { position: relative; }
+.page-oct23 .host-card figure::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(180deg, transparent 55%, color-mix(in srgb, var(--accent-2) 35%, transparent));
+}
+.page-oct23 .host-copy h3 {
+  font-family: var(--font-display);
+  letter-spacing: 0.01em;
+  color: #e9e3f0;
+  text-shadow: 0 0 18px color-mix(in srgb, var(--accent-2) 70%, transparent);
+}
+.page-oct23 .host-card:nth-child(2) .host-copy h3 { color: var(--kicker); }
+
+/* ---------- rules ---------- */
+.page-oct23 .rules-grid article { border-color: var(--line); }
+.page-oct23 .rule-number {
+  color: var(--blood);
+  font-family: var(--font-display);
+  text-shadow: 0 0 12px color-mix(in srgb, var(--blood) 60%, transparent);
+}
+.page-oct23 .rules-grid h3 { font-family: var(--font-label); font-weight: 900; letter-spacing: 0.02em; }
+
+/* ---------- manifesto / contact ---------- */
+.page-oct23 .manifesto-mark {
+  font-family: var(--font-display);
+  color: var(--accent);
+  text-shadow: 0 0 30px color-mix(in srgb, var(--accent) 50%, transparent);
+}
+.page-oct23 .contact-links a { border-color: var(--line); }
+.page-oct23 .contact-links span { font-family: var(--font-label); letter-spacing: 0.16em; color: var(--kicker); }
+.page-oct23 .contact-links strong { font-family: var(--font-display); letter-spacing: 0.02em; }
+
+/* ---------- footer: flyer credit trio + bordered strip ---------- */
+.page-oct23 .site-footer { background: color-mix(in srgb, var(--bg) 90%, black); border-top: 1px solid var(--line); }
+.flyer-credits {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  width: min(900px, 100%);
+  margin: 0 auto 28px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.flyer-credits p {
+  display: grid; justify-items: center; gap: 4px;
+  margin: 0; padding: 16px 8px;
+  text-align: center;
+}
+.flyer-credits p + p { border-left: 1px solid var(--line); }
+.page-oct23 .site-footer .flyer-credits span {
+  color: var(--muted);
+  font-family: var(--font-label); font-size: 10px; font-weight: 700; letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.flyer-credits strong {
+  font-family: var(--font-display); font-weight: 400;
+  font-size: clamp(20px, 3vw, 32px); line-height: 1;
+  color: #ece6f2;
+}
+.flyer-credits p:nth-child(2) strong { color: var(--accent); }
+.flyer-credits p:nth-child(3) strong { color: var(--kicker); }
+.page-oct23 .site-footer .flyer-strip {
+  display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 6px 14px;
+  width: min(900px, 100%);
+  margin: 0 auto 30px;
+  padding: 10px 14px;
+  color: var(--text);
+  border: 1px solid color-mix(in srgb, var(--blood) 70%, transparent);
+  font-family: var(--font-label); font-size: 11px; font-weight: 700; letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.flyer-strip .pent { color: var(--blood); }
+.page-oct23 .site-footer p:not(.flyer-strip):not(.footer-small) { font-family: var(--font-label); letter-spacing: 0.14em; }
+.page-oct23 .site-footer .footer-small { color: #9a8fae; } /* 6.4:1 */
+
+/* ---------- age gate ---------- */
+.page-oct23 .age-gate { background: color-mix(in srgb, var(--bg) 96%, transparent); }
+.page-oct23 .age-gate-panel {
+  background:
+    radial-gradient(100% 70% at 50% 0%, color-mix(in srgb, var(--accent-2) 25%, transparent), transparent 70%),
+    var(--panel);
+  border-color: color-mix(in srgb, var(--accent-2) 55%, transparent);
+}
+.page-oct23 .age-gate h2 { font-family: var(--font-display); color: var(--blood); text-shadow: 0 0 22px color-mix(in srgb, var(--blood) 55%, transparent); }
+
+/* ---------- sticky mobile bar ---------- */
+@media (max-width: 700px) {
+  .page-oct23 .hero h1 { font-size: clamp(60px, 19vw, 110px); }
+  .page-oct23 .sticky-buy { border-top-color: color-mix(in srgb, var(--accent-2) 60%, transparent); }
+  .page-oct23 .sticky-buy-link { box-shadow: var(--button-shadow); border-radius: 2px; }
+  .page-oct23 .sticky-buy-link strong { font-family: var(--font-label); font-weight: 900; }
+  .flyer-credits strong { font-size: 18px; }
+  .flyer-credits p { padding: 12px 4px; }
+  .page-oct23 .site-footer .flyer-strip { font-size: 10px; letter-spacing: 0.12em; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .page-oct23 .hero-tagline { animation: kk-flicker 6s infinite steps(1); }
+  @keyframes kk-flicker { 0%, 92%, 96%, 100% { opacity: 1; } 94% { opacity: 0.55; } }
+}
+
+/* kicker breathing room above the metal headings */
+.page-oct23 .section-heading .kicker { margin-bottom: 10px; }
+.page-oct23 .section-heading.compact .kicker { margin-bottom: 18px; }

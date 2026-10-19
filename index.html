@@ -25,6 +25,11 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="extras.css">
   <link rel="stylesheet" href="oct23.css">
+  <!-- Oct 23 "Anything Goes" party skin (event-only look, based on the flyers). Remove this block after the party. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Metal+Mania&family=UnifrakturCook:wght@700&display=swap">
+  <link rel="stylesheet" href="oct23-skin.css">
 
   <script>
     document.documentElement.classList.add("age-gate-loading");
@@ -136,17 +141,14 @@
       </div>
 
       <div class="hero-poster-wall" aria-label="Anything Goes, Friday October 23">
-        <div class="poster poster-main brand-poster">
-          <img class="brand-poster-logo" src="assets/kink-korps-logo.webp" alt="Kink Korps" width="664" height="580">
-          <p class="brand-poster-season">HALLOWEEN EDITION</p>
-          <p class="brand-poster-label">DANCE &amp; PLAY PARTY</p>
-          <h2>ANYTHING<br>GOES</h2>
-          <p class="brand-poster-date">OCT 23</p>
-          <p class="poster-time">FRIDAY · 10PM–4AM</p>
-          <p class="brand-poster-year">NU VIBEZ · LAUDERHILL FL · 21+</p>
-          <p class="poster-price js-price-poster">$15 PRESALE · $20 DOOR</p>
-          <p class="poster-script">Live Deliciously</p>
-        </div>
+        <figure class="flyer-hero">
+          <img src="assets/oct23/anything-goes-flyer-900.webp"
+               srcset="assets/oct23/anything-goes-flyer-540.webp 540w, assets/oct23/anything-goes-flyer-900.webp 900w"
+               sizes="(max-width: 700px) calc(100vw - 40px), 430px"
+               width="900" height="1350" fetchpriority="high"
+               alt="Anything Goes flyer: Satanica Lux in a red devil costume with a pitchfork and Mr. Satan in a skeleton suit, standing in a purple moonlit graveyard with jack-o'-lanterns and candles. Kink Korps presents Anything Goes, dance and play party, Live Deliciously. Friday, October 23, starts at 10PM. $15 presale, $20 at the door. Nu Vibez, Lauderhill, free parking. Dress code: fetish, lingerie, goth. Music by Mr. Satan, sponsored by Spunk Lube, door diva Satanica Lux. 21+ to play, consent is sexy, respect is mandatory.">
+          <figcaption class="poster-price js-price-poster">$15 PRESALE · $20 DOOR</figcaption>
+        </figure>
       </div>
     </section>
 
@@ -381,6 +383,12 @@
   </main>
 
   <footer class="site-footer">
+    <div class="flyer-credits" aria-label="Party credits">
+      <p><span>Music by</span><strong>Mr. Satan</strong></p>
+      <p><span>Sponsored by</span><strong>Spunk Lube</strong></p>
+      <p><span>Door diva</span><strong>Satanica Lux</strong></p>
+    </div>
+    <p class="flyer-strip">21+ to play <i class="pent" aria-hidden="true"></i> Consent is sexy <i class="pent" aria-hidden="true"></i> Respect is mandatory</p>
     <img src="assets/kink-korps-logo.webp" alt="Kink Korps" width="664" height="580">
     <p>Nu Vibez · Lauderhill FL · 21+ · Fetish-Friendly</p>
     <p class="footer-small">© 2026 Kink Korps</p>
