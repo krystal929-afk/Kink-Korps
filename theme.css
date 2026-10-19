@@ -1,0 +1,43 @@
+/* ==========================================================================
+   Kink Korps THEME — the one place to swap the look.
+   Every color and font the site uses comes from these variables.
+   Art direction is still TBD: these are neutral placeholders
+   (black + KK-logo red + one purple, existing brand typefaces).
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800&family=Oswald:wght@500;600;700&display=swap');
+
+:root {
+  /* ---- fonts ---- */
+  --font-display: Anton, Impact, sans-serif;     /* big headlines */
+  --font-label: Oswald, Arial Narrow, sans-serif;  /* kickers, buttons, nav */
+  --font-body: Inter, Arial, sans-serif;         /* paragraphs */
+  --font-accent: var(--font-display);            /* "Live Deliciously" tagline */
+
+  /* ---- core colors ---- */
+  --bg: #050505;
+  --bg-soft: #0b0b0c;
+  --panel: #101012;
+  --text: #f5f1ea;
+  --muted: #b7b0a7;
+  --line: #29272b;
+
+  --accent: #e3121c;      /* primary accent (KK logo red) */
+  --accent-2: #8b2cff;    /* secondary accent (purple) */
+  --on-accent: #ffffff;   /* text on accent buttons */
+  --kicker: #c6a2ff;      /* small uppercase labels */
+
+  /* ---- shape ---- */
+  --card-shadow: 8px 8px 0 color-mix(in srgb, var(--accent) 25%, transparent);
+  --button-shadow: 4px 4px 0 var(--accent-2);
+
+  /* ---- layout ---- */
+  --max: 1280px;
+  --pad: clamp(20px, 5vw, 72px);
+
+  /* ---- legacy names used by styles.css / extras.css (map to tokens above) ---- */
+  --pink: var(--accent);
+  --red: var(--accent);
+  --green: var(--accent);
+  --purple: var(--accent-2);
+  --paper: color-mix(in srgb, var(--accent-2) 30%, var(--bg));
+}

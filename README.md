@@ -1,94 +1,11 @@
-Kink Korps — Anything Goes
+# Kink Korps — Anything Goes (Fri Oct 23, 2026)
 
-Official landing page for Kink Korps presents Anything Goes, a fetish-friendly play party in Fort Lauderdale, Florida.
+Event landing page. Static site, relative paths, GitHub Pages–ready (no CNAME yet).
 
-Event
-
-Friday, August 28, 2026
-10 PM – 4 AM
-
-Nu Vibez Lounge
-Fort Lauderdale, Florida
-
-Tickets
-
-* Online: $15
-* At the door: $20
-
-Payment options are available on the website.
-
-Featured
-
-* Mr. Satan — Music / Sonic Sorcery
-* Satanica Lux — Door Diva
-* Sweet n Thick Treats — On-site treats
-* Spunk Lube — Event sponsor
-
-Dress Code
-
-Dress to express.
-
-Leather, latex, lace, vinyl, harnesses, mesh, fetish wear, or whatever makes you feel sexy and confident.
-
-Consent
-
-Consent is mandatory.
-
-Everyone is expected to respect boundaries, privacy, personal expression, and the consent of others.
-
-Website
-
-The live site is hosted with GitHub Pages.
-
-Kink Korps — Anything Goes
-
-Technology
-
-This is a lightweight static website built with:
-
-* HTML5
-* CSS3
-* Google Fonts
-* GitHub Pages
-
-There is no JavaScript framework, build process, or server-side application.
-
-Project Structure
-
-Kink-Korps/
-├── index.html
-├── styles.css
-├── README.md
-└── assets/
-    ├── Hero-flyer.jpg
-    ├── kink-korps-logo.png
-    ├── play-1.jpg
-    ├── play-2.jpg
-    ├── mr-satan.jpg
-    ├── satanica-lux.jpg
-    ├── NV-logo.jpg
-    ├── NV-staff.jpg
-    ├── NV-bucket.jpg
-    ├── NV-staff2.jpg
-    ├── NV-waffles.jpg
-    ├── NV-breakfast.jpg
-    ├── Sweet thick.JPG
-    └── spunk-logo.jpg
-
-Local Development
-
-No installation or build process is required.
-
-Clone or download the repository and open index.html in a browser.
-
-For a more accurate local preview, serve the folder with any simple static HTTP server.
-
-Deployment
-
-The site is designed to work directly with GitHub Pages.
-
-Changes committed to the main branch can be deployed through the repository’s GitHub Pages settings.
-
-⸻
-
-Kink Korps · Anything Goes · Fort Lauderdale
+- `theme.css` — **the one place for colors + fonts** (CSS variables). Swap the look here.
+- `styles.css` / `extras.css` — base layout + components (use theme variables).
+- `oct23.css` — Oct 23 page sections, sticky mobile ticket bar.
+- `index.html` — page. Ticket config is at the bottom script:
+  - `PRESALE_URL` — TODO: set the live presale link (placeholder `#presale-tbd` = "coming soon" state).
+  - `PRESALE_ENDS` — noon ET Fri 10/23; after that the page switches to "$20 at the door" automatically.
+- `gallery.html` (Vault) and `seasonal.css` are kept but unlinked from the nav for this relaunch.

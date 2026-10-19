@@ -4,42 +4,27 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Kink Korps | South Florida Fetish Events</title>
+  <title>Anything Goes Dance &amp; Play Party | Fri Oct 23 | Kink Korps</title>
   <meta
     name="description"
-    content="Kink Korps produces fetish-friendly parties, music, play, performance, and community events in South Florida. Anything Goes returns October 23, 2026."
+    content="Kink Korps presents Anything Goes, a Halloween dance &amp; play party. Fri Oct 23, 2026, 10PM–4AM at Nu Vibez, Lauderhill FL. 21+. $15 presale until noon Fri, $20 at the door. Live Deliciously."
   >
   <meta name="theme-color" content="#050505">
 
-  <link rel="canonical" href="https://krystal929-afk.github.io/Kink-Korps/">
-
+  <!-- TODO(domain): add <link rel="canonical"> + og:url once kinkkorps.com is wired (CNAME). -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Kink Korps">
-  <meta property="og:title" content="Kink Korps | South Florida Fetish Events">
-  <meta
-    property="og:description"
-    content="Fetish-friendly parties, play, music, performance, and community in South Florida. Anything Goes returns October 23."
-  >
-  <meta
-    property="og:image"
-    content="https://krystal929-afk.github.io/Kink-Korps/assets/kink-korps-logo.png"
-  >
-  <meta property="og:url" content="https://krystal929-afk.github.io/Kink-Korps/">
-
+  <meta property="og:title" content="Anything Goes Dance &amp; Play Party | Fri Oct 23">
+  <meta property="og:description" content="Nu Vibez, Lauderhill · 10PM–4AM · 21+ · $15 presale until noon Fri 10/23, $20 at the door. Live Deliciously.">
+  <!-- TODO(domain): social scrapers need an absolute image URL; switch to the final domain when it is live. -->
+  <meta property="og:image" content="https://krystal929-afk.github.io/Kink-Korps/assets/kink-korps-logo.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Kink Korps | South Florida Fetish Events">
-  <meta
-    name="twitter:description"
-    content="Fetish-friendly parties, play, music, performance, and community in South Florida. Anything Goes returns October 23."
-  >
-  <meta
-    name="twitter:image"
-    content="https://krystal929-afk.github.io/Kink-Korps/assets/kink-korps-logo.png"
-  >
 
+  <link rel="icon" href="assets/kink-korps-logo.webp" type="image/webp">
+  <link rel="stylesheet" href="theme.css">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="extras.css">
-  <link rel="stylesheet" href="seasonal.css">
+  <link rel="stylesheet" href="oct23.css">
 
   <script>
     document.documentElement.classList.add("age-gate-loading");
@@ -62,18 +47,14 @@
       }
 
       let verified = false;
-
       try {
         verified = sessionStorage.getItem(storageKey) === "true";
       } catch (error) {
         verified = false;
       }
 
-      if (verified) {
-        unlockPage();
-      } else {
-        lockPage();
-      }
+      if (verified) unlockPage();
+      else lockPage();
 
       enterButton.addEventListener("click", function () {
         try {
@@ -85,328 +66,295 @@
       });
 
       exitButton.addEventListener("click", function () {
-        if (window.history.length > 1) {
-          window.history.back();
-        } else {
-          window.location.href = "about:blank";
-        }
+        if (window.history.length > 1) window.history.back();
+        else window.location.href = "about:blank";
       });
     });
   </script>
 </head>
 
-<body class="age-gate-open season-equinox">
+<body class="age-gate-open page-oct23">
 
-  <div
-    id="age-gate"
-    class="age-gate"
-    role="dialog"
-    aria-modal="true"
-    aria-labelledby="age-gate-title"
-    aria-describedby="age-gate-description"
-  >
+  <div id="age-gate" class="age-gate" role="dialog" aria-modal="true"
+       aria-labelledby="age-gate-title" aria-describedby="age-gate-description">
     <div class="age-gate-panel">
-      <img
-        class="age-gate-logo"
-        src="assets/kink-korps-logo.png"
-        alt="Kink Korps"
-      >
-
+      <img class="age-gate-logo" src="assets/kink-korps-logo.webp" alt="Kink Korps" width="664" height="580">
       <p class="kicker">ADULTS ONLY</p>
       <h2 id="age-gate-title">21+ ONLY</h2>
       <p id="age-gate-description">
-        Kink Korps events are for adults age 21 and older.
+        Anything Goes is a 21+ fetish-friendly event. By entering, you confirm
+        that you are 21 years of age or older.
       </p>
-
       <div class="age-gate-actions">
-        <button type="button" id="age-enter" class="button button-primary">
-          ENTER — I'M 21+
-        </button>
-        <button type="button" id="age-exit" class="button button-ghost">
-          EXIT
-        </button>
+        <button type="button" id="age-enter" class="button button-primary">ENTER — I'M 21+</button>
+        <button type="button" id="age-exit" class="button button-ghost">EXIT</button>
       </div>
-
-      <p class="microcopy">Valid ID required at events.</p>
+      <p class="microcopy">Valid ID required at the door.</p>
     </div>
   </div>
 
   <header class="site-header">
     <a class="brand" href="#top" aria-label="Kink Korps home">
-      <img src="assets/kink-korps-logo.png" alt="Kink Korps">
+      <img src="assets/kink-korps-logo.webp" alt="Kink Korps" width="664" height="580">
     </a>
-
+    <!-- Join + Vault (gallery.html) intentionally unlinked for the Oct 23 relaunch. -->
     <nav class="site-nav" aria-label="Primary navigation">
-      <a href="#parties">Parties</a>
-      <a href="#about">About</a>
-      <a href="#access">Join</a>
-      <a href="gallery.html">Vault</a>
+      <a href="#event">Event</a>
+      <a href="#tickets">Tickets</a>
+      <a href="#hosts">Hosts</a>
+      <a href="#rules">Rules</a>
     </nav>
   </header>
 
   <main id="top">
 
+    <!-- HERO -->
     <section class="hero">
       <div class="hero-copy">
-        <p class="seasonal-kicker">SEPTEMBER // AUTUMN EQUINOX</p>
-        <p class="kicker">INDEPENDENT SOUTH FLORIDA EVENT COLLECTIVE</p>
+        <p class="seasonal-kicker">HALLOWEEN EDITION</p>
+        <p class="kicker">KINK KORPS PRESENTS</p>
 
         <h1>
-          KINK<br>
-          <span>KORPS</span>
+          ANYTHING<br>
+          <span>GOES</span>
         </h1>
 
-        <p class="hero-statement">
-          The nights are getting longer.
-        </p>
+        <p class="hero-sub">Dance &amp; Play Party</p>
+        <p class="hero-tagline">Live Deliciously</p>
 
-        <p class="hero-body">
-          Parties for people who are tired of being told they are too much.
-          September is the threshold: longer nights, darker rooms, and the road
-          to October 23.
+        <p class="hero-facts">
+          <strong>Fri Oct 23</strong> · 10PM–4AM · Nu Vibez, Lauderhill · 21+
         </p>
 
         <div class="hero-actions">
-          <a class="button button-primary" href="#parties">See the Parties</a>
-          <a
-            class="button button-ghost"
-            href="https://www.instagram.com/kink_korps"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Follow @kink_korps ↗
+          <a class="button button-primary js-buy" href="#tickets">
+            <span class="js-buy-label">Presale $15 · Link coming soon</span>
           </a>
+          <a class="button button-ghost" href="#event">Event details</a>
         </div>
+        <p class="hero-note js-ticket-note">Presale link coming soon. Follow @kink_korps on FetLife.</p>
       </div>
 
-      <div class="hero-poster-wall" aria-label="Anything Goes October 23 announcement">
+      <div class="hero-poster-wall" aria-label="Anything Goes, Friday October 23">
         <div class="poster poster-main brand-poster">
-          <img
-            class="brand-poster-logo"
-            src="assets/kink-korps-logo.png"
-            alt="Kink Korps"
-          >
-          <p class="brand-poster-season">AUTUMN EQUINOX // SEPTEMBER</p>
-          <p class="brand-poster-label">NEXT PARTY</p>
+          <img class="brand-poster-logo" src="assets/kink-korps-logo.webp" alt="Kink Korps" width="664" height="580">
+          <p class="brand-poster-season">HALLOWEEN EDITION</p>
+          <p class="brand-poster-label">DANCE &amp; PLAY PARTY</p>
           <h2>ANYTHING<br>GOES</h2>
           <p class="brand-poster-date">OCT 23</p>
-          <p class="brand-poster-year">2026 • SOUTH FLORIDA</p>
+          <p class="poster-time">FRIDAY · 10PM–4AM</p>
+          <p class="brand-poster-year">NU VIBEZ · LAUDERHILL FL · 21+</p>
+          <p class="poster-price js-price-poster">$15 PRESALE · $20 DOOR</p>
+          <p class="poster-script">Live Deliciously</p>
         </div>
       </div>
     </section>
 
-    <section id="parties" class="section parties-section">
+    <!-- EVENT DETAILS -->
+    <section id="event" class="section event-section">
       <div class="section-heading">
-        <p class="kicker">THE PARTIES</p>
-        <h2>What we're throwing.</h2>
+        <p class="kicker">THE NIGHT</p>
+        <h2>Friday, October 23.</h2>
         <p>
-          The season is turning. Anything Goes returns October 23; venue, lineup,
-          ticket links, and guest announcements land here as they become real.
+          Anything Goes returns for Halloween, witchier and wilder. Dress up,
+          strip down, dance, and play. Everyone is welcome.
         </p>
       </div>
 
-      <article class="event-card event-card-featured">
-        <div class="event-art">
-          <img
-            src="assets/play-1-replacement.jpeg"
-            alt="Kink Korps event atmosphere"
-            loading="lazy"
-          >
+      <div class="details-grid">
+        <article class="detail">
+          <span class="detail-label">When</span>
+          <strong>Fri Oct 23, 2026</strong>
+          <p>10PM – 4AM</p>
+        </article>
+
+        <article class="detail">
+          <span class="detail-label">Where</span>
+          <strong>Nu Vibez</strong>
+          <p>1745 NW 38th Ave, Lauderhill FL</p>
+          <p>Free parking</p>
+          <a class="text-link" href="https://www.google.com/maps/search/?api=1&amp;query=Nu%20Vibez%2C%201745%20NW%2038th%20Ave%2C%20Lauderhill%2C%20FL"
+             target="_blank" rel="noopener noreferrer">Open in Google Maps ↗</a>
+        </article>
+
+        <article class="detail detail-price">
+          <span class="detail-label">Admission</span>
+          <strong class="js-price-headline">$15 presale</strong>
+          <p class="js-price-detail">Presale ends at NOON Fri 10/23. $20 at the door after that.</p>
+        </article>
+
+        <article class="detail">
+          <span class="detail-label">Age</span>
+          <strong>21+ only</strong>
+          <p>Valid photo ID required at the door. No exceptions.</p>
+        </article>
+
+        <article class="detail detail-wide">
+          <span class="detail-label">Dress code</span>
+          <strong>Fetish · Lingerie · Goth</strong>
+          <p>
+            Dress code isn't optional; it's the spell. Leather, latex, lace, vinyl,
+            harnesses, mesh, corsets, witchy, goth. Come as your darkest self.
+            <b>No street clothes.</b>
+          </p>
+        </article>
+
+        <article class="detail">
+          <span class="detail-label">The vibe</span>
+          <strong>Everyone welcome</strong>
+          <p>Fetish-friendly, body-positive, and radically inclusive. Halloween / witchy theme.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- TICKETS -->
+    <section id="tickets" class="section tickets-section">
+      <article class="ticket-panel">
+        <div class="ticket-copy">
+          <p class="kicker">TICKETS</p>
+          <h2 class="js-ticket-title">Presale $15.</h2>
+          <p class="js-ticket-body">
+            Presale is $15 until <strong>NOON Friday, October 23</strong>. After that,
+            admission is $20 at the door.
+          </p>
         </div>
-
-        <div class="event-copy">
-          <p class="kicker">KINK KORPS FLAGSHIP PLAY PARTY</p>
-          <h3>Anything Goes</h3>
-          <p class="event-lede">
-            The party where the name means what it says. Fetish-friendly,
-            body-positive, and built for people who want room to dance, play,
-            watch, connect, and be themselves without the side-eye.
-          </p>
-
-          <div class="event-status">
-            <span>Next date</span>
-            <strong>OCTOBER 23, 2026</strong>
+        <div class="ticket-action">
+          <div class="price-stack" aria-label="Ticket prices">
+            <div class="price js-price-pre"><span>Presale</span><strong>$15</strong><em>until noon Fri 10/23</em></div>
+            <div class="price js-price-door"><span>At the door</span><strong>$20</strong><em>after noon Fri 10/23</em></div>
           </div>
-
-          <div class="event-tags" aria-label="Anything Goes details">
-            <span>21+</span>
-            <span>South Florida</span>
-            <span>Music + Play</span>
-            <span>Fetish Friendly</span>
-          </div>
-
-          <p class="event-update-note">
-            Venue, lineup, and ticket details coming soon.
-          </p>
-
-          <a
-            class="text-link"
-            href="https://www.instagram.com/kink_korps"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Follow for the October drop ↗
+          <a class="button button-primary js-buy" href="#tickets">
+            <span class="js-buy-label">Presale $15 · Link coming soon</span>
           </a>
+          <p class="ticket-note js-ticket-note">Presale link coming soon. Follow @kink_korps on FetLife.</p>
         </div>
       </article>
+    </section>
 
-      <div class="next-slot">
-        <p class="kicker">MORE KINK KORPS</p>
-        <h3>A new season of parties begins.</h3>
-        <p>
-          Anything Goes is only the beginning. New rooms, lineups, and party
-          concepts will land here as the nights get longer.
-        </p>
+    <!-- HOSTS -->
+    <section id="hosts" class="section hosts-section">
+      <div class="section-heading compact">
+        <p class="kicker">YOUR HOSTS</p>
+        <h2>The coven keepers.</h2>
+      </div>
+
+      <div class="hosts-grid">
+        <article class="host-card">
+          <figure><img src="assets/mr-satan.jpg" alt="Mr. Satan"></figure>
+          <div class="host-copy">
+            <p class="kicker">OWNER · MUSIC</p>
+            <h3>Mr. Satan</h3>
+            <p>
+              Taking control of the sound system for the night with dark,
+              heavy-hitting rhythms and hypnotic beats built to keep the dance
+              floor surging from start to finish.
+            </p>
+            <a class="text-link" href="https://krystal929-afk.github.io/Mr.Satan-EPK/" target="_blank" rel="noopener noreferrer">View EPK ↗</a>
+          </div>
+        </article>
+
+        <article class="host-card">
+          <figure><img src="assets/satanica-lux.jpg" alt="Satanica Lux"></figure>
+          <div class="host-copy">
+            <p class="kicker">CO-OWNER · DOOR</p>
+            <h3>Satanica Lux</h3>
+            <p>
+              Setting the tone at the door and welcoming you into the night.
+            </p>
+          </div>
+        </article>
       </div>
     </section>
 
+    <!-- CONSENT + HOUSE RULES -->
+    <section id="rules" class="section rules-section">
+      <div class="section-heading">
+        <p class="kicker">CONSENT &amp; HOUSE RULES</p>
+        <h2>Consent is mandatory.</h2>
+        <p>
+          New to play parties? Come curious. These rules keep the room free,
+          fun, and safe for everyone in it.
+        </p>
+      </div>
+
+      <div class="rules-grid">
+        <article>
+          <span class="rule-number">01</span>
+          <h3>Ask before touching.</h3>
+          <p>Always get explicit, enthusiastic consent before engaging, touching, or joining in.</p>
+        </article>
+        <article>
+          <span class="rule-number">02</span>
+          <h3>No means no.</h3>
+          <p>"No" is always a full sentence. So is "stop", "not now", or silence. Take it gracefully.</p>
+        </article>
+        <article>
+          <span class="rule-number">03</span>
+          <h3>No photos without permission.</h3>
+          <p>Ask before you shoot, and never capture anyone in the background without their OK.</p>
+        </article>
+        <article>
+          <span class="rule-number">04</span>
+          <h3>Respect scenes &amp; space.</h3>
+          <p>Honor everyone's boundaries, privacy, and personal expression. Watch quietly; don't crowd or interrupt a scene.</p>
+        </article>
+        <article>
+          <span class="rule-number">05</span>
+          <h3>Look out for each other.</h3>
+          <p>If anything feels off, find a host or staff right away. Bring good energy and play safely.</p>
+        </article>
+        <article>
+          <span class="rule-number">06</span>
+          <h3>Rules are the rules.</h3>
+          <p>The hosts may remove anyone who breaks them, no refund and no debate.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
     <section id="about" class="section manifesto-section">
       <div class="manifesto-mark">KK</div>
-
       <div class="manifesto-copy">
         <p class="kicker">WHY KINK KORPS EXISTS</p>
         <h2>No velvet-rope morality.</h2>
-
         <p class="manifesto-lede">
           Kink Korps is for people who want the room a little louder, stranger,
           sexier, darker, and more alive.
         </p>
-
         <p>
           We built it for the people who never quite fit the polished version of
           nightlife. Queer, trans, straight, gay, bi, exhibitionist, private,
           experienced, brand-new, dressed to kill, barely dressed at all, or just
           curious. There is room here.
         </p>
-
-        <p>
-          Music matters. Atmosphere matters. The people in the room matter. The
-          goal is a night that feels free, welcoming, and genuinely fun.
-        </p>
       </div>
     </section>
 
-    <section class="section atmosphere-section" aria-labelledby="atmosphere-title">
-      <div class="section-heading compact">
-        <p class="kicker">AFTER DARK</p>
-        <h2 id="atmosphere-title">Longer nights. Louder rooms.</h2>
-      </div>
-
-      <div class="atmosphere-grid">
-        <figure>
-          <img
-            src="assets/play-1-replacement.jpeg"
-            alt="Kink Korps event atmosphere"
-            loading="lazy"
-          >
-        </figure>
-        <figure>
-          <img
-            src="assets/play-2.jpg"
-            alt="Kink Korps event atmosphere"
-            loading="lazy"
-          >
-        </figure>
-      </div>
+    <!-- SPONSOR -->
+    <section class="section sponsor-section" aria-label="Sponsor">
+      <p class="kicker">SPONSORED BY</p>
+      <a class="sponsor-logo" href="https://spunklube.com" target="_blank" rel="noopener noreferrer">
+        <img src="assets/spunk-lube-logo.webp" alt="Spunk Lube" width="600" height="224">
+      </a>
+      <a class="text-link" href="https://spunklube.com" target="_blank" rel="noopener noreferrer">spunklube.com ↗</a>
     </section>
 
-    <section id="vibe" class="section rules-section vibe-section">
-      <div class="section-heading">
-        <p class="kicker">THE VIBE</p>
-        <h2>Come ready to have a night.</h2>
-        <p>
-          We keep the social contract simple so the rest of the night can be fun.
-        </p>
-      </div>
-
-      <div class="rules-grid vibe-grid">
-        <article>
-          <span class="rule-number">01</span>
-          <h3>Come as you are.</h3>
-          <p>Dress up, strip down, dance, watch, play, or just take the room in.</p>
-        </article>
-
-        <article>
-          <span class="rule-number">02</span>
-          <h3>Read the room.</h3>
-          <p>Ask before joining somebody else's scene or space. A little awareness goes a long way.</p>
-        </article>
-
-        <article>
-          <span class="rule-number">03</span>
-          <h3>Keep it fun.</h3>
-          <p>No pressure, no pestering, no unnecessary drama. If something feels off, grab staff.</p>
-        </article>
-      </div>
-    </section>
-
-    <section id="access" class="section membership-section" aria-label="Join Kink Korps">
-      <article class="membership-card">
-        <div class="membership-copy">
-          <p class="kicker">JOIN KINK KORPS</p>
-          <h2>Get inside before everybody else does.</h2>
-          <p>
-            Joining the Korps gives you one member account for the whole thing.
-            You do not have to attend every party to belong here.
-          </p>
-
-          <div class="member-benefits" aria-label="Kink Korps member benefits">
-            <span>Private Party Galleries</span>
-            <span>Early Ticket Access</span>
-            <span>First Announcements</span>
-            <span>Member-Only Drops</span>
-          </div>
-
-          <a class="text-link member-vault-link" href="gallery.html">Already a member? Enter the Vault ↗</a>
-        </div>
-
-        <form id="korps-join-form" class="signup-form membership-form">
-          <label for="korps-email">Email address</label>
-          <input id="korps-email" name="email" type="email" autocomplete="email" required placeholder="you@example.com">
-
-          <button class="button button-primary" type="submit">Join the Korps</button>
-          <p class="form-note">
-            By joining Kink Korps, you agree to receive member emails about parties,
-            early ticket access, announcements, and member perks. You can unsubscribe
-            from emails later without deleting your member account.
-          </p>
-          <p id="korps-join-status" class="form-status" role="status" aria-live="polite"></p>
-        </form>
-      </article>
-    </section>
-
+    <!-- CONTACT -->
     <section id="contact" class="section contact-section">
       <div class="contact-copy">
         <p class="kicker">STAY IN THE LOOP</p>
-        <h2>Enter the season with us.</h2>
-        <p>
-          New dates, performer announcements, ticket drops, venue details, and
-          last-minute chaos live on our socials.
-        </p>
+        <h2>Follow the coven.</h2>
+        <p>Ticket drops, last-minute updates, and what's next after Oct 23 live on our socials.</p>
       </div>
-
       <div class="contact-links">
-        <a
-          href="https://www.instagram.com/kink_korps"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <span>Instagram</span>
-          <strong>@kink_korps ↗</strong>
+        <a href="https://www.instagram.com/kink_korps" target="_blank" rel="noopener noreferrer">
+          <span>Instagram</span><strong>@kink_korps ↗</strong>
         </a>
-
-        <a
-          href="https://www.facebook.com/share/1GfdckdrfF/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <span>Facebook</span>
-          <strong>Kink Korps ↗</strong>
+        <a href="https://www.facebook.com/share/1GfdckdrfF/" target="_blank" rel="noopener noreferrer">
+          <span>Facebook</span><strong>Kink Korps ↗</strong>
         </a>
-
         <a href="mailto:mrsatanplaysgoodmusic@gmail.com">
-          <span>Email</span>
-          <strong>Get in touch ↗</strong>
+          <span>Email</span><strong>Get in touch ↗</strong>
         </a>
       </div>
     </section>
@@ -414,62 +362,76 @@
   </main>
 
   <footer class="site-footer">
-    <img src="assets/kink-korps-logo.png" alt="Kink Korps">
-    <p>South Florida • 21+ • Fetish-Friendly</p>
+    <img src="assets/kink-korps-logo.webp" alt="Kink Korps" width="664" height="580">
+    <p>Nu Vibez · Lauderhill FL · 21+ · Fetish-Friendly</p>
     <p class="footer-small">© 2026 Kink Korps</p>
   </footer>
 
-  <script type="module">
-    import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
+  <!-- Sticky mobile ticket bar -->
+  <div class="sticky-buy" aria-label="Tickets">
+    <a class="sticky-buy-link js-buy" href="#tickets">
+      <strong class="js-sticky-label">Buy presale $15</strong>
+      <span class="js-sticky-sub">Link coming soon · until noon Fri 10/23</span>
+    </a>
+  </div>
 
-    const SUPABASE_URL = "https://psfwkawwkzjifzyscuph.supabase.co";
-    const SUPABASE_KEY = "sb_publishable_QBzdRHqal1-FLSrS4tR6hw_r1AYuHjc";
-    const REDIRECT_URL = "https://krystal929-afk.github.io/Kink-Korps/gallery.html";
-    const supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
+  <script>
+    (function () {
+      /* ============================================================
+         TODO(presale): set PRESALE_URL to the live presale link
+         (FetLife event / checkout). While it starts with "#presale-tbd"
+         the page shows the "Presale link coming soon" state.
+         ============================================================ */
+      const PRESALE_URL = "#presale-tbd";
+      const FETLIFE_HANDLE = "@kink_korps"; // TODO(confirm): flyers print "@kink-korps"
+      const PRESALE_ENDS = Date.parse("2026-10-23T12:00:00-04:00"); // noon ET Fri 10/23
+      const MAPS_URL = "https://www.google.com/maps/search/?api=1&query=Nu%20Vibez%2C%201745%20NW%2038th%20Ave%2C%20Lauderhill%2C%20FL";
 
-    const form = document.getElementById("korps-join-form");
-    const status = document.getElementById("korps-join-status");
+      const now = Date.now();
+      const doorOnly = now >= PRESALE_ENDS;
+      const linkPending = PRESALE_URL.indexOf("#presale-tbd") === 0;
+      const state = doorOnly ? "door" : (linkPending ? "pending" : "presale");
+      document.body.dataset.ticketState = state;
 
-    function setStatus(text, state = "") {
-      status.textContent = text;
-      if (state) status.dataset.state = state;
-      else delete status.dataset.state;
-    }
+      const set = (sel, text) => document.querySelectorAll(sel).forEach((el) => { el.textContent = text; });
+      const comingSoon = "Presale link coming soon. Follow " + FETLIFE_HANDLE + " on FetLife.";
 
-    if (form && status) {
-      form.addEventListener("submit", async function (event) {
-        event.preventDefault();
-
-        const email = document.getElementById("korps-email").value.trim().toLowerCase();
-        const button = form.querySelector("button[type='submit']");
-
-        button.disabled = true;
-        setStatus("Opening the door…");
-
-        try {
-          const { error } = await supabase.auth.signInWithOtp({
-            email,
-            options: {
-              shouldCreateUser: true,
-              emailRedirectTo: REDIRECT_URL,
-              data: {
-                membership_source: "website",
-              },
-            },
-          });
-
-          if (error) throw error;
-
-          form.reset();
-          setStatus("Check your email. Tap the link to enter the Korps. 🖤", "success");
-        } catch (error) {
-          console.error(error);
-          setStatus("That didn’t go through. Check the email and try again.", "error");
-        } finally {
-          button.disabled = false;
+      document.querySelectorAll(".js-buy").forEach((a) => {
+        if (state === "presale") {
+          a.href = PRESALE_URL;
+          a.target = "_blank";
+          a.rel = "noopener noreferrer";
+        } else if (state === "door") {
+          a.href = MAPS_URL;
+          a.target = "_blank";
+          a.rel = "noopener noreferrer";
+        } else {
+          a.href = "#tickets";
         }
       });
-    }
+
+      if (state === "door") {
+        set(".js-buy-label", "$20 at the door");
+        set(".js-sticky-label", "$20 at the door");
+        set(".js-sticky-sub", "Presale ended · Nu Vibez, Lauderhill · Directions");
+        set(".js-ticket-note", "Presale has ended. Admission is $20 at the door.");
+        set(".js-price-headline", "$20 at the door");
+        set(".js-price-detail", "Presale has ended. Pay at the door when you arrive at Nu Vibez.");
+        set(".js-price-poster", "$20 AT THE DOOR");
+        set(".js-ticket-title", "$20 at the door.");
+        set(".js-ticket-body", "Presale has ended. Admission is $20 at the door. Bring a valid ID.");
+      } else if (state === "presale") {
+        set(".js-buy-label", "Buy presale $15");
+        set(".js-sticky-label", "Buy presale $15");
+        set(".js-sticky-sub", "Ends noon Fri 10/23 · $20 door after");
+        set(".js-ticket-note", "Presale ends NOON Fri 10/23. $20 at the door after that.");
+      } else {
+        set(".js-buy-label", "Presale $15 · Link coming soon");
+        set(".js-sticky-label", "Buy presale $15");
+        set(".js-sticky-sub", "Link coming soon · until noon Fri 10/23");
+        set(".js-ticket-note", comingSoon);
+      }
+    })();
   </script>
 </body>
 </html>
