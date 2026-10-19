@@ -128,11 +128,11 @@
 
         <div class="hero-actions">
           <a class="button button-primary js-buy" href="#tickets">
-            <span class="js-buy-label">Presale $15 · Link coming soon</span>
+            <span class="js-buy-label">Pay $15 presale</span>
           </a>
           <a class="button button-ghost" href="#event">Event details</a>
         </div>
-        <p class="hero-note js-ticket-note">Presale link coming soon. Follow @kink_korps on FetLife.</p>
+        <p class="hero-note js-ticket-note">$15 presale until NOON Fri 10/23 via Cash App, Venmo, PayPal or Zelle. $20 at the door after.</p>
       </div>
 
       <div class="hero-poster-wall" aria-label="Anything Goes, Friday October 23">
@@ -223,10 +223,29 @@
             <div class="price js-price-pre"><span>Presale</span><strong>$15</strong><em>until noon Fri 10/23</em></div>
             <div class="price js-price-door"><span>At the door</span><strong>$20</strong><em>after noon Fri 10/23</em></div>
           </div>
-          <a class="button button-primary js-buy" href="#tickets">
-            <span class="js-buy-label">Presale $15 · Link coming soon</span>
-          </a>
-          <p class="ticket-note js-ticket-note">Presale link coming soon. Follow @kink_korps on FetLife.</p>
+          <!-- PRESALE PAYMENT OPTIONS — edit handles/links here. Hidden automatically after noon ET Fri 10/23. -->
+          <div class="pay-block js-pay-block" aria-labelledby="pay-title">
+            <h3 id="pay-title" class="pay-title">Pay $15 presale</h3>
+            <div class="pay-options">
+              <a class="pay-option" href="https://cash.app/$geo969/15" target="_blank" rel="noopener noreferrer">
+                <span class="pay-name">Cash App</span><span class="pay-handle">$geo969</span>
+              </a>
+              <a class="pay-option" href="https://venmo.com/thesatans?txn=pay&amp;amount=15&amp;note=Kink%20Korps%20Oct%2023" target="_blank" rel="noopener noreferrer">
+                <span class="pay-name">Venmo</span><span class="pay-handle">@thesatans</span>
+              </a>
+              <a class="pay-option" href="https://paypal.me/krystalalvarez544/15" target="_blank" rel="noopener noreferrer">
+                <span class="pay-name">PayPal</span><span class="pay-handle">@krystalalvarez544</span>
+              </a>
+              <button type="button" class="pay-option pay-copy js-copy" data-copy="832-387-3426" aria-describedby="zelle-status">
+                <span class="pay-name">Zelle</span><span class="pay-handle">832-387-3426</span>
+                <span class="pay-copy-hint js-copy-hint">Tap to copy</span>
+              </button>
+            </div>
+            <p id="zelle-status" class="sr-only js-copy-status" role="status" aria-live="polite"></p>
+            <!-- ASSUMPTION (from the August flow) — Krystal to confirm: -->
+            <p class="pay-instructions"><strong>Put your name and email in the payment note.</strong> Your ticket is emailed to you.</p>
+          </div>
+          <p class="ticket-note js-ticket-note">Presale ends NOON Fri 10/23. $20 at the door after that. Updates: follow @kink-korps on FetLife.</p>
         </div>
       </article>
     </section>
@@ -371,66 +390,73 @@
   <div class="sticky-buy" aria-label="Tickets">
     <a class="sticky-buy-link js-buy" href="#tickets">
       <strong class="js-sticky-label">Buy presale $15</strong>
-      <span class="js-sticky-sub">Link coming soon · until noon Fri 10/23</span>
+      <span class="js-sticky-sub">Cash App · Venmo · PayPal · Zelle · until noon Fri 10/23</span>
     </a>
   </div>
 
   <script>
     (function () {
-      /* ============================================================
-         TODO(presale): set PRESALE_URL to the live presale link
-         (FetLife event / checkout). While it starts with "#presale-tbd"
-         the page shows the "Presale link coming soon" state.
-         ============================================================ */
-      const PRESALE_URL = "#presale-tbd";
-      const FETLIFE_HANDLE = "@kink_korps"; // TODO(confirm): flyers print "@kink-korps"
+      /* Ticket config. Payment options live in the #tickets markup above. */
+      const FETLIFE_HANDLE = "@kink-korps";
       const PRESALE_ENDS = Date.parse("2026-10-23T12:00:00-04:00"); // noon ET Fri 10/23
       const MAPS_URL = "https://www.google.com/maps/search/?api=1&query=Nu%20Vibez%2C%201745%20NW%2038th%20Ave%2C%20Lauderhill%2C%20FL";
 
-      const now = Date.now();
-      const doorOnly = now >= PRESALE_ENDS;
-      const linkPending = PRESALE_URL.indexOf("#presale-tbd") === 0;
-      const state = doorOnly ? "door" : (linkPending ? "pending" : "presale");
-      document.body.dataset.ticketState = state;
+      const doorOnly = Date.now() >= PRESALE_ENDS;
+      document.body.dataset.ticketState = doorOnly ? "door" : "presale";
 
       const set = (sel, text) => document.querySelectorAll(sel).forEach((el) => { el.textContent = text; });
-      const comingSoon = "Presale link coming soon. Follow " + FETLIFE_HANDLE + " on FetLife.";
 
-      document.querySelectorAll(".js-buy").forEach((a) => {
-        if (state === "presale") {
-          a.href = PRESALE_URL;
-          a.target = "_blank";
-          a.rel = "noopener noreferrer";
-        } else if (state === "door") {
+      if (doorOnly) {
+        document.querySelectorAll(".js-pay-block").forEach((el) => { el.hidden = true; });
+        document.querySelectorAll(".js-buy").forEach((a) => {
           a.href = MAPS_URL;
           a.target = "_blank";
           a.rel = "noopener noreferrer";
-        } else {
-          a.href = "#tickets";
-        }
-      });
-
-      if (state === "door") {
+        });
         set(".js-buy-label", "$20 at the door");
         set(".js-sticky-label", "$20 at the door");
         set(".js-sticky-sub", "Presale ended · Nu Vibez, Lauderhill · Directions");
-        set(".js-ticket-note", "Presale has ended. Admission is $20 at the door.");
+        set(".js-ticket-note", "Presale has ended. Admission is $20 at the door. Follow " + FETLIFE_HANDLE + " on FetLife for updates.");
         set(".js-price-headline", "$20 at the door");
         set(".js-price-detail", "Presale has ended. Pay at the door when you arrive at Nu Vibez.");
         set(".js-price-poster", "$20 AT THE DOOR");
         set(".js-ticket-title", "$20 at the door.");
         set(".js-ticket-body", "Presale has ended. Admission is $20 at the door. Bring a valid ID.");
-      } else if (state === "presale") {
-        set(".js-buy-label", "Buy presale $15");
-        set(".js-sticky-label", "Buy presale $15");
-        set(".js-sticky-sub", "Ends noon Fri 10/23 · $20 door after");
-        set(".js-ticket-note", "Presale ends NOON Fri 10/23. $20 at the door after that.");
       } else {
-        set(".js-buy-label", "Presale $15 · Link coming soon");
-        set(".js-sticky-label", "Buy presale $15");
-        set(".js-sticky-sub", "Link coming soon · until noon Fri 10/23");
-        set(".js-ticket-note", comingSoon);
+        set(".js-ticket-note", "Presale ends NOON Fri 10/23. $20 at the door after that. Updates: follow " + FETLIFE_HANDLE + " on FetLife.");
       }
+
+      /* Zelle tap-to-copy */
+      function copyText(text) {
+        if (navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(text);
+        return new Promise((resolve, reject) => {
+          const t = document.createElement("textarea");
+          t.value = text;
+          t.setAttribute("readonly", "");
+          t.style.position = "fixed";
+          t.style.opacity = "0";
+          document.body.appendChild(t);
+          t.select();
+          try { document.execCommand("copy") ? resolve() : reject(new Error("copy failed")); }
+          catch (e) { reject(e); }
+          finally { document.body.removeChild(t); }
+        });
+      }
+      document.querySelectorAll(".js-copy").forEach((btn) => {
+        const hint = btn.querySelector(".js-copy-hint");
+        const status = document.querySelector(".js-copy-status");
+        btn.addEventListener("click", () => {
+          const value = btn.dataset.copy;
+          copyText(value).then(() => {
+            hint.textContent = "Copied ✓";
+            if (status) status.textContent = "Zelle number " + value + " copied.";
+          }).catch(() => {
+            hint.textContent = "Copy: " + value;
+          }).finally(() => {
+            setTimeout(() => { hint.textContent = "Tap to copy"; }, 2500);
+          });
+        });
+      });
     })();
   </script>
 </body>

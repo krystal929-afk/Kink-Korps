@@ -247,3 +247,54 @@ body[data-ticket-state="door"] .js-price-door strong { color: var(--accent); }
   .sticky-buy-link span { font-size: 11px; opacity: 0.9; line-height: 1.2; }
   body.age-gate-open .sticky-buy { display: none; }
 }
+
+/* ---------- presale payment options ---------- */
+.pay-block { display: grid; gap: 12px; }
+.pay-block[hidden] { display: none; }
+.pay-title {
+  margin: 4px 0 0;
+  font-family: var(--font-label);
+  font-size: 16px; font-weight: 700; letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.pay-options { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.pay-option {
+  display: grid; gap: 2px; align-content: center;
+  min-height: 64px;
+  padding: 12px 14px;
+  color: var(--on-accent);
+  background: var(--accent);
+  border: 1px solid var(--accent);
+  font: inherit;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+}
+.pay-option:hover,
+.pay-option:focus-visible { color: var(--bg); background: var(--text); border-color: var(--text); }
+.pay-name {
+  font-family: var(--font-label);
+  font-size: 15px; font-weight: 700; letter-spacing: 0.08em; line-height: 1.1;
+  text-transform: uppercase;
+}
+.pay-handle { font-size: 13px; opacity: 0.92; overflow-wrap: anywhere; }
+.pay-copy { background: transparent; color: var(--text); border-color: var(--accent); }
+.pay-copy-hint {
+  font-family: var(--font-label);
+  font-size: 10px; font-weight: 700; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--kicker);
+}
+.pay-option:hover .pay-copy-hint,
+.pay-option:focus-visible .pay-copy-hint { color: inherit; }
+.pay-instructions { margin: 0; color: var(--muted); font-size: 14px; }
+.pay-instructions strong { color: var(--text); }
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+@media (max-width: 420px) {
+  .pay-options { grid-template-columns: 1fr; }
+  .pay-option { min-height: 56px; grid-template-columns: auto 1fr; align-items: center; column-gap: 12px; }
+  .pay-handle { text-align: right; }
+  .pay-copy-hint { grid-column: 1 / -1; text-align: right; }
+}
