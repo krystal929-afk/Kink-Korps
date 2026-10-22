@@ -11,12 +11,10 @@
   >
   <meta name="theme-color" content="#050505">
 
-  <!-- TODO(domain): add <link rel="canonical"> + og:url once kinkkorps.com is wired (CNAME). -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Kink Korps">
   <meta property="og:title" content="Anything Goes Dance &amp; Play Party | Fri Oct 23">
   <meta property="og:description" content="Nu Vibez, Lauderhill · 10PM–4AM · 21+ · $15 presale until noon Fri 10/23, $20 at the door. Live Deliciously.">
-  <!-- TODO(domain): social scrapers need an absolute image URL; switch to the final domain when it is live. -->
   <meta property="og:image" content="https://krystal929-afk.github.io/Kink-Korps/assets/kink-korps-logo.png">
   <meta name="twitter:card" content="summary_large_image">
 
@@ -25,7 +23,6 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="extras.css">
   <link rel="stylesheet" href="oct23.css">
-  <!-- Oct 23 "Anything Goes" party skin (event-only look, based on the flyers). Remove this block after the party. -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Metal+Mania&family=UnifrakturCook:wght@700&display=swap">
@@ -102,7 +99,6 @@
     <a class="brand" href="#top" aria-label="Kink Korps home">
       <img src="assets/kink-korps-logo.webp" alt="Kink Korps" width="664" height="580">
     </a>
-    <!-- Join + Vault (gallery.html) intentionally unlinked for the Oct 23 relaunch. -->
     <nav class="site-nav" aria-label="Primary navigation">
       <a href="#event">Event</a>
       <a href="#tickets">Tickets</a>
@@ -113,7 +109,6 @@
 
   <main id="top">
 
-    <!-- HERO -->
     <section class="hero">
       <div class="hero-copy">
         <p class="seasonal-kicker">HALLOWEEN EDITION</p>
@@ -137,7 +132,7 @@
           </a>
           <a class="button button-ghost" href="#event">Event details</a>
         </div>
-        <p class="hero-note js-ticket-note">$15 presale until NOON Fri 10/23 via Cash App, Venmo, PayPal or Zelle. $20 at the door after.</p>
+        <p class="hero-note js-ticket-note">$15 presale until NOON Fri 10/23. Pay online, include your name + email in the payment note, and your ticket is emailed to you. $20 at the door after.</p>
       </div>
 
       <div class="hero-poster-wall" aria-label="Anything Goes, Friday October 23">
@@ -152,7 +147,6 @@
       </div>
     </section>
 
-    <!-- EVENT DETAILS -->
     <section id="event" class="section event-section">
       <div class="section-heading">
         <p class="kicker">THE NIGHT</p>
@@ -209,7 +203,6 @@
       </div>
     </section>
 
-    <!-- TICKETS -->
     <section id="tickets" class="section tickets-section">
       <article class="ticket-panel">
         <div class="ticket-copy">
@@ -225,7 +218,7 @@
             <div class="price js-price-pre"><span>Presale</span><strong>$15</strong><em>until noon Fri 10/23</em></div>
             <div class="price js-price-door"><span>At the door</span><strong>$20</strong><em>after noon Fri 10/23</em></div>
           </div>
-          <!-- PRESALE PAYMENT OPTIONS — edit handles/links here. Hidden automatically after noon ET Fri 10/23. -->
+
           <div class="pay-block js-pay-block" aria-labelledby="pay-title">
             <h3 id="pay-title" class="pay-title">Pay $15 presale</h3>
             <div class="pay-options">
@@ -244,15 +237,34 @@
               </button>
             </div>
             <p id="zelle-status" class="sr-only js-copy-status" role="status" aria-live="polite"></p>
-            <!-- ASSUMPTION (from the August flow) — Krystal to confirm: -->
-            <p class="pay-instructions"><strong>Put your name and email in the payment note.</strong> Your ticket is emailed to you.</p>
+
+            <div class="ticket-flow" aria-label="How presale tickets work">
+              <p class="ticket-flow-title">How presale works</p>
+              <div class="ticket-flow-grid">
+                <div class="ticket-flow-step">
+                  <span>01</span>
+                  <strong>Pay $15</strong>
+                  <p>Choose Cash App, Venmo, PayPal, or Zelle above.</p>
+                </div>
+                <div class="ticket-flow-step">
+                  <span>02</span>
+                  <strong>Add your info</strong>
+                  <p>Put your name and email address in the payment note.</p>
+                </div>
+                <div class="ticket-flow-step">
+                  <span>03</span>
+                  <strong>Get your ticket</strong>
+                  <p>Your digital ticket is emailed to you. Bring it with your photo ID.</p>
+                </div>
+              </div>
+            </div>
           </div>
+
           <p class="ticket-note js-ticket-note">Presale ends NOON Fri 10/23. $20 at the door after that. Updates: follow @kink-korps on FetLife.</p>
         </div>
       </article>
     </section>
 
-    <!-- HOSTS -->
     <section id="hosts" class="section hosts-section">
       <div class="section-heading compact">
         <p class="kicker">YOUR HOSTS</p>
@@ -279,15 +291,12 @@
           <div class="host-copy">
             <p class="kicker">CO-HOST</p>
             <h3>Satanica Lux</h3>
-            <p>
-              Setting the tone at the door and welcoming you into the night.
-            </p>
+            <p>Setting the tone at the door and welcoming you into the night.</p>
           </div>
         </article>
       </div>
     </section>
 
-    <!-- CONSENT + HOUSE RULES -->
     <section id="rules" class="section rules-section">
       <div class="section-heading">
         <p class="kicker">CONSENT &amp; HOUSE RULES</p>
@@ -332,7 +341,6 @@
       </div>
     </section>
 
-    <!-- ABOUT -->
     <section id="about" class="section manifesto-section">
       <div class="manifesto-mark">KK</div>
       <div class="manifesto-copy">
@@ -351,7 +359,6 @@
       </div>
     </section>
 
-    <!-- SPONSOR -->
     <section class="section sponsor-section" aria-label="Sponsor">
       <p class="kicker">SPONSORED BY</p>
       <a class="sponsor-logo" href="https://spunklube.com" target="_blank" rel="noopener noreferrer">
@@ -360,7 +367,6 @@
       <a class="text-link" href="https://spunklube.com" target="_blank" rel="noopener noreferrer">spunklube.com ↗</a>
     </section>
 
-    <!-- CONTACT -->
     <section id="contact" class="section contact-section">
       <div class="contact-copy">
         <p class="kicker">STAY IN THE LOOP</p>
@@ -394,7 +400,6 @@
     <p class="footer-small">© 2026 Kink Korps</p>
   </footer>
 
-  <!-- Sticky mobile ticket bar -->
   <div class="sticky-buy" aria-label="Tickets">
     <a class="sticky-buy-link js-buy" href="#tickets">
       <strong class="js-sticky-label">Buy presale $15</strong>
@@ -404,9 +409,8 @@
 
   <script>
     (function () {
-      /* Ticket config. Payment options live in the #tickets markup above. */
       const FETLIFE_HANDLE = "@kink-korps";
-      const PRESALE_ENDS = Date.parse("2026-10-23T12:00:00-04:00"); // noon ET Fri 10/23
+      const PRESALE_ENDS = Date.parse("2026-10-23T12:00:00-04:00");
       const MAPS_URL = "https://www.google.com/maps/search/?api=1&query=Nu%20Vibez%2C%201745%20NW%2038th%20Ave%2C%20Lauderhill%2C%20FL";
 
       const doorOnly = Date.now() >= PRESALE_ENDS;
@@ -434,7 +438,6 @@
         set(".js-ticket-note", "Presale ends NOON Fri 10/23. $20 at the door after that. Updates: follow " + FETLIFE_HANDLE + " on FetLife.");
       }
 
-      /* Zelle tap-to-copy */
       function copyText(text) {
         if (navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(text);
         return new Promise((resolve, reject) => {
@@ -450,6 +453,7 @@
           finally { document.body.removeChild(t); }
         });
       }
+
       document.querySelectorAll(".js-copy").forEach((btn) => {
         const hint = btn.querySelector(".js-copy-hint");
         const status = document.querySelector(".js-copy-status");
