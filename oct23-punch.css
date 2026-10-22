@@ -1,1 +1,716 @@
-/* intentionally disabled: reverting experimental Halloween punch layer */
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@400;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap');
+
+/* ========================================================================== */
+/* OCT 23 EDITORIAL REDESIGN                                                  */
+/* Website-first art direction. No flyer-led palette, no novelty Halloween UI. */
+/* ========================================================================== */
+
+body.page-oct23 {
+  --bg: #0a0808;
+  --bg-soft: #120f0f;
+  --panel: #151111;
+  --text: #eadfce;
+  --muted: #a99c91;
+  --line: #3b312f;
+  --accent: #b66a3c;
+  --accent-2: #6a2630;
+  --blood: #7b1f27;
+  --ember: #c47b43;
+  --on-accent: #0b0807;
+  --kicker: #c7b9aa;
+  --font-display: "Newsreader", Georgia, serif;
+  --font-label: "Archivo Narrow", Arial Narrow, sans-serif;
+  --font-accent: "Newsreader", Georgia, serif;
+  --font-body: Inter, Arial, sans-serif;
+
+  color: var(--text);
+  background:
+    linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.012) 1px, transparent 1px),
+    var(--bg);
+  background-size: 48px 48px;
+}
+
+.page-oct23 ::selection {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+
+/* Remove flyer-derived ornamental language. */
+.page-oct23 .pent,
+.page-oct23 .section-heading .kicker::before,
+.page-oct23 .ticket-copy .kicker::before,
+.page-oct23 .contact-copy .kicker::before,
+.page-oct23 .manifesto-copy .kicker::before,
+.page-oct23 .sponsor-section .kicker::before,
+.page-oct23 .sponsor-section .kicker::after {
+  display: none !important;
+}
+
+.page-oct23 main > .section::after {
+  background: var(--line) !important;
+  opacity: 1 !important;
+}
+
+/* ---------- global editorial typography ---------- */
+.page-oct23 .kicker,
+.page-oct23 .detail-label,
+.page-oct23 .seasonal-kicker,
+.page-oct23 .price span,
+.page-oct23 .price em,
+.page-oct23 .site-nav,
+.page-oct23 .pay-title,
+.page-oct23 .pay-name,
+.page-oct23 .ticket-flow-title {
+  font-family: var(--font-label) !important;
+  text-transform: uppercase;
+  letter-spacing: .16em !important;
+}
+
+.page-oct23 .section-heading h2,
+.page-oct23 .manifesto-copy h2,
+.page-oct23 .contact-copy h2,
+.page-oct23 .ticket-copy h2,
+.page-oct23 .host-copy h3 {
+  font-family: var(--font-display) !important;
+  font-weight: 500 !important;
+  letter-spacing: -.035em !important;
+  line-height: .92 !important;
+  text-shadow: none !important;
+}
+
+.page-oct23 .section-heading h2,
+.page-oct23 .manifesto-copy h2,
+.page-oct23 .contact-copy h2 {
+  font-size: clamp(52px, 8vw, 116px) !important;
+}
+
+.page-oct23 .section-heading p,
+.page-oct23 .manifesto-copy p,
+.page-oct23 .contact-copy p,
+.page-oct23 .detail p,
+.page-oct23 .host-copy p,
+.page-oct23 .rules-grid p,
+.page-oct23 .ticket-copy p {
+  color: var(--muted) !important;
+}
+
+/* ---------- masthead ---------- */
+.page-oct23 .site-header {
+  background: rgba(10,8,8,.93) !important;
+  border-bottom: 1px solid var(--line) !important;
+  backdrop-filter: blur(14px);
+}
+
+.page-oct23 .site-nav a::after {
+  background: var(--accent) !important;
+}
+
+/* ---------- hero: editorial cover, no flyer ---------- */
+.page-oct23 .hero {
+  position: relative;
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) !important;
+  min-height: 82vh !important;
+  padding-top: clamp(70px, 9vw, 130px) !important;
+  padding-bottom: clamp(76px, 10vw, 140px) !important;
+  overflow: hidden;
+  background:
+    linear-gradient(90deg, transparent 0 72%, rgba(182,106,60,.08) 72% 100%),
+    var(--bg) !important;
+  border-bottom: 1px solid var(--line) !important;
+}
+
+.page-oct23 .hero::before {
+  content: "10.23" !important;
+  position: absolute !important;
+  display: block !important;
+  right: -1vw !important;
+  top: 8% !important;
+  color: rgba(182,106,60,.12) !important;
+  font-family: var(--font-display) !important;
+  font-size: clamp(150px, 27vw, 420px) !important;
+  font-weight: 600 !important;
+  letter-spacing: -.08em !important;
+  line-height: .7 !important;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.page-oct23 .hero::after {
+  content: "HALLOWEEN EDITION  /  FRIDAY OCTOBER 23  /  LAUDERHILL, FLORIDA" !important;
+  position: absolute !important;
+  right: 0 !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  width: clamp(34px, 3vw, 48px) !important;
+  padding: 22px 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg) !important;
+  color: #d7c8ba !important;
+  background: #59141a !important;
+  font-family: var(--font-label) !important;
+  font-size: 10px !important;
+  font-weight: 700 !important;
+  letter-spacing: .18em !important;
+  box-shadow: none !important;
+}
+
+.page-oct23 .hero-copy {
+  position: relative;
+  z-index: 2;
+  width: min(1040px, calc(100% - 48px));
+  max-width: none !important;
+}
+
+.page-oct23 .hero-poster-wall {
+  display: none !important;
+}
+
+.page-oct23 .seasonal-kicker {
+  display: inline-block;
+  margin-bottom: 18px !important;
+  color: var(--accent) !important;
+  text-shadow: none !important;
+}
+
+.page-oct23 .hero-copy > .kicker {
+  color: var(--muted) !important;
+}
+
+.page-oct23 .hero h1 {
+  max-width: 980px;
+  margin-top: 26px !important;
+  font-family: var(--font-display) !important;
+  font-size: clamp(86px, 14vw, 205px) !important;
+  font-weight: 600 !important;
+  letter-spacing: -.065em !important;
+  line-height: .72 !important;
+  text-transform: uppercase;
+  color: var(--text) !important;
+  background: none !important;
+  -webkit-text-fill-color: currentColor !important;
+  filter: none !important;
+}
+
+.page-oct23 .hero h1 span {
+  display: inline !important;
+  color: var(--accent) !important;
+  background: none !important;
+  -webkit-text-fill-color: currentColor !important;
+  filter: none !important;
+}
+
+.page-oct23 .hero-sub {
+  margin-top: 34px !important;
+  color: #d7c8ba !important;
+  font-family: var(--font-label) !important;
+  font-size: clamp(16px, 2vw, 24px) !important;
+  font-weight: 600 !important;
+  letter-spacing: .18em !important;
+  text-transform: uppercase;
+  text-shadow: none !important;
+}
+
+.page-oct23 .hero-tagline {
+  margin-top: 10px !important;
+  color: var(--text) !important;
+  font-family: var(--font-display) !important;
+  font-size: clamp(34px, 4.7vw, 70px) !important;
+  font-weight: 400 !important;
+  font-style: italic;
+  letter-spacing: -.035em !important;
+  transform: none !important;
+  text-shadow: none !important;
+}
+
+.page-oct23 .hero-facts {
+  max-width: 760px;
+  margin-top: 34px !important;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+  color: var(--muted) !important;
+  font-family: var(--font-label) !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  letter-spacing: .12em !important;
+  text-transform: uppercase;
+}
+
+.page-oct23 .hero-facts strong {
+  color: var(--text) !important;
+}
+
+.page-oct23 .hero-note {
+  max-width: 690px;
+  color: var(--muted) !important;
+}
+
+/* ---------- buttons: magazine utility, not rave UI ---------- */
+.page-oct23 .button {
+  border-radius: 0 !important;
+  font-family: var(--font-label) !important;
+  font-weight: 700 !important;
+  letter-spacing: .14em !important;
+  box-shadow: none !important;
+}
+
+.page-oct23 .button-primary {
+  color: var(--on-accent) !important;
+  background: var(--accent) !important;
+  border-color: var(--accent) !important;
+}
+
+.page-oct23 .button-primary:hover,
+.page-oct23 .button-primary:focus-visible {
+  color: var(--bg) !important;
+  background: #d09467 !important;
+  border-color: #d09467 !important;
+  box-shadow: none !important;
+}
+
+.page-oct23 .button-ghost {
+  color: var(--text) !important;
+  border-color: var(--line) !important;
+}
+
+.page-oct23 .button-ghost:hover,
+.page-oct23 .button-ghost:focus-visible {
+  color: var(--accent) !important;
+  border-color: var(--accent) !important;
+}
+
+/* ---------- event info as editorial grid ---------- */
+.page-oct23 .event-section {
+  background: #0d0a0a !important;
+}
+
+.page-oct23 .section-heading {
+  max-width: 1000px;
+}
+
+.page-oct23 .section-heading .kicker,
+.page-oct23 .ticket-copy .kicker,
+.page-oct23 .contact-copy .kicker,
+.page-oct23 .manifesto-copy .kicker,
+.page-oct23 .sponsor-section .kicker {
+  display: block !important;
+  color: var(--accent) !important;
+  margin-bottom: 14px !important;
+}
+
+.page-oct23 .details-grid {
+  gap: 0 !important;
+  border: 1px solid var(--line) !important;
+  background: transparent !important;
+}
+
+.page-oct23 .detail {
+  min-height: 210px;
+  padding: clamp(24px, 3vw, 40px) !important;
+  background: transparent !important;
+  border-color: var(--line) !important;
+}
+
+.page-oct23 .detail strong {
+  display: block;
+  margin-top: 20px;
+  color: var(--text) !important;
+  font-family: var(--font-display) !important;
+  font-size: clamp(28px, 3.5vw, 48px) !important;
+  font-weight: 500 !important;
+  letter-spacing: -.03em !important;
+  line-height: .96 !important;
+}
+
+.page-oct23 .detail-label {
+  color: var(--accent) !important;
+  font-size: 11px;
+}
+
+.page-oct23 .detail-price strong,
+.page-oct23 .detail-wide strong {
+  color: var(--text) !important;
+  text-shadow: none !important;
+}
+
+/* ---------- ticket spread ---------- */
+.page-oct23 .tickets-section {
+  background: #171111 !important;
+}
+
+.page-oct23 .ticket-panel {
+  display: grid !important;
+  grid-template-columns: minmax(0,.86fr) minmax(0,1.14fr) !important;
+  gap: 0 !important;
+  padding: 0 !important;
+  overflow: hidden;
+  border: 1px solid var(--line) !important;
+  background: var(--panel) !important;
+  box-shadow: none !important;
+}
+
+.page-oct23 .ticket-copy {
+  padding: clamp(34px, 5vw, 72px) !important;
+  border-right: 1px solid var(--line);
+  background: #100c0c;
+}
+
+.page-oct23 .ticket-copy h2 {
+  max-width: 540px;
+  margin-top: 18px !important;
+  color: var(--text) !important;
+  font-size: clamp(64px, 8vw, 126px) !important;
+}
+
+.page-oct23 .ticket-copy::after {
+  content: "LIVE DELICIOUSLY";
+  display: block;
+  margin-top: 54px;
+  color: var(--accent);
+  font-family: var(--font-display);
+  font-size: clamp(34px, 4vw, 58px);
+  font-style: italic;
+  letter-spacing: -.03em;
+}
+
+.page-oct23 .ticket-action {
+  padding: clamp(34px, 5vw, 72px) !important;
+}
+
+.page-oct23 .price-stack {
+  gap: 0 !important;
+  border: 1px solid var(--line);
+}
+
+.page-oct23 .price {
+  min-height: 140px;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.page-oct23 .price + .price {
+  border-left: 1px solid var(--line) !important;
+}
+
+.page-oct23 .price strong {
+  color: var(--text) !important;
+  font-family: var(--font-display) !important;
+  font-size: clamp(52px, 6vw, 86px) !important;
+  font-weight: 500 !important;
+  letter-spacing: -.05em;
+}
+
+.page-oct23 .js-price-pre {
+  background: #5a171c !important;
+}
+
+.page-oct23 .js-price-pre span,
+.page-oct23 .js-price-pre em,
+.page-oct23 .js-price-pre strong {
+  color: #f0e5d5 !important;
+}
+
+.page-oct23 .pay-title {
+  color: var(--accent) !important;
+}
+
+.page-oct23 .pay-options {
+  gap: 0 !important;
+  border: 1px solid var(--line);
+}
+
+.page-oct23 .pay-option {
+  min-height: 82px;
+  border: 0 !important;
+  border-radius: 0 !important;
+  border-bottom: 1px solid var(--line) !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.page-oct23 .pay-option:nth-last-child(-n+2) {
+  border-bottom: 0 !important;
+}
+
+.page-oct23 .pay-option:hover,
+.page-oct23 .pay-option:focus-visible {
+  color: var(--bg) !important;
+  background: var(--accent) !important;
+}
+
+.page-oct23 .ticket-flow-grid {
+  gap: 0 !important;
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+
+.page-oct23 .ticket-flow-step {
+  min-height: 190px;
+  border: 0 !important;
+  border-right: 1px solid var(--line) !important;
+  border-bottom: 1px solid var(--line) !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+}
+
+.page-oct23 .ticket-flow-step > span {
+  color: var(--accent) !important;
+  font-family: var(--font-label) !important;
+}
+
+/* ---------- hosts as editorial profiles ---------- */
+.page-oct23 .hosts-grid {
+  gap: clamp(28px, 4vw, 64px) !important;
+}
+
+.page-oct23 .host-card {
+  display: grid !important;
+  grid-template-columns: minmax(0,.95fr) minmax(0,1.05fr) !important;
+  min-height: 460px;
+  overflow: hidden;
+  border: 0 !important;
+  border-top: 1px solid var(--line) !important;
+  border-bottom: 1px solid var(--line) !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.page-oct23 .host-card figure {
+  min-height: 460px;
+}
+
+.page-oct23 .host-card figure::after,
+.page-oct23 .host-card figure::before {
+  display: none !important;
+}
+
+.page-oct23 .host-card figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(.3) contrast(1.04) brightness(.84) sepia(.08);
+}
+
+.page-oct23 .host-copy {
+  align-self: end;
+  padding: clamp(28px, 4vw, 54px) !important;
+}
+
+.page-oct23 .host-copy h3 {
+  color: var(--text) !important;
+  font-size: clamp(50px, 6vw, 88px) !important;
+}
+
+.page-oct23 .host-card:nth-child(2) .host-copy h3 {
+  color: var(--text) !important;
+}
+
+/* ---------- rules as numbered editorial index ---------- */
+.page-oct23 .rules-grid {
+  gap: 0 !important;
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+
+.page-oct23 .rules-grid article {
+  min-height: 250px;
+  padding: clamp(28px, 3vw, 42px) !important;
+  border: 0 !important;
+  border-right: 1px solid var(--line) !important;
+  border-bottom: 1px solid var(--line) !important;
+  background: transparent !important;
+}
+
+.page-oct23 .rule-number {
+  color: var(--accent) !important;
+  font-family: var(--font-display) !important;
+  font-size: 54px !important;
+  font-weight: 400 !important;
+  text-shadow: none !important;
+}
+
+.page-oct23 .rules-grid h3 {
+  margin-top: 30px;
+  color: var(--text) !important;
+  font-family: var(--font-display) !important;
+  font-size: 30px;
+  font-weight: 500 !important;
+  letter-spacing: -.02em !important;
+}
+
+/* ---------- manifesto ---------- */
+.page-oct23 .manifesto-section {
+  background: #e5d8c6 !important;
+  color: #171111 !important;
+}
+
+.page-oct23 .manifesto-copy h2,
+.page-oct23 .manifesto-copy p,
+.page-oct23 .manifesto-lede {
+  color: #171111 !important;
+}
+
+.page-oct23 .manifesto-copy .kicker {
+  color: #751d24 !important;
+}
+
+.page-oct23 .manifesto-mark {
+  color: #751d24 !important;
+  font-family: var(--font-display) !important;
+  text-shadow: none !important;
+}
+
+/* ---------- sponsor/contact/footer ---------- */
+.page-oct23 .sponsor-section {
+  background: #0d0a0a !important;
+}
+
+.page-oct23 .contact-links a {
+  border-color: var(--line) !important;
+}
+
+.page-oct23 .contact-links span {
+  color: var(--accent) !important;
+  font-family: var(--font-label) !important;
+}
+
+.page-oct23 .contact-links strong {
+  color: var(--text) !important;
+  font-family: var(--font-display) !important;
+  font-weight: 500 !important;
+  letter-spacing: -.02em !important;
+}
+
+.page-oct23 .site-footer {
+  background: #080606 !important;
+  border-top: 1px solid var(--line) !important;
+}
+
+.page-oct23 .flyer-credits {
+  border-color: var(--line) !important;
+}
+
+.page-oct23 .flyer-credits p + p {
+  border-left-color: var(--line) !important;
+}
+
+.page-oct23 .flyer-credits strong {
+  color: var(--text) !important;
+  font-family: var(--font-display) !important;
+  font-weight: 500 !important;
+}
+
+.page-oct23 .flyer-credits p:nth-child(2) strong,
+.page-oct23 .flyer-credits p:nth-child(3) strong {
+  color: var(--text) !important;
+}
+
+.page-oct23 .site-footer .flyer-strip {
+  border-color: var(--line) !important;
+  color: var(--muted) !important;
+}
+
+/* ---------- age gate ---------- */
+.page-oct23 .age-gate {
+  background: rgba(7,5,5,.97) !important;
+}
+
+.page-oct23 .age-gate-panel {
+  background: #100c0c !important;
+  border: 1px solid var(--line) !important;
+}
+
+.page-oct23 .age-gate h2 {
+  color: var(--text) !important;
+  font-family: var(--font-display) !important;
+  font-weight: 500 !important;
+  text-shadow: none !important;
+}
+
+/* ---------- mobile ---------- */
+@media (max-width: 900px) {
+  .page-oct23 .ticket-panel {
+    grid-template-columns: 1fr !important;
+  }
+
+  .page-oct23 .ticket-copy {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .page-oct23 .host-card {
+    grid-template-columns: 1fr !important;
+  }
+
+  .page-oct23 .host-card figure {
+    min-height: 360px;
+  }
+}
+
+@media (max-width: 700px) {
+  .page-oct23 .hero {
+    min-height: auto !important;
+    padding-top: 58px !important;
+    padding-bottom: 82px !important;
+  }
+
+  .page-oct23 .hero::before {
+    right: -10vw !important;
+    top: 12% !important;
+    font-size: clamp(120px, 42vw, 220px) !important;
+  }
+
+  .page-oct23 .hero::after {
+    width: 28px !important;
+    font-size: 8px !important;
+  }
+
+  .page-oct23 .hero-copy {
+    width: calc(100% - 38px);
+  }
+
+  .page-oct23 .hero h1 {
+    font-size: clamp(72px, 24vw, 126px) !important;
+    line-height: .76 !important;
+  }
+
+  .page-oct23 .hero-tagline {
+    font-size: clamp(34px, 11vw, 52px) !important;
+  }
+
+  .page-oct23 .price + .price {
+    border-left: 0 !important;
+    border-top: 1px solid var(--line) !important;
+  }
+
+  .page-oct23 .pay-option:nth-last-child(-n+2) {
+    border-bottom: 1px solid var(--line) !important;
+  }
+
+  .page-oct23 .pay-option:last-child {
+    border-bottom: 0 !important;
+  }
+
+  .page-oct23 .sticky-buy {
+    border-top-color: var(--line) !important;
+    background: #0d0a0a !important;
+  }
+
+  .page-oct23 .sticky-buy-link {
+    border-radius: 0 !important;
+    background: var(--accent) !important;
+    box-shadow: none !important;
+  }
+
+  .page-oct23 .sticky-buy-link strong {
+    color: var(--bg) !important;
+    font-family: var(--font-label) !important;
+  }
+}
