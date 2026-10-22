@@ -1,0 +1,323 @@
+/* High-impact Halloween layer. Loads after oct23-skin.css. */
+
+body.page-oct23 {
+  background:
+    radial-gradient(circle at 85% 4%, rgba(157,255,47,.12), transparent 17rem),
+    radial-gradient(circle at 18% 24%, rgba(177,77,255,.28), transparent 28rem),
+    radial-gradient(circle at 82% 48%, rgba(255,42,42,.14), transparent 25rem),
+    linear-gradient(180deg,#08040d 0%,#09040f 48%,#030205 100%);
+}
+
+.page-oct23 .hero {
+  position: relative;
+  min-height: 88vh;
+  padding-top: clamp(56px,8vw,120px);
+  padding-bottom: clamp(90px,10vw,150px);
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 76% 22%, rgba(244,238,251,.18) 0 5rem, rgba(177,77,255,.38) 5.3rem 10rem, transparent 18rem),
+    linear-gradient(110deg, rgba(7,5,11,.2), rgba(42,8,54,.34) 48%, rgba(7,5,11,.15));
+  border-bottom: 1px solid rgba(157,255,47,.18);
+}
+
+.page-oct23 .hero::before {
+  content:"";
+  display:block !important;
+  position:absolute;
+  inset:auto -10% 0 -10%;
+  height:46%;
+  pointer-events:none;
+  background:
+    radial-gradient(ellipse at 15% 70%, rgba(177,77,255,.35), transparent 30%),
+    radial-gradient(ellipse at 46% 76%, rgba(255,79,216,.20), transparent 32%),
+    radial-gradient(ellipse at 80% 60%, rgba(157,255,47,.10), transparent 28%);
+  filter:blur(26px);
+  opacity:.95;
+}
+
+.page-oct23 .hero::after {
+  content:"LIVE DELICIOUSLY  •  DRESS DARK  •  STAY LATE  •  OCTOBER 23  •  LIVE DELICIOUSLY";
+  position:absolute;
+  left:-2%; right:-2%; bottom:0;
+  padding:12px 20px;
+  color:#09040d;
+  background:var(--accent);
+  font-family:var(--font-label);
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:.18em;
+  text-align:center;
+  text-transform:uppercase;
+  transform:rotate(-1deg);
+  box-shadow:0 0 32px rgba(157,255,47,.25);
+}
+
+.page-oct23 .hero-copy::before {
+  content:"THE WITCHING HOUR IS OPEN";
+  display:inline-block;
+  margin:0 0 18px;
+  padding:8px 12px;
+  color:#ff7a1a;
+  border:1px solid rgba(255,122,26,.55);
+  background:rgba(20,8,28,.72);
+  font-family:var(--font-label);
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  transform:rotate(-1deg);
+  box-shadow:0 0 20px rgba(255,122,26,.08);
+}
+
+.page-oct23 .hero h1 {
+  font-size:clamp(78px,12vw,182px);
+  line-height:.82;
+  filter:drop-shadow(0 0 26px rgba(177,77,255,.75)) drop-shadow(0 7px 0 #260d37);
+}
+
+.page-oct23 .hero h1 span {
+  filter:drop-shadow(0 0 22px rgba(157,255,47,.85));
+}
+
+.page-oct23 .hero-tagline {
+  margin-top:10px;
+  font-size:clamp(46px,6vw,78px);
+  color:#ff3131;
+  transform:rotate(-3deg);
+  transform-origin:left center;
+  text-shadow:0 0 18px rgba(255,42,42,.55),0 0 44px rgba(255,42,42,.25);
+}
+
+.page-oct23 .hero-actions .button-primary {
+  transform:rotate(-1deg);
+  box-shadow:0 0 30px rgba(157,255,47,.28), 0 10px 26px rgba(0,0,0,.32);
+}
+
+.page-oct23 .flyer-hero {
+  transform:rotate(2deg);
+}
+
+.page-oct23 .flyer-hero img {
+  box-shadow:
+    0 0 0 6px #07050b,
+    0 0 0 8px rgba(255,42,42,.35),
+    20px 28px 0 rgba(91,22,117,.25),
+    -14px 16px 0 rgba(100,18,46,.22),
+    0 32px 100px rgba(0,0,0,.65),
+    0 0 130px rgba(177,77,255,.18);
+}
+
+.page-oct23 .flyer-hero::before {
+  content:"☾";
+  position:absolute;
+  top:-34px; right:-22px;
+  z-index:3;
+  color:#ff7a1a;
+  font-size:46px;
+  text-shadow:0 0 18px rgba(255,122,26,.5);
+}
+
+.page-oct23 .flyer-hero::after {
+  content:"✦";
+  position:absolute;
+  left:-20px; bottom:16%;
+  z-index:3;
+  color:#ff2a2a;
+  font-size:30px;
+  text-shadow:0 0 16px rgba(255,42,42,.55);
+}
+
+.page-oct23 main > .section {
+  position:relative;
+  isolation:isolate;
+}
+
+.page-oct23 main > .section::before {
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at 12% 20%, rgba(177,77,255,.08), transparent 20rem),
+    radial-gradient(circle at 88% 85%, rgba(255,42,42,.06), transparent 24rem);
+}
+
+.page-oct23 .section-heading h2,
+.page-oct23 .ticket-copy h2,
+.page-oct23 .contact-copy h2,
+.page-oct23 .manifesto-copy h2 {
+  text-shadow:3px 3px 0 rgba(69,18,92,.45), 0 0 30px rgba(177,77,255,.3);
+}
+
+.page-oct23 .details-grid {
+  gap:14px;
+  border:0;
+  background:transparent;
+}
+
+.page-oct23 .detail {
+  border:1px solid rgba(177,77,255,.28);
+  background:linear-gradient(145deg,rgba(27,10,38,.9),rgba(8,5,12,.94));
+  box-shadow:0 14px 32px rgba(0,0,0,.24);
+}
+
+.page-oct23 .detail:nth-child(2n) {
+  border-color:rgba(255,42,42,.22);
+}
+
+.page-oct23 .detail-label::before {
+  content:"✦ ";
+  color:#ff7a1a;
+}
+
+.page-oct23 .tickets-section {
+  padding-top:clamp(80px,10vw,140px) !important;
+  padding-bottom:clamp(80px,10vw,140px) !important;
+  background:
+    radial-gradient(circle at 8% 20%, rgba(255,42,42,.12), transparent 20rem),
+    radial-gradient(circle at 86% 30%, rgba(177,77,255,.22), transparent 25rem),
+    linear-gradient(180deg,rgba(12,5,17,.4),rgba(7,5,11,.96));
+}
+
+.page-oct23 .ticket-panel {
+  overflow:hidden;
+  background:
+    linear-gradient(135deg,rgba(47,12,52,.92),rgba(9,5,13,.98) 52%,rgba(44,8,28,.88));
+  border:1px solid rgba(255,122,26,.28);
+  box-shadow:0 0 0 1px rgba(255,42,42,.08) inset,0 36px 90px rgba(0,0,0,.6);
+}
+
+.page-oct23 .ticket-panel::before {
+  content:"LIVE DELICIOUSLY";
+  position:absolute;
+  top:24px; right:-28px;
+  padding:9px 34px;
+  color:#09040d;
+  background:#ff7a1a;
+  font-family:var(--font-accent);
+  font-size:clamp(19px,2.5vw,30px);
+  transform:rotate(7deg);
+  box-shadow:0 0 22px rgba(255,122,26,.18);
+}
+
+.page-oct23 .ticket-copy::after {
+  content:"WITCHY • WICKED • WELCOMING";
+  display:block;
+  width:fit-content;
+  margin-top:22px;
+  padding:8px 10px;
+  color:#ff4fd8;
+  border:1px solid rgba(255,79,216,.28);
+  font-family:var(--font-label);
+  font-size:10px;
+  font-weight:900;
+  letter-spacing:.12em;
+}
+
+.page-oct23 .price {
+  border-width:2px;
+}
+
+.page-oct23 .pay-option {
+  min-height:74px;
+  transform:translateZ(0);
+}
+
+.page-oct23 .pay-option:hover,
+.page-oct23 .pay-option:focus-visible {
+  transform:translateY(-2px);
+}
+
+.page-oct23 .ticket-flow-step {
+  background:linear-gradient(145deg,rgba(20,8,28,.95),rgba(8,5,12,.95));
+  border-color:rgba(177,77,255,.25);
+}
+
+.page-oct23 .ticket-flow-step > span {
+  font-size:12px;
+  color:#ff7a1a;
+}
+
+.page-oct23 .hosts-section {
+  background:linear-gradient(180deg,rgba(9,5,13,.15),rgba(27,8,35,.18));
+}
+
+.page-oct23 .host-card {
+  overflow:hidden;
+  border-color:rgba(177,77,255,.38);
+  box-shadow:0 18px 48px rgba(0,0,0,.36);
+}
+
+.page-oct23 .host-card figure::before {
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:2;
+  pointer-events:none;
+  box-shadow:inset 0 0 50px rgba(0,0,0,.35);
+}
+
+.page-oct23 .rules-section {
+  background:linear-gradient(180deg,rgba(65,10,34,.10),rgba(7,5,11,0));
+}
+
+.page-oct23 .rules-grid article {
+  background:linear-gradient(145deg,rgba(20,8,28,.72),rgba(7,5,11,.72));
+}
+
+.page-oct23 .rule-number {
+  font-size:38px;
+}
+
+.page-oct23 .manifesto-section {
+  position:relative;
+  overflow:hidden;
+}
+
+.page-oct23 .manifesto-section::after {
+  content:"LIVE DELICIOUSLY";
+  position:absolute;
+  right:-2vw;
+  bottom:0;
+  color:rgba(177,77,255,.07);
+  font-family:var(--font-accent);
+  font-size:clamp(70px,12vw,180px);
+  white-space:nowrap;
+  pointer-events:none;
+}
+
+.page-oct23 .sponsor-section {
+  background:radial-gradient(circle at 50% 50%, rgba(157,255,47,.08), transparent 22rem);
+}
+
+.page-oct23 .site-footer {
+  position:relative;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 15% 30%, rgba(177,77,255,.16), transparent 18rem),
+    radial-gradient(circle at 85% 80%, rgba(255,42,42,.12), transparent 18rem),
+    #050308;
+}
+
+.page-oct23 .site-footer::before {
+  content:"LIVE DELICIOUSLY";
+  position:absolute;
+  left:50%; top:44%;
+  transform:translate(-50%,-50%) rotate(-4deg);
+  color:rgba(255,42,42,.06);
+  font-family:var(--font-accent);
+  font-size:clamp(64px,13vw,180px);
+  white-space:nowrap;
+  pointer-events:none;
+}
+
+@media (max-width:700px) {
+  .page-oct23 .hero { min-height:auto; padding-bottom:110px; }
+  .page-oct23 .hero h1 { font-size:clamp(68px,23vw,126px); }
+  .page-oct23 .hero-tagline { font-size:clamp(42px,14vw,64px); }
+  .page-oct23 .hero::after { font-size:9px; letter-spacing:.12em; }
+  .page-oct23 .flyer-hero { transform:none; }
+  .page-oct23 .ticket-panel::before { top:14px; right:-42px; font-size:17px; }
+  .page-oct23 .details-grid { gap:10px; }
+}
