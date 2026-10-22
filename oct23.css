@@ -292,6 +292,65 @@ body[data-ticket-state="door"] .js-price-door strong { color: var(--accent); }
   position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
   overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
 }
+
+/* ---------- how presale works ---------- */
+.ticket-flow {
+  display: grid;
+  gap: 10px;
+  margin-top: 4px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+.ticket-flow-title {
+  margin: 0;
+  color: var(--text);
+  font-family: var(--font-label);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.ticket-flow-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+.ticket-flow-step {
+  min-width: 0;
+  padding: 14px;
+  background: color-mix(in srgb, var(--bg) 86%, transparent);
+  border: 1px solid var(--line);
+}
+.ticket-flow-step > span {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--accent);
+  font-family: var(--font-label);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+.ticket-flow-step strong {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--text);
+  font-family: var(--font-label);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.ticket-flow-step p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+@media (max-width: 640px) {
+  .ticket-flow-grid { grid-template-columns: 1fr; }
+}
+
 @media (max-width: 420px) {
   .pay-options { grid-template-columns: 1fr; }
   .pay-option { min-height: 56px; grid-template-columns: auto 1fr; align-items: center; column-gap: 12px; }
