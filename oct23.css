@@ -4,10 +4,8 @@
   visuals are intentionally minimal until the art direction is chosen.
 */
 
-/* width/height attrs are set for CLS; let CSS widths scale height. */
 img { height: auto; }
 
-/* Quiet down the old decorative layer (grain, watermark, tilts). */
 .page-oct23::before,
 .page-oct23 .hero::before { display: none; }
 .page-oct23 .kicker,
@@ -58,7 +56,6 @@ img { height: auto; }
 .hero-facts strong { color: var(--text); }
 .hero-note { margin: 14px 0 0; color: var(--muted); font-size: 13px; }
 
-/* Poster card in normal flow: never clipped, never wider than the viewport. */
 .page-oct23 .hero-poster-wall { min-height: 0; }
 .page-oct23 .poster-main {
   position: relative;
@@ -356,4 +353,430 @@ body[data-ticket-state="door"] .js-price-door strong { color: var(--accent); }
   .pay-option { min-height: 56px; grid-template-columns: auto 1fr; align-items: center; column-gap: 12px; }
   .pay-handle { text-align: right; }
   .pay-copy-hint { grid-column: 1 / -1; text-align: right; }
+}
+
+/* ================================================================
+   HALLOWEEN / LIVE DELICIOUSLY ATMOSPHERE
+   Visual layer only. Ticket/payment logic remains untouched.
+   ================================================================ */
+
+.page-oct23 {
+  background:
+    radial-gradient(circle at 82% 7%, rgba(118, 34, 146, 0.20), transparent 24rem),
+    radial-gradient(circle at 12% 34%, rgba(111, 18, 49, 0.12), transparent 28rem),
+    #050505;
+}
+
+.page-oct23 .site-header {
+  background: rgba(5, 5, 5, 0.86);
+  backdrop-filter: blur(16px);
+  border-bottom-color: rgba(182, 255, 0, 0.16);
+}
+
+/* Moonlit, smoky hero without introducing new assets. */
+.page-oct23 .hero {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background:
+    radial-gradient(circle at 78% 23%, rgba(232, 214, 238, 0.10) 0 7rem, rgba(139, 44, 255, 0.20) 7.2rem 11rem, transparent 18rem),
+    radial-gradient(ellipse at 40% 95%, rgba(92, 16, 74, 0.30), transparent 44%),
+    linear-gradient(180deg, rgba(19, 7, 28, 0.50), rgba(5, 5, 5, 0.08) 45%, rgba(5, 5, 5, 0.92));
+}
+
+.page-oct23 .hero::before {
+  content: "";
+  display: block;
+  position: absolute;
+  inset: auto -12% -9% -12%;
+  height: 40%;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.88;
+  filter: blur(22px);
+  background:
+    radial-gradient(ellipse at 18% 55%, rgba(139, 44, 255, 0.24), transparent 34%),
+    radial-gradient(ellipse at 62% 65%, rgba(255, 21, 147, 0.15), transparent 32%),
+    radial-gradient(ellipse at 85% 45%, rgba(183, 255, 0, 0.08), transparent 22%);
+}
+
+.page-oct23 .hero::after {
+  content: "LIVE DELICIOUSLY  ✦  DRESS DARK  ✦  STAY LATE";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+  padding: 9px 18px;
+  color: rgba(238, 225, 240, 0.78);
+  background: rgba(5, 5, 5, 0.68);
+  border-top: 1px solid rgba(255, 21, 147, 0.20);
+  border-bottom: 1px solid rgba(183, 255, 0, 0.12);
+  font-family: var(--font-label);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-align: center;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.page-oct23 .hero-copy {
+  position: relative;
+  z-index: 1;
+}
+
+.page-oct23 .hero-copy::before {
+  content: "✦  THE WITCHING HOUR IS OPEN  ✦";
+  display: inline-block;
+  margin: 0 0 18px;
+  padding: 7px 10px;
+  color: #d7a55b;
+  border: 1px solid rgba(215, 165, 91, 0.36);
+  background: rgba(38, 14, 34, 0.42);
+  font-family: var(--font-label);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.page-oct23 .hero h1 {
+  text-shadow:
+    4px 4px 0 rgba(86, 15, 91, 0.55),
+    0 0 42px rgba(255, 21, 147, 0.12);
+}
+
+.page-oct23 .hero h1 span {
+  text-shadow:
+    3px 3px 0 rgba(255, 21, 147, 0.18),
+    0 0 28px rgba(183, 255, 0, 0.10);
+}
+
+.page-oct23 .hero-tagline {
+  color: #d7a55b;
+  transform: rotate(-2deg);
+  transform-origin: left center;
+  text-shadow: 0 0 22px rgba(215, 165, 91, 0.18);
+}
+
+.page-oct23 .hero-poster-wall {
+  position: relative;
+  z-index: 1;
+}
+
+.page-oct23 .flyer-hero {
+  position: relative;
+  padding: 9px;
+  background: rgba(8, 5, 11, 0.70);
+  border: 1px solid rgba(215, 165, 91, 0.24);
+  box-shadow:
+    18px 24px 0 rgba(63, 13, 68, 0.28),
+    -10px 12px 0 rgba(88, 15, 42, 0.18),
+    0 26px 70px rgba(0, 0, 0, 0.58);
+}
+
+.page-oct23 .flyer-hero::before,
+.page-oct23 .flyer-hero::after {
+  position: absolute;
+  z-index: 3;
+  color: #d7a55b;
+  font-family: var(--font-accent);
+  font-size: 22px;
+  line-height: 1;
+  text-shadow: 0 0 14px rgba(215, 165, 91, 0.35);
+}
+.page-oct23 .flyer-hero::before { content: "✦"; top: -10px; left: -10px; }
+.page-oct23 .flyer-hero::after { content: "☾"; right: -10px; bottom: 18%; font-size: 32px; }
+
+/* Section headers gain ritual dividers rather than generic borders. */
+.page-oct23 .section-heading {
+  position: relative;
+}
+
+.page-oct23 .section-heading::after {
+  content: "✦  ☾  ✦";
+  display: block;
+  width: fit-content;
+  margin-top: 22px;
+  color: rgba(215, 165, 91, 0.76);
+  font-family: var(--font-accent);
+  font-size: 15px;
+  letter-spacing: 0.65em;
+}
+
+.page-oct23 .section-heading h2,
+.page-oct23 .ticket-copy h2,
+.page-oct23 .host-copy h3 {
+  text-shadow: 0 0 26px rgba(139, 44, 255, 0.12);
+}
+
+.page-oct23 .event-section {
+  position: relative;
+  background:
+    linear-gradient(180deg, rgba(52, 17, 53, 0.12), transparent 42%),
+    transparent;
+}
+
+.page-oct23 .detail {
+  background:
+    linear-gradient(145deg, rgba(75, 22, 72, 0.12), rgba(5, 5, 5, 0.18));
+}
+
+.page-oct23 .detail:nth-child(3n + 2) {
+  background:
+    linear-gradient(145deg, rgba(92, 20, 49, 0.11), rgba(5, 5, 5, 0.18));
+}
+
+.page-oct23 .detail-label::before {
+  content: "✦ ";
+  color: #d7a55b;
+}
+
+/* Ticket block becomes the ritual altar of the page. */
+.page-oct23 .tickets-section {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 8% 84%, rgba(255, 21, 147, 0.10), transparent 22rem),
+    radial-gradient(circle at 92% 12%, rgba(139, 44, 255, 0.16), transparent 24rem);
+}
+
+.page-oct23 .ticket-panel {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(135deg, rgba(41, 13, 43, 0.88), rgba(8, 6, 11, 0.96) 52%, rgba(45, 9, 29, 0.72));
+  border-color: rgba(215, 165, 91, 0.20);
+  box-shadow:
+    0 0 0 1px rgba(255, 21, 147, 0.07) inset,
+    0 28px 80px rgba(0, 0, 0, 0.56);
+}
+
+.page-oct23 .ticket-panel::before {
+  content: "LIVE DELICIOUSLY";
+  position: absolute;
+  right: -26px;
+  top: 28px;
+  transform: rotate(7deg);
+  padding: 8px 34px;
+  color: rgba(215, 165, 91, 0.78);
+  border-top: 1px solid rgba(215, 165, 91, 0.18);
+  border-bottom: 1px solid rgba(215, 165, 91, 0.18);
+  font-family: var(--font-accent);
+  font-size: clamp(17px, 2vw, 25px);
+  letter-spacing: 0.08em;
+  pointer-events: none;
+}
+
+.page-oct23 .ticket-panel::after {
+  content: "☾";
+  position: absolute;
+  left: 24px;
+  bottom: 8px;
+  color: rgba(139, 44, 255, 0.16);
+  font-family: serif;
+  font-size: 130px;
+  line-height: 1;
+  pointer-events: none;
+}
+
+.page-oct23 .price {
+  position: relative;
+  background:
+    linear-gradient(145deg, rgba(6, 6, 8, 0.94), rgba(35, 14, 36, 0.72));
+}
+
+.page-oct23 .js-price-pre {
+  box-shadow: 0 0 24px rgba(183, 255, 0, 0.05);
+}
+
+.page-oct23 .pay-option {
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.24);
+}
+
+.page-oct23 .pay-option::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(115deg, transparent 25%, rgba(255, 255, 255, 0.08), transparent 72%);
+  transform: translateX(-110%);
+  transition: transform 280ms ease;
+}
+
+.page-oct23 .pay-option:hover::after,
+.page-oct23 .pay-option:focus-visible::after {
+  transform: translateX(110%);
+}
+
+.page-oct23 .ticket-flow-title::before {
+  content: "✦ ";
+  color: #d7a55b;
+}
+
+.page-oct23 .ticket-flow-step {
+  position: relative;
+  background:
+    linear-gradient(145deg, rgba(14, 9, 15, 0.96), rgba(50, 16, 48, 0.34));
+}
+
+.page-oct23 .ticket-flow-step > span {
+  color: #d7a55b;
+}
+
+/* Hosts, rules and sponsor all share the same October world. */
+.page-oct23 .hosts-section {
+  background:
+    radial-gradient(circle at 50% 0%, rgba(139, 44, 255, 0.09), transparent 28rem);
+}
+
+.page-oct23 .host-card {
+  background:
+    linear-gradient(145deg, rgba(30, 11, 31, 0.74), rgba(6, 6, 8, 0.96));
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.34);
+}
+
+.page-oct23 .host-card figure {
+  position: relative;
+}
+
+.page-oct23 .host-card figure::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  box-shadow: inset 0 0 42px rgba(81, 18, 84, 0.36);
+  background: linear-gradient(180deg, transparent 60%, rgba(5, 5, 5, 0.40));
+}
+
+.page-oct23 .rules-section {
+  background:
+    linear-gradient(180deg, rgba(45, 12, 36, 0.10), transparent 60%);
+}
+
+.page-oct23 .rules-grid article {
+  position: relative;
+  padding-top: 28px;
+  border-top-color: rgba(215, 165, 91, 0.18);
+}
+
+.page-oct23 .rules-grid article::before {
+  content: "☾";
+  position: absolute;
+  right: 18px;
+  top: 12px;
+  color: rgba(215, 165, 91, 0.20);
+  font-size: 28px;
+}
+
+.page-oct23 .manifesto-section {
+  background:
+    radial-gradient(circle at 16% 50%, rgba(255, 21, 147, 0.10), transparent 22rem),
+    linear-gradient(110deg, rgba(33, 9, 34, 0.42), transparent 55%);
+}
+
+.page-oct23 .manifesto-mark {
+  text-shadow: 0 0 44px rgba(183, 255, 0, 0.10);
+}
+
+.page-oct23 .sponsor-section {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(139, 44, 255, 0.12), transparent 28rem),
+    rgba(4, 4, 5, 0.74);
+}
+
+.page-oct23 .sponsor-section::before {
+  content: "LIVE DELICIOUSLY";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(-8deg);
+  color: rgba(255, 255, 255, 0.025);
+  font-family: var(--font-accent);
+  font-size: clamp(70px, 15vw, 190px);
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.page-oct23 .contact-section {
+  background:
+    radial-gradient(circle at 88% 75%, rgba(111, 18, 49, 0.18), transparent 26rem);
+}
+
+.page-oct23 .site-footer {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255, 21, 147, 0.10), transparent 22rem),
+    radial-gradient(circle at 78% 32%, rgba(139, 44, 255, 0.12), transparent 25rem),
+    #030304;
+}
+
+.page-oct23 .site-footer::before {
+  content: "✦  LIVE DELICIOUSLY  ✦";
+  display: block;
+  margin: 0 0 26px;
+  color: #d7a55b;
+  font-family: var(--font-accent);
+  font-size: clamp(24px, 4vw, 48px);
+  letter-spacing: 0.08em;
+  text-align: center;
+}
+
+.page-oct23 .flyer-strip {
+  border-color: rgba(215, 165, 91, 0.20);
+}
+
+@media (max-width: 700px) {
+  .page-oct23 .hero {
+    padding-bottom: 58px;
+    background:
+      radial-gradient(circle at 88% 11%, rgba(232, 214, 238, 0.10) 0 4.5rem, rgba(139, 44, 255, 0.20) 4.7rem 8rem, transparent 12rem),
+      linear-gradient(180deg, rgba(19, 7, 28, 0.55), rgba(5, 5, 5, 0.92));
+  }
+
+  .page-oct23 .hero::after {
+    font-size: 8px;
+    letter-spacing: 0.15em;
+    padding-inline: 10px;
+  }
+
+  .page-oct23 .hero-copy::before {
+    margin-bottom: 14px;
+    font-size: 9px;
+    letter-spacing: 0.12em;
+  }
+
+  .page-oct23 .hero h1 {
+    text-shadow:
+      3px 3px 0 rgba(86, 15, 91, 0.48),
+      0 0 28px rgba(255, 21, 147, 0.10);
+  }
+
+  .page-oct23 .flyer-hero {
+    box-shadow:
+      10px 14px 0 rgba(63, 13, 68, 0.22),
+      0 18px 48px rgba(0, 0, 0, 0.50);
+  }
+
+  .page-oct23 .ticket-panel::before {
+    top: 18px;
+    right: -42px;
+    font-size: 15px;
+  }
+
+  .page-oct23 .ticket-panel::after {
+    font-size: 84px;
+    opacity: 0.6;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-oct23 .pay-option::after { transition: none; }
 }
