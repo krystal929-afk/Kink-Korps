@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420" role="img" aria-labelledby="title desc">
+<title id="title">Glowing pumpkins and candles</title>
+<desc id="desc">Original decorative cluster of jack-o-lanterns, candles, leaves and warm Halloween glow.</desc>
+<defs>
+  <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+    <stop offset="0" stop-color="#ffcf73" stop-opacity=".8"/>
+    <stop offset=".35" stop-color="#ff7a1a" stop-opacity=".34"/>
+    <stop offset="1" stop-color="#ff7a1a" stop-opacity="0"/>
+  </radialGradient>
+  <linearGradient id="pumpkin" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#ff9d27"/>
+    <stop offset="1" stop-color="#b83b13"/>
+  </linearGradient>
+</defs>
+<ellipse cx="450" cy="330" rx="390" ry="82" fill="#000" opacity=".32"/>
+<circle cx="250" cy="225" r="150" fill="url(#glow)"/>
+<circle cx="605" cy="225" r="145" fill="url(#glow)"/>
+<g>
+  <ellipse cx="260" cy="255" rx="132" ry="100" fill="url(#pumpkin)"/>
+  <ellipse cx="230" cy="255" rx="62" ry="95" fill="#ff8a1d" opacity=".55"/>
+  <ellipse cx="290" cy="255" rx="62" ry="95" fill="#8f2510" opacity=".22"/>
+  <rect x="248" y="133" width="24" height="46" rx="6" fill="#382214" transform="rotate(7 260 156)"/>
+  <path d="M195 228 l42-20 -21 40z M285 208 l42 20 -22 21z M215 282 q45 36 95 0 q-43 68-95 0z" fill="#120a0b"/>
+  <path d="M219 280 q44 31 86 0 q-37 28-86 0z" fill="#ffcf73" opacity=".9"/>
+</g>
+<g>
+  <ellipse cx="610" cy="268" rx="110" ry="84" fill="url(#pumpkin)"/>
+  <ellipse cx="582" cy="268" rx="52" ry="80" fill="#ff8a1d" opacity=".5"/>
+  <ellipse cx="638" cy="268" rx="52" ry="80" fill="#8f2510" opacity=".2"/>
+  <rect x="601" y="165" width="20" height="38" rx="5" fill="#382214" transform="rotate(-5 611 184)"/>
+  <path d="M560 244 l35-16 -18 33z M629 228 l35 16 -18 33z M572 292 q38 30 76 0 q-32 54-76 0z" fill="#120a0b"/>
+  <path d="M576 290 q35 27 67 0 q-30 25-67 0z" fill="#ffcf73" opacity=".9"/>
+</g>
+<g>
+  <rect x="418" y="208" width="38" height="112" rx="6" fill="#efe2cc"/>
+  <path d="M437 187 c-19 18 -11 34 0 41 c11-8 18-23 0-41z" fill="#ff9d27"/>
+  <rect x="474" y="236" width="30" height="85" rx="6" fill="#f3e7d1"/>
+  <path d="M489 218 c-16 15 -9 29 0 35 c10-7 15-20 0-35z" fill="#ffb347"/>
+  <rect x="365" y="252" width="28" height="70" rx="5" fill="#eadbc5"/>
+  <path d="M379 234 c-14 13 -8 25 0 30 c9-6 14-18 0-30z" fill="#ff9d27"/>
+</g>
+<g fill="#6f2b1d" opacity=".82">
+  <path d="M110 335 q45-40 92-5 q-43 8-92 5z"/>
+  <path d="M720 342 q55-46 104-5 q-48 9-104 5z"/>
+  <path d="M505 350 q36-28 69-1 q-33 5-69 1z"/>
+</g>
+</svg>
