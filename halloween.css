@@ -6,3 +6,18 @@
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
 
 @media(max-width:650px){.prices>div{flex:1;min-width:0}.prices span{min-width:0}.prices small{overflow-wrap:break-word}.hero-art{top:170px}.hero-details{margin-top:300px}}
+
+/* Compact mobile hero: artwork and facts stay in normal document flow. */
+#main:focus{outline:none}
+@media(max-width:650px){
+ .masthead{padding:6px 16px}.brand{flex-basis:66px}.brand img{width:66px;height:64px}
+ .hero{display:flex;flex-direction:column}.hero-copy{display:contents}
+ .presents{order:0;margin:22px 22px 8px}
+ .hero h1{order:1;margin:0 12px;z-index:auto}
+ .hero .event-title{width:100%;margin:0;mix-blend-mode:normal}
+ .hero-art{order:2;position:relative;inset:auto;width:100%;height:240px;min-height:0;margin:0;z-index:auto}
+ .hero-art img{width:100%;height:100%;object-fit:cover;object-position:50% 51%}
+ .hero-art:before{background:linear-gradient(0deg,#050405,transparent 18%),linear-gradient(180deg,#050405,transparent 12%)}
+ .hero-details{order:3;margin:0;padding:12px 22px 28px;max-width:none}
+ .hero-date{font-size:22px}.hero-time{font-size:24px}
+}

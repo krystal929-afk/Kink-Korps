@@ -7,17 +7,17 @@
   document.querySelector('#age-enter').addEventListener('click', () => {
     try { sessionStorage.setItem('kinkKorpsAgeVerified', 'true'); } catch {}
     gate.close();
-    document.querySelector('.brand').focus();
+    document.querySelector('#main').focus({preventScroll:true});
   });
   document.querySelector('#age-exit').addEventListener('click', () => { window.location.href = 'about:blank'; });
 
-  const cutoff = Date.parse('2026-10-23T12:00:00-04:00');
+  const cutoff = Date.parse('2026-10-23T19:00:00-04:00');
   function updateTickets() {
     const door = Date.now() >= cutoff;
     document.querySelector('#payment-area').hidden = door;
     document.querySelector('#door-area').hidden = !door;
-    document.querySelector('#ticket-status').textContent = door ? 'Presale closed · $20 at the door' : 'Presale ends at noon Friday, October 23 (Eastern).';
-    document.querySelector('[data-ticket-note]').textContent = door ? 'Presale has ended. $20 at the door.' : 'Presale until noon Friday. Include your name + email.';
+    document.querySelector('#ticket-status').textContent = door ? 'Presale closed · $20 at the door' : 'Presale ends at 7 PM Friday, October 23 (Eastern).';
+    document.querySelector('[data-ticket-note]').textContent = door ? 'Presale has ended. $20 at the door.' : 'Presale until 7 PM Eastern Friday. Include your name + email.';
     document.querySelector('#mobile-label').textContent = door ? '$20 at the door · Details' : 'Get tickets · $15 presale';
     document.body.dataset.ticketState = door ? 'door' : 'presale';
   }
