@@ -1,11 +1,15 @@
-# Kink Korps — Anything Goes (Fri Oct 23, 2026)
+# Kink Korps — Anything Goes: Halloween Edition
 
-Event landing page. Static site, relative paths, GitHub Pages–ready (no CNAME yet).
+Static event website at https://kinkkorps.com, published by GitHub Pages from `main`.
 
-- `theme.css` — **the one place for colors + fonts** (CSS variables). Swap the look here.
-- `styles.css` / `extras.css` — base layout + components (use theme variables).
-- `oct23.css` — Oct 23 page sections, sticky mobile ticket bar.
-- `index.html` — page. Ticket config is at the bottom script:
-  - Presale payment options (Cash App, Venmo, PayPal, Zelle) are in the `#tickets` markup (`.js-pay-block`).
-  - `PRESALE_ENDS` — noon ET Fri 10/23; after that the payment block hides and the page switches to "$20 at the door" automatically.
-- `gallery.html` (Vault) and `seasonal.css` are kept but unlinked from the nav for this relaunch.
+- `index.html`: semantic page content, event facts, original payment destinations.
+- `halloween.css`: responsive Halloween layout; local fonts, no build step.
+- `halloween.js`: accessible native age dialog, Zelle copying, and presale cutoff.
+- `assets/halloween/`: supplied original photos/logos and cropped artwork from the approved concept. People are never regenerated or retouched. The chrome Mr. Satan logo only has its outside white page margin cropped away. Nu Vibez uses the existing source logo in `assets/nu-vibez-logo.jpg`.
+- `assets/halloween/fonts/`: locally bundled Metal Mania and Barlow Condensed with their OFL licenses.
+
+Presale automatically closes at **2026-10-23 12:00 Eastern**. The payment area then hides and admission becomes $20 at the door. Payment recipients are retained from the previous live page: Cash App `$geo969`, Venmo `@thesatans`, PayPal `@krystalalvarez544`, Zelle `832-387-3426`. This is the existing manual payment/email-ticket process, not automated ticket delivery.
+
+Run locally with `python -m http.server 8000`. No dependencies or build command required. Keep `CNAME` and `.nojekyll`. Legacy styles and `gallery.html` remain for compatibility but are not loaded by the new homepage.
+
+Validated at 320, 390, 768, and 1440px: no horizontal overflow or broken images. Checked age confirmation, keyboard Escape behavior, session persistence, ticket navigation, Zelle copying/fallback, and the before/at-noon ticket state transition.
